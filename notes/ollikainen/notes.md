@@ -28,7 +28,7 @@ We started the week on 19.9.2023 with a meeting with [Tero Karvinen](https://ter
 
 #### Reverse shell
  - Antti demonstrated the barebones version we created on earlier weeks during planning for the project
- - Create a video demonstrating that version to showcase it on the fly
+ - Create a video demonstrating that version to showcase it on the fly (done: see [Antti's notes](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md))
  - Research possibilities
 
 ### Other stuff
