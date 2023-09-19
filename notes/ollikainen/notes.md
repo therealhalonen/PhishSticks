@@ -18,10 +18,9 @@ We started the week on 19.9.2023 with a meeting with [Tero Karvinen](https://ter
 ### Payloads
 
 #### Keylogger
- - Research passthrough capabilities
+ - Research passthrough capabilities of the DigiSpark
  - Research actual method of how keyloggers work
  - Research possibilities of LoRa for sending data
- - 
 
 #### Ransomware
  - Write up a ethics & security warning to consider the actual implications of the possible harm done by the payload
@@ -33,4 +32,4 @@ We started the week on 19.9.2023 with a meeting with [Tero Karvinen](https://ter
  - Research possibilities
 
 ### Other stuff
- - 
+ -  Make a list of earlier work done on the subject to use as source material
