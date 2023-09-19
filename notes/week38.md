@@ -32,4 +32,5 @@ We started the week on 19.9.2023 with a meeting with [Tero Karvinen](https://ter
  - Research possibilities
 
 ### Other stuff
- -  Make a list of earlier work done on the subject to use as source material
+ - Make a list of earlier work done on the subject to use as source material
+ - Consider changing the name of the project (at least on GitHub) for SEO reasons
