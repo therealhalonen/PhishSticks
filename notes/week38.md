@@ -4,16 +4,16 @@ We started the week on 19.9.2023 with a meeting with [Tero Karvinen](https://ter
 ### Project management
  - Initialize GitHub and get everyone in the project on it (done, you are reading this on GitHub)
  - Start reporting work on GitHub (done-ish, everyone is getting their workflow up and running)
- - Update the timetable for the project
+ - Update the timetable for the project (Gantt chart)
  - Update the project plan
  - Finalize worksheet & kanban-board for easier time management
  - Project group emphasized flexible work hours, Tero asked for a more concise schedule
 
 ### Get the list of required hardware finalized
  - DigiSparks are on the way, expecting to get them this week
- - Discuss additional components and ordering them 
-  - Actual casings for the device(s)?
-  - Female USB port for passthrough? We still need to research passthrough capabilities on the DigiSpark
+ - Discuss additional components and ordering them
+    - Actual casings for the device(s)?
+    - Female USB port for passthrough? We still need to research passthrough capabilities on the DigiSpark
 
 ### Payloads
 
