@@ -1,2 +1,4 @@
-Running command `$ python3 encrypt.py` encrypts all files inside the Contents folder with the exception of the encrypt.py and decrypt.py files\
-Running command `$ python3 decrypt.py` decrypts all files inside the Contents folder with the exception of the encrypt.py and decrypt.py files
+./encrypt to encrypt files in current directory \
+./decrypt to decrypt encrypted files in current directory 
+
+In action: https://streamable.com/9go4co
