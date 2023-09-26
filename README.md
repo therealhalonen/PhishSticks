@@ -7,3 +7,12 @@ The goal of the project is to create a tool for ethical pentesting by making a s
 The project will be finalized by 12.12.2023. All work noted here before the date is to be considered WIP.
 
 ## Always consider the local laws and ethical ramifications when doing pentesting
+
+### Week 39
+
+#### Good news everybody! Progress has been made!
+
+[therealhalonen](https://github.com/therealhalonen/) wrote up some preliminary scripts for us to use and research in the project. There is a [demo for the reverse shell](notes/halonen/notes.md#2692023)
+
+#### Also. Bad news everybody! New risks on the horizon
+
