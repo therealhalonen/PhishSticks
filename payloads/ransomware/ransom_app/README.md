@@ -1,3 +1,5 @@
+EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!
+
 Version 1.0
 
 Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files. Right now the application decrypts all the contents when user gives up the right password (lihapulla). 
