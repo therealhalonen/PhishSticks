@@ -8,7 +8,7 @@ The project will be finalized by 12.12.2023. All work noted here before the date
 
 ## Always consider the local laws and ethical ramifications when doing pentesting
 
-### Week 39
+### [Week 39](notes/week39.md)
 
 #### Good news everybody! Progress has been made!
 
