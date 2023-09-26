@@ -16,3 +16,4 @@
 
 [Don't Trust That USB](https://terokarvinen.com/2021/dont-trust-that-usb/) - previous project for the same course. BadUSB-keyboard that utilizes DigiSpark through a USB hub. Tried making a working keylogger, but ultimately failed
 [Living Off The Land Binaries, Scripts and Libraries](https://lolbas-project.github.io/#) - Lolbins/LOLBAS, "Living Off The Land" Usable binaries for hiding malware.
+[Remote control software project – Caius Juvonen](https://caiusinfo.data.blog/) - Remote control software, includes a keylogger and bypasses Windows Defender
