@@ -22,4 +22,4 @@ More testing & research is required, but everyone has a set direction and a goal
 
 #### Also. Bad news everybody! New risks on the horizon
 
-The DigiSparks ordered through Amazon are still in transit. Hopefully someones dog hasn't eaten our homework \:(\ . Tracking codes were provided, but they are not working. Will be looking to pick up DigiSparks from a physical vendor later this week.
+The DigiSparks ordered through Amazon are still in transit. Hopefully someones dog hasn't eaten our homework \:\( . Tracking codes were provided, but they are not working. Will be looking to pick up DigiSparks from a physical vendor later this week.
