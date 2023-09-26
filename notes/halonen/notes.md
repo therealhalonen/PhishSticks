@@ -1,24 +1,42 @@
 ### 19.9.2023:
 Demo for Reverse Shell done.   
 [Demo](../../payloads/revshell_demo)   
-[Demo in action](https://youtu.be/8v6djrHg2qI)   
+[Demo in action](https://youtu.be/h5MMKu6TMxg)   
 
 ### 26.9.2023
 
 Today i started to figure out a way to get a reverse shell in Windows 10, without user interaction.
 
-Sources i used for this experiment:   
+**Sources i used for this experiment:**   
+
+**Powershell/Windows Reverse Shells:**   
 https://www.hackingarticles.in/powershell-for-pentester-windows-reverse-shell/  
 https://book.hacktricks.xyz/generic-methodologies-and-resources/shells/windows  
 https://github.com/martinsohn/PowerShell-reverse-shell  
-https://gist.github.com/methanoliver/efebfe8f4008e167417d4ab96e5e3cac  
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#powershell  
+
+**Downloading files with Powershell:**   
+https://superuser.com/questions/25538/how-to-download-files-from-command-line-in-windows-like-wget-or-curl  
+
+**Rubber Ducky scripts:**   
+https://gist.github.com/methanoliver/efebfe8f4008e167417d4ab96e5e3cac  
+
+**BadUSB (and reverse shell) using Flipper Zero:**   
 https://hackernoon.com/how-to-get-a-reverse-shell-on-macos-using-a-flipper-zero-as-a-badusb  
 https://github.com/UNC0V3R3D/Flipper_Zero-BadUsb/blob/main/BadUsb-Collection/Windows_Badusb/FUN/FakeBluescreen/FakeBluescreen.txt  
-https://superuser.com/questions/25538/how-to-download-files-from-command-line-in-windows-like-wget-or-curl  
 
 Used Flipper Zero BadUSB, as the Digispark havent arrived yet, and the code itself should be compatible, or atleast easily converted to work with Digispark.   
 
+Testing Setup:
+Virtual Machines:
+- Kali Linux
+- Windows 10
+Both are assigned to same internal network, for testing purposes.
+Windows running with default protection settings On.
+
+Flipper Zero, passthrough from Host to virtual Windows 10 machine.
+
+Testing:   
 A simplest example, combined from several other ready made scripts:
 ```bash
 REM Description: BadUSB Reverse Shell
@@ -74,6 +92,15 @@ DELAY 400
 ENTER
 ```
 
-So the attacker servers the nc64.exe.   
-Victim downloads it, and while running it, it calls to the attacker and opens an interactive shell.
+So the attacker serves the nc64.exe (netcat).   
+Victim downloads it, and while running it, it calls to the attacker and opens an interactive shell, all automatically when payload executed.
 
+**Test successfull!**
+
+TODO:
+- Close Powershell.
+- Hide cmd
+
+= Run everything in the background   
+
+[Demo in action:](https://youtu.be/1kqqIdBoKr0?si=59A7y56YvNoeQ5JB)
