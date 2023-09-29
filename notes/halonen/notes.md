@@ -194,13 +194,13 @@ So now i had an environment ready for development.
 
 I started with a simple Hello World and uploaded it to Digispark:   
 
-![[notes_res/notes-.png]]
+![](notes_res/notes-.png)
 
 That one didnt quite work. Found from the cheatsheet, that the keystrokes must be put, from right to left. Also the enter button got "stuck" so had to escape it with "0"   
 
 Fixed, uploaded, plug in/out:
 
-![[notes_res/notes- 1.png]]
+![](notes_res/notes-1.png)
 
 **Worked like a charm**
 
@@ -218,7 +218,7 @@ Bus 001 Device 060: ID 16c0:27db Van Ooijen Technische Informatica Keyboard
 ```
 
 So, when wanting to program it in my Host, and executing the payloads in my virtual machine, i had to add the right device to my virtual machine's usb filters:
-![[notes_res/notes- 2.png]]
+![](notes_res/notes-2.png)
 
 
 Easiest way to do this, if not wanting to manually input all the fields:   
