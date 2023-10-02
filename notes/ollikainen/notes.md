@@ -108,16 +108,22 @@ void loop() {
 
 ```
 
-So the examples actually come with really clear comments too. Neat. It also highlights a future problem we are going to tackle: **the Digispark assumes a US-style keyboard. Oh the horror.** For now though we are sticking with the simple hello world: just click on the right-facing arrow to start uploading.
+So the examples actually come with really clear comments too. Neat. It also highlights a future problem we are going to tackle: **the Digispark assumes a US-style keyboard. Oh the horror.**
+
+For now though we are sticking with the simple hello world: just click on the right-facing arrow to start uploading.
 
 ![hello kouvostoliitto](/notes/ollikainen/images/w39_8.jpg)
 
 The output compiled for a couple of seconds, and prompted to insert the Digispark:
 
-```Sketch uses 2814 bytes (46%) of program storage space. Maximum is 6012 bytes.
+```
+
+Sketch uses 2814 bytes (46%) of program storage space. Maximum is 6012 bytes.
 Global variables use 110 bytes of dynamic memory.
 Running Digispark Uploader...
-Plug in device now... (will timeout in 60 seconds)```
+Plug in device now... (will timeout in 60 seconds)
+
+```
 
 After plugging in the output continued:
 
