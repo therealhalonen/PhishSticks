@@ -1,8 +1,8 @@
-**19.9.2023:**
+### 19.9.2023:
  - Introduction to simple encrpytion and decryption scripts made with python 
  - Made [Simple scripts](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware/Contents) with the help of NetworkChuck's video: https://www.youtube.com/watch?v=UtMMjXOlRQc
 
-**26.9.2023**
+### 26.9.2023:
 
 My goal for today is to combine the scripts made from previous week and put them together in a form of application. For now the GUI only needs one button and maybe few text boxes. 
 
