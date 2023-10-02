@@ -82,7 +82,9 @@ For a quick test, Arduino IDE usually has some neat prebuilt examples. It seems 
 
 Selecting this opened up a second window of Arduino IDE. It had the following code written in:
 
-```#include "DigiKeyboard.h"
+```
+
+#include "DigiKeyboard.h"
 
 void setup() {
   // don't need to set anything up to use DigiKeyboard
@@ -103,6 +105,7 @@ void loop() {
   // sure the computer knows the keyboard is alive and connected
   DigiKeyboard.delay(5000);
 }
+
 ```
 
 So the examples actually come with really clear comments too. Neat. It also highlights a future problem we are going to tackle: **the Digispark assumes a US-style keyboard. Oh the horror.** For now though we are sticking with the simple hello world: just click on the right-facing arrow to start uploading.
@@ -118,7 +121,9 @@ Plug in device now... (will timeout in 60 seconds)```
 
 After plugging in the output continued:
 
-```> Please plug in the device ... 
+```
+
+> Please plug in the device ... 
 > Press CTRL+C to terminate the program.
 > Device is found!
 connecting: 16% complete
@@ -141,7 +146,9 @@ writing: 75% complete
 writing: 80% complete
 > Starting the user app ...
 running: 100% complete
->> Micronucleus done. Thank you!```
+>> Micronucleus done. Thank you!
+
+```
 
 After receiving the confirmation message, I switched the active window to an open notepad i had prepared. And as you can imagine, it started typing the given phrase about every 5 seconds.
 
@@ -150,6 +157,7 @@ After receiving the confirmation message, I switched the active window to an ope
 Adding an `exit(0)`; to the end of the loop cuts off the execution after one run. Whilst uploading the updated code, I got an error:
 
 ```
+
 writing: 80% complete
 > Starting the user app ...
 >> Run error -1 has occured ...
