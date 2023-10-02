@@ -10,6 +10,19 @@ The project will be finalized by 12.12.2023. All work noted here before the date
 
 ## Always consider the local laws and ethical ramifications when doing pentesting
 
+### Update on week 39
+
+The Digisparks arrived! Hooray!
+
+![image of digisparks](notes/ollikainen/images/w39_1.jpg)
+![image of unwrapped digispark](notes/ollikainen/images/w39_2.jpg)
+
+[miljonka](https://github.com/miljonka/) made [a preliminary GUI](notes/rajala/notes.md#**26.9.2023**) for his ransomware demo.
+
+[therealhalonen](https://github.com/therealhalonen/) started testing [with Arduino IDE and the DigiSpark](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md#2992023).
+
+[sawulohi(https://github.com/sawulohi/)] waded through (boring) [management stuff](notes/ollikainen/notes.md#week-39), such as [creating a YouTube channel for the project](https://www.youtube.com/@phishsticks_pentest/videos) (please subscribe and like our videos!) We are proud to announce that our [Flipper Zero demo](https://www.youtube.com/watch?v=1kqqIdBoKr0) has already reached 23 views as of 2.10.2023!
+
 ### [Week 39](notes/week39.md)
 
 #### Good news everybody! Progress has been made!
