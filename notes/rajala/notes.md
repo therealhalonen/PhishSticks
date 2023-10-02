@@ -52,3 +52,6 @@ For now the app looks like this:
 ![2023-09-26_21-03](https://github.com/therealhalonen/PhishSticks/assets/112076418/8fb9e882-b990-48cd-add6-309dd09af3be)
 
 Full Python code and tests can be found [here](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware/ransom_app)
+
+TO DO:
+- convert working application to executable with [PyInstaller](https://datatofish.com/executable-pyinstaller/)?
