@@ -296,7 +296,7 @@ Ended up with few problems.
 	- Might be due to my(MS) crappy Virtual Machine - Windows 10
 
 **Tackled them:**
-1. A tip from the cheatshee:   
+1. A tip from the cheatsheet:   
 *DigiKeyboard.sendKeyStroke(KEY_R , MOD_GUI_LEFT);  
 Windows Run window shortcut (WinKey+ R)*
 
@@ -353,9 +353,91 @@ Confirmed and working like should.
 **TODO:**
 Figure out something for the Scandinavian KB layout.
 
-To read, for later:
+To read and study:   
 https://github.com/digistump/DigistumpArduino/issues/46   
 https://github.com/ArminJo/DigistumpArduino/blob/982824d0f638a0c567a125ae43d4d5632f65e76f/digistump-avr/libraries/DigisparkKeyboard/keylayouts.h#L41   
 https://digistump.com/board/index.php?topic=2289.0   
 https://github.com/ArminJo/DigistumpArduino   
 https://github.com/SpenceKonde/ATTinyCore   
+
+### 01.10.2023
+*Tackle the keymappings*
+
+After a long search, debug test drive etc...
+
+This is the "main" file:   
+https://github.com/digistump/DigistumpArduino/blob/master/digistump-avr/libraries/DigisparkKeyboard/DigiKeyboard.h   
+Found in my enviroment ( Linux - Debian 12 | Arduino IDE 2.2.1 | Digistump AVR Boards 1.6.7) at:   
+```bash
+~/.arduino15/packages/digistump/hardware/avr/1.6.7/libraries/DigisparkKeyboard/
+```
+
+Next:   
+[Found a German layout. ](https://github.com/adnan-alhomssi/DigistumpArduinoDe) and the file itself:   
+https://github.com/adnan-alhomssi/DigistumpArduinoDe/blob/master/digistump-avr/libraries/DigisparkKeyboard/DigiKeyboardDe.h   
+
+I took the mentioned file, and edited at least most of the keys, according to Scandinavian layout, and came out with this:   
+[DigiKeyboardCustom.h](notes_res/DigiKeyboardCustom.h)   
+
+Note, that file must be in, in my case atleast:   
+```bash
+~/.arduino15/packages/digistump/hardware/avr/1.6.7/libraries/DigisparkKeyboard/
+```
+
+Ran a few tests, while the final test, were the special characters that are tested:
+
+```ino
+#include <DigiKeyboardCustom.h>
+
+void setup() {}
+
+void loop() {
+
+DigiKeyboard.delay(5000);
+DigiKeyboardCustom.print("1234567890+");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboardCustom.print("!\"#%&/()=?");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboardCustom.print("@£${[]}");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboard.delay(500);
+DigiKeyboardCustom.print("><|;:_,.-");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboardCustom.print("*");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboardCustom.print("~ ");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboardCustom.print("\'");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboardCustom.print("^ ");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.sendKeyStroke(0);
+exit(0);
+}
+```
+
+Came out like this, and its like its supposed to be!   
+```
+1234567890+
+!"#%&/()=?
+@${[]}
+><|;:_,.-
+*
+~
+'
+^
+```
+
+**Note to the payload:**   
+*Some characters needed to have backslash, for escaping!*
+For example to print `'` it needs to be `\'`   
+
+**Also NOTE!**
+Not yet fully tested with the previous reverse shell payload!
