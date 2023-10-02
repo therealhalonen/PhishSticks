@@ -1,6 +1,6 @@
 #!/bin/python3
 # source:
-# https://mohamedaezzat.github.io/posts/keylogger/
+# https://mohamedaezzat.github.io/posts/keylogger/ - licensed under CC BY 4.0 by the author.
 
 import os
 from pynput.keyboard import Listener

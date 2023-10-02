@@ -8,9 +8,9 @@ The workweek started on 26.9.2023. We had a meeting again with Tero Karvinen. He
 
 ## TO-DO - new & old
 
-- Update the README.md in the main directory of the projects GitHub to a bloggish format
-- Update the about-section of GitHub
-- DigiSparks still on the way - consider picking up parts from a physical store
+- Update the README.md in the main directory of the projects GitHub to a bloggish format (done, but ongoing)
+- Update the about-section of GitHub (done)
+- DigiSparks still on the way - consider picking up parts from a physical store (done & done)
 - Report sources & [**do the actual recon on related previous projects!!**](source_material.md)
 - Make a public Youtube-page for the project to have a consisent location for video documentation (DONE: see [our Youtube channel!](https://www.youtube.com/channel/UC0iDE-K8gs-9BZl0OmsLdUQ))
   - Remember to update new links to GitHub
