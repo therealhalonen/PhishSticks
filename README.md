@@ -11,8 +11,13 @@ The Digisparks arrived! Hooray!
 
 [therealhalonen](https://github.com/therealhalonen/) started testing [with Arduino IDE and the DigiSpark](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md#2992023).
 
-[sawulohi](https://github.com/sawulohi/) waded through (boring) [management stuff](notes/ollikainen/notes.md#week-39), such as [creating a YouTube channel for the project](https://www.youtube.com/@phishsticks_pentest/videos) (please subscribe and like our videos!) We are proud to announce that our [Flipper Zero demo](https://www.youtube.com/watch?v=1kqqIdBoKr0) has already reached 23 views as of 2.10.2023! [sawulohi](https://github.com/sawulohi/) also wrote up instructions on how to start [uploading code to your own Digispark with the Arduino IDE](/notes/ollikainen/notes.md#digispark)
+[sawulohi](https://github.com/sawulohi/) waded through (boring) [management stuff](notes/ollikainen/notes.md#week-39), such as [creating a YouTube channel for the project](https://www.youtube.com/@phishsticks_pentest/videos) (please subscribe and like our videos!)    
+We are proud to announce that our [Flipper Zero demo](https://www.youtube.com/watch?v=1kqqIdBoKr0) has already reached 23 views as of 2.10.2023! [sawulohi](https://github.com/sawulohi/) also wrote up instructions on how to start [uploading code to your own Digispark with the Arduino IDE](/notes/ollikainen/notes.md#digispark)
 
+We managed to edit the keyboard library from Germany to Finnish (excluding ö ä å), as the original one was US, to work with Digispark, so we can use Finnish keyboard when printing something.   
+[DigiKeyboardCustom.h](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes_res/DigiKeyboardCustom.h)
+
+--- 
 ### [Week 39](notes/week39.md)
 
 #### Good news everybody! Progress has been made!
@@ -29,9 +34,12 @@ More testing & research is required, but everyone has a set direction and a goal
 
 The DigiSparks ordered through Amazon are still in transit. Hopefully someones dog hasn't eaten our homework \:\( . Tracking codes were provided, but they are not working. Will be looking to pick up DigiSparks from a physical vendor later this week.
 
+---
 ### [Week 38](notes/week38.md)
 
 Work has begun. We've made this GitHub page for following the progress on the project. See the [notes for this week](notes/week38.md).
+
+---
 
 # About
 
