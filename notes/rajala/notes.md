@@ -55,3 +55,24 @@ Full Python code and tests can be found [here](https://github.com/therealhalonen
 
 TO DO:
 - convert working application to executable with [PyInstaller](https://datatofish.com/executable-pyinstaller/)?
+
+### 4.10.2023:
+
+Goal for today is to convert the working encrypt.py to encrypt.exe so it is possible to run anywhere without the need of python. I started off by reading [Finxters Python to EXE Linux: A Concise Guide to Conversion](https://blog.finxter.com/python-to-exe-linux-a-concise-guide-to-conversion/). 
+
+"Keep in mind that while PyInstaller does an excellent job of generating executables on Linux systems, cross-compiling for Windows executables from a Linux environment is a more complex task."
+
+After reading this I decided to go with the instruction on Windows environment since thats the environment this program is supposed to work in. So I hopped on to a Windows machine and downloaded the script and test files. I installed auto-to-py-exe that works with GUI. 
+```
+pip install auto-py-to-exe
+auto-py-to-exe
+```
+
+![2023-10-04_17-57](https://github.com/therealhalonen/PhishSticks/assets/112076418/274f25fd-7630-4495-94ce-979c1137272c)
+
+
+After giving the filepath and pressing the convert button, I ended up having Windows security stop the process, because it detected the file to be malicious, so I had to turn Real-time protection off for the time. After that I ended up having working encrypt.exe! Next thing I did was adding a custom icon to the file just for fun. 
+
+![2023-10-04_19-25](https://github.com/therealhalonen/PhishSticks/assets/112076418/4c00b5d4-8ea5-46b8-9bbc-124bf8837e8f)
+
+
