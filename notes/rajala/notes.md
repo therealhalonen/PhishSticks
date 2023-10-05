@@ -76,3 +76,6 @@ After giving the filepath and pressing the convert button, I ended up having Win
 ![2023-10-04_19-25](https://github.com/therealhalonen/PhishSticks/assets/112076418/4c00b5d4-8ea5-46b8-9bbc-124bf8837e8f)
 
 Right now its working on two Windows systems I have tested it in. But unfortunately not on Linux :(
+
+TO DO:
+- bypass windows defender/smart screen
