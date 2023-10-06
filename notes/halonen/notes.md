@@ -444,10 +444,14 @@ Not yet fully tested with the previous reverse shell payload!
 
 ### 06.10.2023
 
-After several hours of printing character, finally got the custom keyboard library to support å ö ä and all the other special characters in Finnish keyboard layout:    
+After several hours of printing character and debuging sh\*t, i finally managed to get the custom keyboard library to support å ö ä and all the other special characters in Finnish keyboard layout:    
 
 ![](notes_res/notes-%201.png)
 
 **Profit!**
 
-[Source](https://github.com/therealhalonen/DigiKeyboardFi)
+[DigiKeyboardFi](https://github.com/therealhalonen/DigiKeyboardFi)
+
+Edited the Reverse Shell payload according to those new keyboard stuffs:   
+[rev_shell_digispark.ino](../../payloads/revshell_digispark/revshell_digispark.ino)
+
