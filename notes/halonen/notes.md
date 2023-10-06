@@ -441,3 +441,13 @@ For example to print `'` it needs to be `\'`
 
 **Also NOTE!**
 Not yet fully tested with the previous reverse shell payload!
+
+### 06.10.2023
+
+After several hours of printing character, finally got the custom keyboard library to support å ö ä and all the other special characters in Finnish keyboard layout:    
+
+![](notes_res/notes-%201.png)
+
+**Profit!**
+
+[Source](https://github.com/therealhalonen/DigiKeyboardFi)
