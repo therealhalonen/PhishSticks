@@ -14,8 +14,8 @@ The Digisparks arrived! Hooray!
 [sawulohi](https://github.com/sawulohi/) waded through (boring) [management stuff](notes/ollikainen/notes.md#week-39), such as [creating a YouTube channel for the project](https://www.youtube.com/@phishsticks_pentest/videos) (please subscribe and like our videos!)    
 We are proud to announce that our [Flipper Zero demo](https://www.youtube.com/watch?v=1kqqIdBoKr0) has already reached 23 views as of 2.10.2023! [sawulohi](https://github.com/sawulohi/) also wrote up instructions on how to start [uploading code to your own Digispark with the Arduino IDE](/notes/ollikainen/notes.md#digispark)
 
-We managed to edit the keyboard library from Germany to Finnish (excluding ö ä å), as the original one was US, to work with Digispark, so we can use Finnish keyboard when printing something.   
-[DigiKeyboardCustom.h](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes_res/DigiKeyboardCustom.h)
+We managed to edit the keyboard library to Finnish, as the original one was US, to work with Digispark, so we can use Finnish keyboard when printing something.   
+[DigiKeyboardFi.h](https://github.com/therealhalonen/DigiKeyboardFi)
 
 --- 
 ### [Week 39](notes/week39.md)
