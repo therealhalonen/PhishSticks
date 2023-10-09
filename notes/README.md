@@ -6,3 +6,4 @@ This folder is for gathering notes & making reports related to the project. Week
 
 ## [Week 38](week38.md)
 ## [Week 39](week39.md)
+## [Week 40](week40.md)
