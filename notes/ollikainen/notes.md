@@ -172,3 +172,28 @@ writing: 80% complete
 ```
 
 I did as the IDE asked, and tried again. It failed about 3 times, and afterwards it uploaded the code succesfully. Having experience with the ESP32, this seemed like a common issue that resolves itself with persistently trying again until it works. 
+
+---
+
+# Week 40
+
+This week was a busy one, so this weeks notes will probably be short for me.
+
+## Management
+
+Starting again with the managerial role stuff:
+
+  * Update the main page [README.md](/README.md)
+  * Update weekly notes for week 40 ([Done!](/notes/week40.md))
+  * Write up the always-used description text for Youtube (done for now, remember to update video-specific descriptions) (also, make the description a bit prettier)
+  * TODO: Update the project plan!! (& other related files)
+  * TODO: Assess the progress made so far when compared to the timeline
+
+## Changing USB VID / PID on Digispark
+
+### Why?
+
+When you plug in a USB device, it sends the host machine some information on what the device is. Spoofing the identifying information can be useful when you are trying to hide from the simulated victim/target. When looking up the connected devices on the Windows Device Manager, one might get a bit suspicious if they are greeted with a `libusb-win32 Usb Devices - Digispark Bootloader`:
+
+![digispark on windows devmgr.msc](/notes/ollikainen/images/w40_1.jpg)
+

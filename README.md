@@ -1,5 +1,21 @@
 ## Always consider the local laws and ethical ramifications when doing pentesting
 
+### [Week 40](notes/week40.md)
+
+This week has sailed on the sidetracks, but it's all for the greater good & end results. And we firmly believe, that adapting workloads to fit weekly wants and motivations is good for the soul (a happy worker is a productive worker).
+
+[therealhalonen](https://github.com/therealhalonen/) made [a Finnish layout for Digisparks DigiKeyboard](https://github.com/therealhalonen/DigiKeyboardFi)(GitHub repository link)
+
+![digikeyboard finnish layout](notes/halonen/notes_res/notes-%201.png)
+
+[miljonka](https://github.com/miljonka/) made some progress on converting his Python payload into an executeable file:
+
+![picture of ransomware payload](https://user-images.githubusercontent.com/112076418/272644701-4c00b5d4-8ea5-46b8-9bbc-124bf8837e8f.png)
+
+
+
+---
+
 ### Update on week 39
 
 The Digisparks arrived! Hooray!
@@ -9,15 +25,12 @@ The Digisparks arrived! Hooray!
 
 [miljonka](https://github.com/miljonka/) made [a preliminary GUI](notes/rajala/notes.md#**26.9.2023**) for his ransomware demo.
 
+![2023-09-26_21-03](https://github.com/therealhalonen/PhishSticks/assets/112076418/8fb9e882-b990-48cd-add6-309dd09af3be)
+
 [therealhalonen](https://github.com/therealhalonen/) started testing [with Arduino IDE and the DigiSpark](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md#2992023).
 
-[sawulohi](https://github.com/sawulohi/) waded through (boring) [management stuff](notes/ollikainen/notes.md#week-39), such as [creating a YouTube channel for the project](https://www.youtube.com/@phishsticks_pentest/videos) (please subscribe and like our videos!)    
-We are proud to announce that our [Flipper Zero demo](https://www.youtube.com/watch?v=1kqqIdBoKr0) has already reached 23 views as of 2.10.2023! [sawulohi](https://github.com/sawulohi/) also wrote up instructions on how to start [uploading code to your own Digispark with the Arduino IDE](/notes/ollikainen/notes.md#digispark)
+[sawulohi](https://github.com/sawulohi/) waded through (boring) [management stuff](notes/ollikainen/notes.md#week-39), such as [creating a YouTube channel for the project](https://www.youtube.com/@phishsticks_pentest/videos) (please subscribe and like our videos!) We are proud to announce that our [Flipper Zero demo](https://www.youtube.com/watch?v=1kqqIdBoKr0) has already reached 23 views as of 2.10.2023! [sawulohi](https://github.com/sawulohi/) also wrote up instructions on how to start [uploading code to your own Digispark with the Arduino IDE](/notes/ollikainen/notes.md#digispark)
 
-We managed to edit the keyboard library to Finnish, as the original one was US, to work with Digispark, so we can use Finnish keyboard when printing something.   
-[DigiKeyboardFi.h](https://github.com/therealhalonen/DigiKeyboardFi)
-
---- 
 ### [Week 39](notes/week39.md)
 
 #### Good news everybody! Progress has been made!
@@ -35,6 +48,7 @@ More testing & research is required, but everyone has a set direction and a goal
 The DigiSparks ordered through Amazon are still in transit. Hopefully someones dog hasn't eaten our homework \:\( . Tracking codes were provided, but they are not working. Will be looking to pick up DigiSparks from a physical vendor later this week.
 
 ---
+
 ### [Week 38](notes/week38.md)
 
 Work has begun. We've made this GitHub page for following the progress on the project. See the [notes for this week](notes/week38.md).
