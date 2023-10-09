@@ -195,15 +195,18 @@ This testing is done based on the article [Change USB VID & PID on Digispark (ht
 
 ### Why?
 
-When you plug in a USB device, it sends the host machine some information on what the device is. Spoofing the identifying information can be useful when you are trying to hide from the simulated victim/target. When looking up the connected devices on the Windows Device Manager, one might get a bit suspicious if they are greeted with a `libusb-win32 Usb Devices - Digispark Bootloader`:
+When you plug in a USB device, it sends the host machine some information on what the device is. Typically this comes in the form of a VID (Vendor ID) and PID (Product ID).
+
+Spoofing the identifying information can be useful when you are trying to hide from the simulated victim/target. When looking up the connected devices on the Windows Device Manager, one might get a bit suspicious if they are greeted with a `libusb-win32 Usb Devices - Digispark Bootloader`:
 
 ![digispark on windows devmgr.msc](/notes/ollikainen/images/w40_1.jpg)
 
-#### Locate the correct config file
+#### Locate the correct config file & BACK IT UP!
 
 The article described, that you can find the default path via Arduino IDE. My version (Arduino IDE 2.2.1) did not have a similiar Preferences-window that was described. But nontheless, the default path remains pretty much the same:
 
 ```
+
 C:\Users\[USER]\AppData\Local\Arduino15\packages\digistump\hardware\avr\1.6.7\libraries\DigisparkKeyboard\usbconfig.h
 
 ```
@@ -211,3 +214,123 @@ C:\Users\[USER]\AppData\Local\Arduino15\packages\digistump\hardware\avr\1.6.7\li
 When opened up, it contains the code for the library (you can select a different library to edit amongst the files too - this will be important when combined when combining the correct library with our payloads).
 
 ![usbconfig.h](/notes/ollikainen/images/w40_2.jpg)
+
+Before making any changes though, make sure to back up the original. This was done by copying the original file under the name of usbconfig_BACKUP.h
+
+![usbconfig_backup](/notes/ollikainen/images/w40_3.png)
+
+#### Make the edits
+
+Find the part of the library containing the ID-information. Specifically:
+
+```
+
+#define USB_CFG_VENDOR_ID 0xc0, 0x16
+
+```
+
+The library is well commented, and contains directions of usage:
+
+```
+
+#define USB_CFG_VENDOR_ID 0xc0, 0x16
+/* USB vendor ID for the device, low byte first. If you have registered your
+ * own Vendor ID, define it here. Otherwise you may use one of obdev's free
+ * shared VID/PID pairs. Be sure to read USB-IDs-for-free.txt for rules!
+ * *** IMPORTANT NOTE ***
+ * This template uses obdev's shared VID/PID pair for Vendor Class devices
+ * with libusb: 0x16c0/0x5dc.  Use this VID/PID pair ONLY if you understand
+ * the implications!
+ */
+ #define USB_CFG_DEVICE_ID 0xdb, 0x27
+/* This is the ID of the product, low byte first. It is interpreted in the
+ * scope of the vendor ID. If you have registered your own VID with usb.org
+ * or if you have licensed a PID from somebody else, define it here. Otherwise
+ * you may use one of obdev's free shared VID/PID pairs. See the file
+ * USB-IDs-for-free.txt for details!
+ * *** IMPORTANT NOTE ***
+ * This template uses obdev's shared VID/PID pair for Vendor Class devices
+ * with libusb: 0x16c0/0x5dc.  Use this VID/PID pair ONLY if you understand
+ * the implications!
+ */
+
+```
+
+I changed the byte information to match the VID/PID information of a Microsoft Internet Keyboard, found as listed on this site: [http://www.linux-usb.org/usb.ids](http://www.linux-usb.org/usb.ids)
+
+```
+
+#define USB_CFG_VENDOR_ID 0x045e
+
+#define USB_CFG_DEVICE_ID 0x002D
+
+```
+
+A bit further down from these lines there are also a section for the vendor & device names:
+
+
+```
+
+#define USB_CFG_VENDOR_NAME     'd','i','g','i','s','t','u','m','p','.','c','o','m'
+#define USB_CFG_VENDOR_NAME_LEN 13
+/* These two values define the vendor name returned by the USB device. The name
+ * must be given as a list of characters under single quotes. The characters
+ * are interpreted as Unicode (UTF-16) entities.
+ * If you don't want a vendor name string, undefine these macros.
+ * ALWAYS define a vendor name containing your Internet domain name if you use
+ * obdev's free shared VID/PID pair. See the file USB-IDs-for-free.txt for
+ * details.
+ */
+#define USB_CFG_DEVICE_NAME     'D','i','g','i','K','e','y'
+#define USB_CFG_DEVICE_NAME_LEN 7
+/* Same as above for the device name. If you don't want a device name, undefine
+ * the macros. See the file USB-IDs-for-free.txt before you assign a name if
+ * you use a shared VID/PID.
+ */
+/*#define USB_CFG_SERIAL_NUMBER   'N', 'o', 'n', 'e' */
+/*#define USB_CFG_SERIAL_NUMBER_LEN   0 */
+/* Same as above for the serial number. If you don't want a serial number,
+ * undefine the macros.
+ * It may be useful to provide the serial number through other means than at
+ * compile time. See the section about descriptor properties below for how
+ * to fine tune control over USB descriptors such as the string descriptor
+ * for the serial number.
+ */
+
+```
+
+I changed this info too:
+
+```
+
+#define USB_CFG_VENDOR_NAME     'M','i','k','r','o','s','f','o','t'
+#define USB_CFG_VENDOR_NAME_LEN 9
+
+#define USB_CFG_DEVICE_NAME     'K','e','y','b','o','r','d'
+#define USB_CFG_DEVICE_NAME_LEN 7
+
+```
+
+After making the changes I uploaded a sketch to the Digispark that does nothing, and includes the usbconfig.h library:
+
+```
+
+#include "DigiKeyboard.h"
+#include "usbconfig.h"
+
+void setup() {
+}
+
+void loop() {
+  DigiKeyboard.sendKeyStroke(0);
+  
+  DigiKeyboard.print("");
+
+}
+
+
+```
+
+ I then took out the Digispark, and plugged it back in. However, the Digispark showed up as normal in Windows Device Manager for a short while (think a couple of seconds), and then moved to the list of keyboard devices under a generic name `HID Keyboard Device`. This might be a decent outcome, but I'll have to come back to find a working solution.  I also tried to make a change to the code to make it print something (and it did, so the code worked), but the board info did not update. 
+
+![not working :(](/notes/ollikainen/images/w40_4.png)
