@@ -79,3 +79,4 @@ Right now its working on two Windows systems I have tested it in. But unfortunat
 
 TO DO:
 - bypass windows defender/smart screen
+- deploy the encrypt.exe with Digispark, something like [SaturnsVoid](https://github.com/SaturnsVoid/Digispark-Payload-Downloader) done.
