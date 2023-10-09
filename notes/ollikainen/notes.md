@@ -191,9 +191,23 @@ Starting again with the managerial role stuff:
 
 ## Changing USB VID / PID on Digispark
 
+This testing is done based on the article [Change USB VID & PID on Digispark (https://blog.spacehuhn.com/digispark-vid-pid)](https://blog.spacehuhn.com/digispark-vid-pid)
+
 ### Why?
 
 When you plug in a USB device, it sends the host machine some information on what the device is. Spoofing the identifying information can be useful when you are trying to hide from the simulated victim/target. When looking up the connected devices on the Windows Device Manager, one might get a bit suspicious if they are greeted with a `libusb-win32 Usb Devices - Digispark Bootloader`:
 
 ![digispark on windows devmgr.msc](/notes/ollikainen/images/w40_1.jpg)
 
+#### Locate the correct config file
+
+The article described, that you can find the default path via Arduino IDE. My version (Arduino IDE 2.2.1) did not have a similiar Preferences-window that was described. But nontheless, the default path remains pretty much the same:
+
+```
+C:\Users\[USER]\AppData\Local\Arduino15\packages\digistump\hardware\avr\1.6.7\libraries\DigisparkKeyboard\usbconfig.h
+
+```
+
+When opened up, it contains the code for the library (you can select a different library to edit amongst the files too - this will be important when combined when combining the correct library with our payloads).
+
+![usbconfig.h](/notes/ollikainen/images/w40_2.jpg)
