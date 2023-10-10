@@ -78,5 +78,6 @@ After giving the filepath and pressing the convert button, I ended up having Win
 Right now its working on two Windows systems I have tested it in. But unfortunately not on Linux :(
 
 TO DO:
+- Setup digispark with [sawulohi's](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#digispark) digispark tutorial - Done
 - bypass windows defender/smart screen
-- deploy the encrypt.exe with Digispark, something like [SaturnsVoid](https://github.com/SaturnsVoid/Digispark-Payload-Downloader) done.
+- deploy the encrypt.exe with Digispark, something like [SaturnsVoid](https://github.com/SaturnsVoid/Digispark-Payload-Downloader) has done.
