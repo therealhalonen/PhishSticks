@@ -532,6 +532,18 @@ Not working... Ok whatever...
 
 [https://wirediver.com/disable-windows-defender-in-powershell/](https://wirediver.com/disable-windows-defender-in-powershell/ "https://wirediver.com/disable-windows-defender-in-powershell/")
 
+```powershell
+PS C:\Users\antha> Get-MpComputerStatus | select IsTamperProtected
+
+IsTamperProtected
+-----------------
+             True
 ```
-Get-MpComputerStatus | select IsTamperProtected
+
+
+https://support.microsoft.com/en-us/windows/prevent-changes-to-security-settings-with-tamper-protection-31d51aaa-645d-408e-6ce7-8d7f8e593f87
+
+```bash
+Set-MpPreference -DisableRealtimeMonitoring $true
 ```
+This works if tampering protection is disabled, and running Powershell as Admin.
