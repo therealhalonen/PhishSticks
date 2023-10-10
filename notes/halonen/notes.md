@@ -530,8 +530,7 @@ Lets see what happens:
 
 Not working... Ok whatever...   
 
-Started to search the Windows Registry:   
-
+[https://wirediver.com/disable-windows-defender-in-powershell/](https://wirediver.com/disable-windows-defender-in-powershell/ "https://wirediver.com/disable-windows-defender-in-powershell/")
 
 ```
 Get-MpComputerStatus | select IsTamperProtected
