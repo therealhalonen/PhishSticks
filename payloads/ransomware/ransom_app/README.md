@@ -11,3 +11,7 @@ $ ./encrypt.py
 
 How it works: https://www.youtube.com/watch?v=glqK_-qdDkw
 
+To setup Digispark:
+- Add correct Digikeyboard library to match your systems keyboard layout
+- upload Digispark_payload.ino to your digispark
+- Plug the Digispark in a computers USB slot and enjoy
