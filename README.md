@@ -14,7 +14,7 @@ This week has sailed on the sidetracks, but it's all for the greater good & end 
 
 ![digikeyboard finnish layout](notes/halonen/notes_res/notes-%201.png)
 
-[miljonka](https://github.com/miljonka/) made some progress on converting his Python payload into an executeable file:
+[miljonka](https://github.com/miljonka/) made some progress on converting his [Python payload into an executeable file](https://github.com/therealhalonen/PhishSticks/blob/master/notes/rajala/notes.md#4102023):
 
 ![picture of ransomware payload](https://user-images.githubusercontent.com/112076418/272644701-4c00b5d4-8ea5-46b8-9bbc-124bf8837e8f.png)
 
