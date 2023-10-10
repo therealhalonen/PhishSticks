@@ -3,6 +3,7 @@ Demo for Reverse Shell done.
 [Demo](../../payloads/revshell_demo)   
 [Demo in action](https://youtu.be/h5MMKu6TMxg)   
 
+---
 ### 26.9.2023
 
 Today i started to figure out a way to get a reverse shell in Windows 10, without user interaction.
@@ -105,6 +106,7 @@ TODO:
 
 [Demo in action:](https://youtu.be/1kqqIdBoKr0?si=59A7y56YvNoeQ5JB)
 
+---
 ### 29.9.2023
 
 So the Digisparks arrived!    
@@ -249,7 +251,8 @@ And only the execute mode is captured by virtual machine.
 **TODO:**
 - Reverse shell script from BadUSB to Digispark
 
-## 29.9.2023 - continuation
+---
+### 29.9.2023 - continuation
  
 *Digispark to real test.*
 
@@ -360,6 +363,7 @@ https://digistump.com/board/index.php?topic=2289.0
 https://github.com/ArminJo/DigistumpArduino   
 https://github.com/SpenceKonde/ATTinyCore   
 
+---
 ### 01.10.2023
 *Tackle the keymappings*
 
@@ -442,16 +446,65 @@ For example to print `'` it needs to be `\'`
 **Also NOTE!**
 Not yet fully tested with the previous reverse shell payload!
 
-### 06.10.2023
+---
+### 07.10.2023
 
+Started yesterday to figure out the Scandinavian characters....   
 After several hours of printing character and debuging sh\*t, i finally managed to get the custom keyboard library to support å ö ä and all the other special characters in Finnish keyboard layout:    
 
 ![](notes_res/notes-%201.png)
 
 **Profit!**
 
+Final version:   
 [DigiKeyboardFi](https://github.com/therealhalonen/DigiKeyboardFi)
 
 Edited the Reverse Shell payload according to those new keyboard stuffs:   
 [rev_shell_digispark.ino](../../payloads/revshell_digispark/revshell_digispark.ino)
 
+---
+### 08.10.2023
+*Physical attacking device*    
+
+Today i wanted to have the Digispark inside a USB thumb drive.   
+I took a usb thumb drive, disassembled it and tested the fit...
+It didnt fit:       
+
+![](notes_res/1.jpg)
+
+I marked the place, and carved the sides a bit:     
+![](notes_res/2.jpg)
+
+And now it fitted:   
+![](notes_res/3.jpg)
+
+Soldered a USB Male connector, which i took out from an old cable, to Digispark with matching the pins 1:1:   
+![](notes_res/4.jpg)   
+
+Put it in place, and make it stick with a some hot glue:   
+![](5.jpg)   
+
+Put it all together, and as the sides had to be carved open, i stuck some tape to cover them, for now, until i find a better, stealth solution:   
+![](notes_res/6.jpg)
+
+
+Plugged it in:   
+![](notes_res/7.jpg)
+
+And working like a charm:   
+```bash
+┌──(sicki🥦parasite)-[~]
+└─$ lsusb | grep 16 
+Bus 001 Device 061: ID 16d0:0753 MCS Digistump DigiSpark
+
+# After the bootloader mode
+# -> 
+
+┌──(sicki🥦parasite)-[~]
+└─$ lsusb | grep 16
+Bus 001 Device 062: ID 16c0:27db Van Ooijen Technische Informatica Keyboard
+```
+
+**Profit!**
+
+---
