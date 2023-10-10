@@ -1,4 +1,10 @@
-## Always consider the local laws and ethical ramifications when doing pentesting
+Always consider the local laws and ethical ramifications when doing pentesting
+
+---
+
+### [Week 41](notes/week41.md)
+
+---
 
 ### [Week 40](notes/week40.md)
 
@@ -18,10 +24,12 @@ This week has sailed on the sidetracks, but it's all for the greater good & end 
 
 ![picture of ransomware payload](https://user-images.githubusercontent.com/112076418/272644701-4c00b5d4-8ea5-46b8-9bbc-124bf8837e8f.png)
 
-[sawulohi](https://github.com/sawulohi/) worked on [changing the vendor & product id of the Digispark](notes/ollikainen/notes.md#changing-usb-vid--pid-on-digispark), but to no avail. Testing on the subject will continue, as spoofing the ID of the device makes for good subterfuge.
+[sawulohi](https://github.com/sawulohi/) worked on [changing the vendor & product id of the Digispark](notes/ollikainen/notes.md#changing-usb-vid--pid-on-digispark), ~~but to no avail~~ the changes were made, but they might be hard to find for the average user (which we - of course - are not). Testing on the subject will continue, as spoofing the ID of the device makes for good subterfuge.
 
-![not working :(](notes/ollikainen/images/w40_4.png)
+![hid/pid/vid](notes/ollikainen/images/w40_4.png)
+![it works, kinda](/notes/ollikainen/images/w40_6.png)
 
+We also produced a [python script](/notes/halonen/update_usbconfig.py) to automate the formatting of VID/PID into the usbconfig.h file. Databases containing VID/PID information often offer the bytes in a different format than what is used in the config files of the Digispark.
 
 ---
 
