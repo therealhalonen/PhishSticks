@@ -482,7 +482,7 @@ Soldered a USB Male connector, which i took out from an old cable, to Digispark 
 ![](notes_res/4.jpg)   
 
 Put it in place, and make it stick with a some hot glue:   
-![](5.jpg)   
+![](notes_res/5.jpg)   
 
 Put it all together, and as the sides had to be carved open, i stuck some tape to cover them, for now, until i find a better, stealth solution:   
 ![](notes_res/6.jpg)
@@ -508,3 +508,31 @@ Bus 001 Device 062: ID 16c0:27db Van Ooijen Technische Informatica Keyboard
 **Profit!**
 
 ---
+### 10.10.2023
+
+*Disabling security stuff from Windows, with Digispark:*
+
+Using again and still:    
+- Debian 12 Host
+- Windows 10 virtualbox VM
+
+Went pretty straight forward to search Powershell commands, as im not experienced with PS, at all...
+
+https://www.windowscentral.com/how-disable-real-time-protection-microsoft-defender-antivirus
+
+```powershell
+Set-MpPreference -DisableRealtimeMonitoring $false
+```
+
+Lets see what happens:
+
+![](notes_res/notes-%202.png)
+
+Not working... Ok whatever...   
+
+Started to search the Windows Registry:   
+
+
+```
+Get-MpComputerStatus | select IsTamperProtected
+```
