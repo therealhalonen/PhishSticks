@@ -547,3 +547,14 @@ https://support.microsoft.com/en-us/windows/prevent-changes-to-security-settings
 Set-MpPreference -DisableRealtimeMonitoring $true
 ```
 This works if tampering protection is disabled, and running Powershell as Admin.
+
+Searched quite alot of stuff...   
+Some mentioned methods required regedit, reboots etc tinkering etc, so i decided to try Bypassing instead of Disabling.   
+
+https://viperone.gitbook.io/pentest-everything/everything/everything-active-directory/defense-evasion/disable-defender
+
+```powershell
+Add-MpPreference -ExclusionPath "C:\Windows\Temp"
+```
+
+*To be continued...*
