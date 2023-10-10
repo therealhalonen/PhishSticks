@@ -11,7 +11,7 @@ $ ./encrypt.py
 
 How it works: https://www.youtube.com/watch?v=glqK_-qdDkw
 
-To setup Digispark payload:
+### To setup Digispark payload:
 - [Setup Digispark](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#digispark)
 - Add correct Digikeyboard library to match your systems keyboard layout for example [DigiKeyboardFi.h](https://github.com/therealhalonen/DigiKeyboardFi/blob/master/DigiKeyboardFi.h) for Finnish keyboards
 - Path of the file for Windows: C:/Users/username/Documents/Arduino/libraries/DigisparkKeyboard/DigiKeyboardFi.h
