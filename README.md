@@ -2,9 +2,15 @@
 
 ### [Week 40](notes/week40.md)
 
+#### Do you know what's in your phishsticks?
+
+![phyical badusb](notes/ollikainen/images/w40_5.png)
+
+[therealhalonen](https://github.com/therealhalonen/) made a physical BadUSB-prototype! Fittingly scary, Halloween is just around the corner 😱👻
+
 This week has sailed on the sidetracks, but it's all for the greater good & end results. And we firmly believe, that adapting workloads to fit weekly wants and motivations is good for the soul (a happy worker is a productive worker).
 
-[therealhalonen](https://github.com/therealhalonen/) also made [a Finnish layout for Digisparks DigiKeyboard](https://github.com/therealhalonen/DigiKeyboardFi) (GitHub repository link)
+[therealhalonen](https://github.com/therealhalonen/) also made [a Finnish layout for Digisparks DigiKeyboard](https://github.com/therealhalonen/DigiKeyboardFi)(GitHub repository link)
 
 ![digikeyboard finnish layout](notes/halonen/notes_res/notes-%201.png)
 
