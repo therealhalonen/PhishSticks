@@ -197,7 +197,9 @@ This testing is done based on the article [Change USB VID & PID on Digispark (ht
 
 When you plug in a USB device, it sends the host machine some information on what the device is. Typically this comes in the form of a VID (Vendor ID) and PID (Product ID).
 
-Spoofing the identifying information can be useful when you are trying to hide from the simulated victim/target. When looking up the connected devices on the Windows Device Manager, one might get a bit suspicious if they are greeted with a `libusb-win32 Usb Devices - Digispark Bootloader`:
+Actual use cases for making these changes to the VID/PID information might be something like
+  * Digispark might be a blocked vendor on many systems
+  * Spoofing the identifying information can be useful when you are trying to hide from the simulated victim/target. When looking up the connected devices on the Windows Device Manager, one might get a bit suspicious if they are greeted with a `libusb-win32 Usb Devices - Digispark Bootloader` (UPDATE: The bootloader shows up for a couple of seconds, and changes to another device after a few seconds):
 
 ![digispark on windows devmgr.msc](/notes/ollikainen/images/w40_1.jpg)
 
@@ -260,9 +262,9 @@ I changed the byte information to match the VID/PID information of a Microsoft I
 
 ```
 
-#define USB_CFG_VENDOR_ID 0x045e
+#define USB_CFG_VENDOR_ID 0xac, 0x05
 
-#define USB_CFG_DEVICE_ID 0x002D
+#define USB_CFG_DEVICE_ID 0x27, 0x22
 
 ```
 
@@ -331,6 +333,10 @@ void loop() {
 
 ```
 
- I then took out the Digispark, and plugged it back in. However, the Digispark showed up as normal in Windows Device Manager for a short while (think a couple of seconds), and then moved to the list of keyboard devices under a generic name `HID Keyboard Device`. This might be a decent outcome, but I'll have to come back to find a working solution.  I also tried to make a change to the code to make it print something (and it did, so the code worked), but the board info did not update. 
+ I then took out the Digispark, and plugged it back in. However, the Digispark showed up as normal in Windows Device Manager for a short while (think a couple of seconds), and then moved to the list of keyboard devices under a generic name `HID Keyboard Device`. This might be a decent outcome, considering how far the average user will go to .  I also tried to make a change to the code to make it print something (and it did, so the code worked), but the board info did not update. 
 
 ![not working :(](/notes/ollikainen/images/w40_4.png)
+
+UPDATE: After further testing, it seems that the vendor/product ID actually changes, but Windows uses a generic driver for keyboards for the Digispark.
+
+![it works, kinda](/notes/ollikainen/images/w40_6.png)
