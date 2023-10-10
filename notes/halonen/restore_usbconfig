@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Define the paths to the original file and its backup
+original_file="/home/sicki/.arduino15/packages/digistump/hardware/avr/1.6.7/libraries/DigisparkKeyboard/usbconfig.h"
+backup_file="/home/sicki/.arduino15/packages/digistump/hardware/avr/1.6.7/libraries/DigisparkKeyboard/usbconfig.h_backup"
+
+# Check if the backup file exists
+if [ -e "$backup_file" ]; then
+    # Restore the original file from the backup
+    cp "$backup_file" "$original_file"
+    echo "usbconfig.h has been restored from the backup."
+else
+    echo "Backup file does not exist. Nothing to restore."

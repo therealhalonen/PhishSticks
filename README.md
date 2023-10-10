@@ -27,7 +27,9 @@ This week has sailed on the sidetracks, but it's all for the greater good & end 
 [sawulohi](https://github.com/sawulohi/) worked on [changing the vendor & product id of the Digispark](notes/ollikainen/notes.md#changing-usb-vid--pid-on-digispark), ~~but to no avail~~ the changes were made, but they might be hard to find for the average user (which we - of course - are not). Testing on the subject will continue, as spoofing the ID of the device makes for good subterfuge.
 
 ![hid/pid/vid](notes/ollikainen/images/w40_4.png)
+![it works, kinda](/notes/ollikainen/images/w40_6.png)
 
+We also produced a [python script](/notes/halonen/update_usbconfig.py) to automate the formatting of VID/PID into the usbconfig.h file. Databases containing VID/PID information often offer the bytes in a different format than what is used in the config files of the Digispark.
 
 ---
 

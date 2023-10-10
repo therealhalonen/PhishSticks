@@ -262,9 +262,9 @@ I changed the byte information to match the VID/PID information of a Microsoft I
 
 ```
 
-#define USB_CFG_VENDOR_ID 0xac, 0x05
+#define USB_CFG_VENDOR_ID 0x6D, 0x04
 
-#define USB_CFG_DEVICE_ID 0x27, 0x22
+#define USB_CFG_DEVICE_ID 0x08, 0xC3
 
 ```
 
@@ -339,4 +339,29 @@ void loop() {
 
 UPDATE: After further testing, it seems that the vendor/product ID actually changes, but Windows uses a generic driver for keyboards for the Digispark.
 
+
 ![it works, kinda](/notes/ollikainen/images/w40_6.png)
+
+Also, when looking up different VID/PID combos, sites like [https://the-sz.com/products/usbid/](https://the-sz.com/products/usbid/) can be useful. When inserting ID data into the usbconfig.h file, you need to format the ID to match the documentation given. In practice:
+
+```
+
+0x046D 0xC308
+Logitech, Inc.
+Logitech USB Keyboard
+
+
+```
+
+Is to be formatted like
+
+```
+#define USB_CFG_VENDOR_ID 0x6D, 0x04 <- 0x[characters 2:4], 0x[characters 0:2]
+
+#define USB_CFG_DEVICE_ID 0x08, 0xC3 <- 0x[characters 2:4], 0x[characters 0:2]
+
+```
+
+[therealhalonen](https://github.com/therealhalonen/) wrote up a script with the help of ChatGPT that [automates the process of correct formatting](/notes/halonen/update_usbconfig.py). There is also [a bash script for restoring previous IDs](/notes/halonen/restore_usbconfig).
+
+For the average user this sort of information might be too far fetched to grasp. Additionally, changing the strings containing the vendor/device name might be for naught on Windows machines. But on Linux operating systems, this information is more readily available.
