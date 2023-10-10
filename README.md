@@ -1,4 +1,4 @@
-## Always consider the local laws and ethical ramifications when doing pentesting
+Always consider the local laws and ethical ramifications when doing pentesting
 
 ### [Week 40](notes/week40.md)
 
