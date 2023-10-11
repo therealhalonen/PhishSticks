@@ -5,6 +5,8 @@ Version 1.0
 Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'}. Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla). 
 
 Run the script inside a safe folder with no important files (incase something goes wrong) to launch the program and enjoy
+
+Executable version works the same without needing different python libraries.
 ```
 $ ./encrypt.py
 ```
