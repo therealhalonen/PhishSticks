@@ -6,12 +6,13 @@ Simple application made with python and tkinter to demonstrate how an applicatio
 
 Run the script inside a safe folder with no important files (incase something goes wrong) to launch the program and enjoy
 
-Executable version works the same without needing different python libraries.
 ```
 $ ./encrypt.py
 ```
 
 How it works: https://www.youtube.com/watch?v=glqK_-qdDkw
+
+Executable version works the same without needing different python libraries.
 
 ### To setup Digispark payload:
 - [Setup Digispark](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#digispark)
