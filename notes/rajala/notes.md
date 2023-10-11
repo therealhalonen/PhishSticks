@@ -122,3 +122,5 @@ exit(0);
 All this was pretty painless and straightforward, and for some reason it seems to bypass previous issues with Windows Defender and SmartScreen.
 
 Demo can be found [here](https://www.youtube.com/watch?v=Bi2QOMSHeKI)
+
+Instructions and files can be found [here](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware/ransom_app#to-setup-digispark-payload)
