@@ -16,7 +16,7 @@ Executable version works the same without needing different python libraries.
 
 ### To setup Digispark payload:
 - [Setup Digispark](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#digispark)
-- Add correct Digikeyboard library to match your systems keyboard layout for example [DigiKeyboardFi.h](https://github.com/therealhalonen/DigiKeyboardFi/blob/master/DigiKeyboardFi.h) for Finnish keyboards
+- Add correct Digikeyboard library to match your systems keyboard layout for example [DigiKeyboardFi.h](https://github.com/therealhalonen/DigiKeyboardFi/blob/master/DigiKeyboardFi.h) for Finnish keyboards (made by [therealhalonen](https://github.com/therealhalonen))
 - Path of the file for Windows: C:/Users/username/Documents/Arduino/libraries/DigisparkKeyboard/DigiKeyboardFi.h
 - Path of the file for Linux: ~/.arduino15/packages/digistump/hardware/avr/1.6.7/libraries/DigisparkKeyboard/DigiKeyboardFi.h
 - compile and upload Digispark_payload.ino to your digispark
