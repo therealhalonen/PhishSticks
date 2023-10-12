@@ -615,8 +615,7 @@ Ran superfast and got a reverse shell:
 ![](notes_res/notes-%204.png)
 
 Payload:    
-[revshell_digispark_v2.ino](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/revshell_digispark_v2/revshell_digispark_v2.ino)   
-
+[digispark_revshell_v2](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/revshell_digispark/digispark_revshell_v2/digispark_revshell_v2.ino)   
 *Another thing, to make it maybe more simple, is to make it download the nc64.exe from the web, instead of serving it from the attacker machine, but thats at this point, only something to think about, and why.*   
 
 *That would be as easy as just changing the url to:*  
@@ -633,11 +632,12 @@ Another "topic" related and natural continuation here, as the whole project star
 
 *What ive learned the most, from the beginning to this point, is mostly about Windows and Powershell, as i have quite a long history in daily Linux usage.*
 
-It seemed that the `-Verb -RunAs` will make the Powershell run with Admin privileges. Of course, as we are testing everything with Windows 10 and all security as default, it asks a confirmation.  These could be quite easily, not bypassed, but "accepted" with the help of Digispark.  
+It seemed that the `-Verb -RunAs` will make the Powershell run with Admin privileges. Of course, as we are testing everything with Windows 10 and all security as default, it asks a confirmation.   
+These could be quite easily, not bypassed, but "accepted" with the help of Digispark.  
 **Problem comes, that it seems you cannot run `-Verb -RunAs` and `-NoNewWindow` together(?)**
 
 Dirty workaround, to get reverse shell with admin privileges:   
-[revshell_digispark_v2_5.ino](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/revshell_digispark_v2_5/revshell_digispark_v2_5.ino)   
+[digispark_revshell_v2_5.ino](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/revshell_digispark/digispark_revshell_v2_5/digispark_revshell_v2_5.ino)   
 ```bash
 #include <DigiKeyboardFi.h>
 
@@ -663,7 +663,7 @@ exit(0);
 }
 ```
 
-Outcome:
+Outcome:   
 ![](notes_res/notes-%205.png)
 
 Checking from attacker machine, if got Admin privileges for the session:
