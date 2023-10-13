@@ -1,0 +1,49 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Provision Windows
+$windows= <<WINDOWS
+# Set the keyboard to Finnish
+Set-WinUserLanguageList -LanguageList fi-FI -Force
+# Enable UAC (User Account Control)
+Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System' -Name 'EnableLUA' -Value 1
+# Notify
+echo "Power off and restart the device for changes to take effect"
+WINDOWS
+
+Vagrant.configure(2) do |config|
+
+  # Windows - Workstation
+  config.vm.define "windows-phishsticks" do |window|  
+
+  # Basic
+	window.vm.box = "gusztavvargadr/windows-10"
+	window.vm.guest = :windows 
+	window.vm.synced_folder '.', '/vagrant', disabled: true
+
+  # Network, change according to your needs, or comment out to keep the default NAT.
+	window.vm.network "private_network", ip: "192.168.66.8",
+		virtualbox__intnet: "pentestNet"
+			
+  # Machine stuff
+    window.vm.provider :virtualbox do |vb|
+      vb.name = "Windows-Phishsticks"
+	  vb.memory = 4096
+      vb.cpus = 2
+      vb.customize ["modifyvm", :id, "--usb", "on"]
+      vb.customize ["modifyvm", :id, "--usbxhci", "on"]
+      vb.customize ["modifyvm", :id, "--graphicscontroller", "vboxsvga"]
+	  vb.customize ["modifyvm", :id, "--vram", "128"]
+	  vb.customize ["usbfilter", "add", "0", "--target", :id, "--name", "DigiKey", "--vendorid", "16c0", "--productid", "27db"]
+	  vb.gui = false
+	end
+	
+  # Config SSH
+	window.ssh.sudo_command = ''
+	window.ssh.shell = 'sh -l'
+	
+  # Run provisioning
+	window.vm.provision "shell", privileged: "true", powershell_elevated_interactive: "true", inline: $windows
+
+	end
+end

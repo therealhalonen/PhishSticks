@@ -679,3 +679,43 @@ Comparison to regular user session in Powershell:
 ![](notes_res/notes-%207.png)
 
 **BOOM!**
+
+### 13.10.2023
+*Vagrant*
+
+I have been using a Windows 10 virtual machine, one that i have set up for a while now, for testing purposes:   
+
+- Edition: Windows 10 Pro
+- Version: 22H2
+- OS build: 19045.3570
+
+Everything (security wise) with default settings.
+User has privileges to run as Administrator, with confirmation prompt of course.
+
+I started to test a vagrant machine, recommended by [Miljonka](https://github.com/miljonka?tab=repositories)
+
+Box:   
+https://app.vagrantup.com/gusztavvargadr/boxes/windows-10   
+
+- Edition: WIndows 10 Enterprise Evaluation
+- Version: 22H2
+- OS build: 19045.3324
+
+As running it, i noticed that the UAC was disabled, but Defender, Security etc setting seemed to be ok according to defaults.
+
+I made a Vagrantfile, to have everything automatically set up for testings:   
+[Vagrantfile](notes_res/Vagrantfile)
+
+Settings include:
+- Assigns the device to my personal, virtual, internal network with static ip.
+- Enables USB 3.0 controller and add filter for Digispark to have it automatically connected.
+- Provisioning:
+	- Changes keyboard language to Finnish
+	- Enables UAC
+
+After some test runs, all working like should.  
+
+*This was partly outside the project scope, but makes things easier to maintain and setup, at least for testing phases.    
+Most likely the final runs of the payloads, will be ran in specific fresh installation of Windows 10.*
+
+
