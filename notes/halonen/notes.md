@@ -565,6 +565,7 @@ Get-MpPreference | Select-Object -ExpandProperty ExclusionPath
 
 **So far there has been no need to disable or circle around the Defender, so the previously mentioned methods will serve as notes. Coming back to this and continuing from here, when it becomes necessary, most likely later on.**
 
+---
 ### 12.10.2023
 *Improving the Reverse Shell payload*
 
@@ -680,6 +681,7 @@ Comparison to regular user session in Powershell:
 
 **BOOM!**
 
+---
 ### 13.10.2023
 *Vagrant*
 
