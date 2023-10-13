@@ -699,7 +699,8 @@ https://app.vagrantup.com/gusztavvargadr/boxes/windows-10
 
 - Edition: WIndows 10 Enterprise Evaluation
 - Version: 22H2
-- OS build: 19045.3324
+- OS build: 19045.3324 (As is)
+	- OS build: 19045.3570 (After running all updates)
 
 As running it, i noticed that the UAC was disabled, but Defender, Security etc setting seemed to be ok according to defaults.
 
