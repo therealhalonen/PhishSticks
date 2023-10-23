@@ -394,3 +394,5 @@ Trying to insert the code given into Arduino IDE gave a warning about malicious 
 Operation did not complete successfully because the file contains a virus or potentially unwanted software.
 
 ```
+
+Quick googling around the subject suggested that the problem might be due to Windows Defender or other whitelisting issues, but no workarounds were found that I was willing to try (turning off Windows Defender & firewalls etc.). I will try to bypass these problems by moving onto a Linux based system for code uploads.
