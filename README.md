@@ -10,6 +10,11 @@ Always consider the local laws and ethical ramifications when doing pentesting
 
 The payloads written by [miljonka](https://github.com/miljonka/) and [therealhalonen](https://github.com/therealhalonen/) are now oneliners that execute from Windows Run. This results in the Digispark executing faster than previously, check out the notes from [therealhalonen](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md#12102023) and [miljonka](https://github.com/therealhalonen/PhishSticks/blob/master/notes/rajala/notes.md#11102023) for details!
 
+[sawulohi](https://github.com/sawulohi/) ran into some [problems](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#keylogging-with-digispark) with trying out demo code for the keylogger. Yikes!
+
+![uh oh](notes/ollikainen/images/w41_4.png)
+
+
 There is also a new [Vagrant file](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes_res/Vagrantfile) for creating a virtual machine running Windows 10. This will expedite running tests in our lab environments on fresh systems. Testing should be ran on multiple instances in case you modify settings on older virtual machines and forget about it.
 
 The payloads for reverse shell and ransomware are closing in on a demoable state, and it's quite likely that the team will focus on keylogging next...
