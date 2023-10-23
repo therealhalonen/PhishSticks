@@ -380,3 +380,17 @@ For the average user this sort of information might be too far fetched to grasp.
 ![digispark on a minigrip ziplock bag](images/w41_1.png)
 
 I will be trying out uploading the keylogger code written by [Muhammad Talha Khan (MTK911)](https://github.com/MTK911/Attiny85/blob/master/payloads/KeyLogger/TimeBomb_KeyLogger.ino) licensed under GNU Lesser General Public License v3.0. The author recognizes that the payload will be stopped by most antivirus, and that is something I will have to see for myself (and later possibly tackle).
+
+Uh oh.
+
+![uh oh](images/w41_2.png)
+
+Trying to insert the code given into Arduino IDE gave a warning about malicious code. Yikes! Afterwards Arduino IDE even wiped clean the code space, and doing anything further requires restarting the program.
+
+![uh oh 2 - electric boogaloo](images/w41_3.png)
+
+```
+
+Operation did not complete successfully because the file contains a virus or potentially unwanted software.
+
+```
