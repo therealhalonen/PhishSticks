@@ -12,6 +12,8 @@ The payloads written by [miljonka](https://github.com/miljonka/) and [therealhal
 
 There is also a new [Vagrant file](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes_res/Vagrantfile) for creating a virtual machine running Windows 10. This will expedite running tests in our lab environments on fresh systems. Testing should be ran on multiple instances in case you modify settings on older virtual machines and forget about it.
 
+The payloads for reverse shell and ransomware are closing in on a demoable state, and it's quite likely that the team will focus on keylogging next...
+
 Week 42 will be devoted to refreshing our minds (in other words, autumn holiday), so no work will be seen from that week. Rest is important for your brains!
 
 ---

@@ -23,7 +23,7 @@ Finally getting most of the project leading duties done (weeks 38 & 39), such as
 
 The first step on this weeks task was to perform reconnaissance on previous work done on the subject. [therealhalonen](https://github.com/therealhalonen/) had [a preliminary keylogger demo](/payloads/keylogger/keylogger) that was edited from the work of [https://mohamedaezzat.github.io/posts/keylogger/](https://mohamedaezzat.github.io/posts/keylogger/). It uses python as its code language and a python library [pynput](https://pypi.org/project/pynput/) for keylogging. We'll probably put this version on the backburner, since there is a more interesting potential source:
 
-[Don't Trust That USB](https://terokarvinen.com/2021/dont-trust-that-usb/) briefly covers [Team Sharap's (in Finnish)](https://teamsharap.wordpress.com/) project, where the group built a BadUSB keyboard that utilised (edited) [keylogger code written by Attiny85](https://github.com/MTK911/Attiny85/tree/master/payloads/KeyLogger). This seems like a good place to start, since the original code was actually written for a Digispark. Potential issues that arose with the DigiNut-project that we can improve upon:
+[Don't Trust That USB](https://terokarvinen.com/2021/dont-trust-that-usb/) briefly covers [Team Sharap's (in Finnish)](https://teamsharap.wordpress.com/) project, where the group built a BadUSB keyboard that utilised (edited) [keylogger code written by MTK911 (Muhammad Talha Khan)](https://github.com/MTK911/Attiny85/tree/master/payloads/KeyLogger). This seems like a good place to start, since the original code was actually written for a Digispark. Potential issues that arose with the DigiNut-project that we can improve upon:
 
   * Bypassing Windows Defender
   * Actually sending the file to a remote location (using target computer? LoRa?)
@@ -365,3 +365,18 @@ Is to be formatted like
 [therealhalonen](https://github.com/therealhalonen/) wrote up a script with the help of ChatGPT that [automates the process of correct formatting](/notes/halonen/update_usbconfig.py). There is also [a bash script for restoring previous IDs](/notes/halonen/restore_usbconfig).
 
 For the average user this sort of information might be too far fetched to grasp. Additionally, changing the strings containing the vendor/device name might be for naught on Windows machines. But on Linux operating systems, this information is more readily available.
+
+---
+
+# Week 41
+
+## Management
+
+  - Updated the project plan, considered scrapping the kanban as the different tasks are moving on fluently without using it (will continue monitoring)
+  - Brought the team up to speed on the progress of the project (their payloads are pretty much done), planning on how to move on with the keylogger and improving it
+
+## Keylogging with Digispark
+
+![digispark on a minigrip ziplock bag](images/w41_1.png)
+
+I will be trying out uploading the keylogger code written by [Muhammad Talha Khan (MTK911)](https://github.com/MTK911/Attiny85/blob/master/payloads/KeyLogger/TimeBomb_KeyLogger.ino) licensed under GNU Lesser General Public License v3.0. The author recognizes that the payload will be stopped by most antivirus, and that is something I will have to see for myself (and later possibly tackle).
