@@ -841,3 +841,16 @@ help
 ```
 
 **Note: To stop the logging, a reboot is needed**
+
+As miljonka finished the .exe to include mailing the keylogs to a email address, i also edited the current .ps1 to include the same function.    
+Source:    
+https://github.com/SriRam-Macha/DigiSpark-Keylogger-Payload/blob/master/Keystrokes%20Mailer%20Script.ps1
+
+Finished:   
+[helper2.ps1](notes_res/helper2.ps1)  
+
+Working:   
+![](notes_res/notes-%2012.png)
+
+**Todo:**   
+Sending the keypresses as POST requests to server
