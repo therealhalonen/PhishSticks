@@ -825,5 +825,19 @@ Execution from Victim:
 3. In a Temp directory, a file named `help` is created
 4. File contains the logged keys!
 
+**To put everything to Digispark compatible and as Stealth as possible**
 
-**Next up, is running everyhing when Digispark is plugged, as Stealth as possible!**
+Again good old WindowStyle Hidden:
+[digispark_keylog.ino](../../../payloads/digispark_keylog/digispark_keylog.ino)
+
+All ran on the background and log file will be found in the folder:
+```bash
+$env:UserProfile\AppData\Local\Temp
+```
+
+Inside file named:
+```bash
+help
+```
+
+**Note: To stop the logging, a reboot is needed**
