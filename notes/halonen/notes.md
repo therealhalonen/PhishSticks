@@ -738,7 +738,7 @@ The keylogger powershell script, ready made, and working IF REALTIME PROTECTION 
 Source:
 https://gist.githubusercontent.com/dasgoll/7ca1c059dd3b3fbc7277/raw/e4e3a530589dac67ab6c4c2428ea90de93b86018/gistfile1.txt
 
-Im doing these obsfuscations in my attacker machine (Kali Linux) and serving them via python webserver and using the victim (Windows 10) to download them and run.
+Im doing these obfuscations in my attacker machine (Kali Linux) and serving them via python webserver and using the victim (Windows 10) to download them and run.
 
 First i decided to go with the Base64 encoding:
 
@@ -797,7 +797,7 @@ What came to my mind, while reading here and there everywhere, that i first remo
 
 Also changed the function to "Start-Helper" instead of Key logger.
 
-Also while studying the obsfuscations, i bumped in to this:   
+Also while studying the obfuscations, i bumped in to this:   
 https://github.com/JoelGMSec/Invoke-Stealth    
 And the guide/help:   
 https://darkbyte.net/ofuscando-scripts-de-powershell-con-invoke-stealth/
@@ -806,11 +806,11 @@ I made a little testing lab thing to my Kali:
 ![](notes-%209.png)
 
 So:   
-1. I used the Invoke-Stealth in powershell to obsfuscate the `maltsu.ps1` with ReverseB64
+1. I used the Invoke-Stealth in powershell to obfuscate the `maltsu.ps1` with ReverseB64
 2. `maltsu.ps1` obscuscated, so that it uses a variable, which is the encoded script and then it decodes that on the fly.
 3. Webserver, serving the payload (`maltsu.ps1`)
 
-Full obsfuscated payload:
+Full obfuscated payload:
 [maltsu.ps1](notes_res/maltsu.ps1)
 
 Execution from Victim:   
