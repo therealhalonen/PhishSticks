@@ -163,7 +163,7 @@ One thing I noticed is that this method is much faster on getting the malware ap
 
 Today we tried to work on our keylogger part of the project. sawulohi did some [testings](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#keylogging-with-digispark) with Arduino and encountered some problems related to Windows Defender, so we had to find a different approach. First thing that came to my mind was to do the keylogger same way that I had done the [ransomware application](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware/ransom_app), which means converting a python script to an executable and running it through powershell commands. 
 
-I found this already made keylogger from [thepythoncode.com](https://thepythoncode.com/article/write-a-keylogger-python) made by Abdeladim Fadheli, which covered everything thats inside the code. I tested it quickly by running it and it works! After 60 seconds it creates a file from given keystrokes. [Full code](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog.py)
+I found this already made python keylogger from [thepythoncode.com](https://thepythoncode.com/article/write-a-keylogger-python) made by Abdeladim Fadheli, which covered everything thats inside the code. I tested it quickly by running it and it works! After 60 seconds it creates a file from given keystrokes. [Full code](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog.py)
 
 ![5FS1L9Q](https://github.com/therealhalonen/PhishSticks/assets/112076418/c266dc9f-b49c-4589-a33e-d8ce27c7fab3)
 
