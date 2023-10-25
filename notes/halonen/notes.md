@@ -721,9 +721,9 @@ After some test runs, all working like should.
 *This was partly outside the project scope, but makes things easier to maintain and setup, at least for testing phases.    
 Most likely the final runs of the payloads, will be ran in specific fresh installation of Windows 10.*
 
-
+---
 ### 24.10.2023
-*Keylogger*
+*Keylogger and obfuscating payloads*
 
 Next up is the keylogger, which most likely is the most complicated one to implement.
 Things to consider:
@@ -733,11 +733,11 @@ Things to consider:
 
 I started continuing to work with the Defender bypassing.
 
-The keylogger powershell script, ready made, and working IF REALTIME PROTECTION IS DISABLED
-
-Source:
+The Keylogger, Powershell script, ready made, and working IF REALTIME PROTECTION IS DISABLED
+Source:   
 https://gist.githubusercontent.com/dasgoll/7ca1c059dd3b3fbc7277/raw/e4e3a530589dac67ab6c4c2428ea90de93b86018/gistfile1.txt
 
+**Obfuscate:**    
 Im doing these obfuscations in my attacker machine (Kali Linux) and serving them via python webserver and using the victim (Windows 10) to download them and run.
 
 First i decided to go with the Base64 encoding:
@@ -792,7 +792,7 @@ Didnt work, got blocked.
 
 ![](notes_res/notes-%208.png)
 
-What came to my mind, while reading here and there everywhere, that i first remove all the unneccessary comments and mentions of "key logging" from the script, and came up with this:   
+What came to my mind, while reading here and there everywhere, that i first remove all the unneccessary comments and mentions of "key logging" from the script, and came up with this:    
 [helper.ps1](notes_res/helper.ps1)
 
 Also changed the function to "Start-Helper" instead of Key logger.
@@ -810,7 +810,7 @@ So:
 2. `maltsu.ps1` obscuscated, so that it uses a variable, which is the encoded script and then it decodes that on the fly.
 3. Webserver, serving the payload (`maltsu.ps1`)
 
-Full obfuscated payload:
+Full obfuscated payload:    
 [maltsu.ps1](notes_res/maltsu.ps1)
 
 Execution from Victim:    
@@ -827,8 +827,8 @@ Execution from Victim:
 
 **To put everything to Digispark compatible and as Stealth as possible**
 
-Again good old WindowStyle Hidden:
-[digispark_keylog.ino](../../../payloads/digispark_keylog/digispark_keylog.ino)
+Again good old WindowStyle Hidden:    
+[digispark_keylog.ino](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/digispark_keylog/digispark_keylog.ino)
 
 All ran on the background and log file will be found in the folder:
 ```bash
@@ -842,15 +842,21 @@ help
 
 **Note: To stop the logging, a reboot is needed**
 
-As miljonka finished the .exe to include mailing the keylogs to a email address, i also edited the current .ps1 to include the same function.    
+We wanted to try few different kind of approaches to keylogging, and [miljonka](https://github.com/therealhalonen/PhishSticks/blob/master/notes/rajala/notes.md#24102023) came up with Python based one, which he converted to .exe and ran flawlessly bypassing the Windows security!
+
+As miljonka finished the .exe payload to include mailing the keylogs to email address, i also edited the current .ps1 to include the same function.    
 Source:    
 https://github.com/SriRam-Macha/DigiSpark-Keylogger-Payload/blob/master/Keystrokes%20Mailer%20Script.ps1
 
-Finished:   
+Finished:    
 [helper2.ps1](notes_res/helper2.ps1)  
 
 Working:   
 ![](notes_res/notes-%2012.png)
 
+[Demo]()
+
 **Todo:**   
-Sending the keypresses as POST requests to server
+*Sending the keypresses as POST requests to server?*
+
+---
