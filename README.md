@@ -1,6 +1,7 @@
 Always consider the local laws and ethical ramifications when doing pentesting
 
 Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
+
 ---
 
 ### [Week 41](notes/week41.md)
