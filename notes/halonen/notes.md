@@ -802,8 +802,8 @@ https://github.com/JoelGMSec/Invoke-Stealth
 And the guide/help:   
 https://darkbyte.net/ofuscando-scripts-de-powershell-con-invoke-stealth/
 
-I made a little testing lab thing to my Kali:
-![](notes-%209.png)
+I made a little testing lab thing to my Kali:   
+![](notes_res/notes-%209.png)
 
 So:   
 1. I used the Invoke-Stealth in powershell to obfuscate the `maltsu.ps1` with ReverseB64
@@ -813,12 +813,12 @@ So:
 Full obfuscated payload:
 [maltsu.ps1](notes_res/maltsu.ps1)
 
-Execution from Victim:   
+Execution from Victim:    
 ![](notes_res/notes-%2010.png)
 
 **And Profit!**
 
-![](notes-%2011.png)
+![](notes_res/notes-%2011.png)
 
 1. Download the payload from attacker and execute it.
 2. Go to a browser and type something.
