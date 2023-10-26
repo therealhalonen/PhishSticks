@@ -4,6 +4,30 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 ---
 
+### [Week 43](notes/week43.md)
+
+![data sent via http post](notes/ollikainen/images/w43_0.png)
+
+#### Living in the fast lane
+
+The week has barely started and we have a working keylogger script. No. Scratch that. We have **two**. We worked around the issues [sawulohi](https://github.com/sawulohi/) faced last week by switching platforms from Windows to Linux, and made some changes to the source material.
+
+[miljonka](https://github.com/miljonka/) used [a python script that sends the logged data via email to the attacker](notes/rajala/notes.md#24102023)
+
+[therealhalonen](https://github.com/therealhalonen/) chose to [obfuscate his powershell script with base64](notes/halonen/notes.md#24102023), and to send the data via [a HTTP POST](notes/halonen/notes.md#26102023).
+
+**Both methods bypass Windows Defender**
+
+#### Should you use a HTTP POST or email when sending your keylogger data?
+
+Obviously we need to make a choice between the two methods. The team pondered between the pros and cons between the two. Here's a brief summary of our thoughts.
+
+| email | HTTP POST |
+| --- | --- |
+|  - easier to implement (using existing services) |  - difficult to implement |
+|  - gives away more info about the attacker |  - gives some info, but not as much |
+---
+
 ### [Week 41](notes/week41.md)
 
 #### Oneliners make you cooler (and you run faster too!)
