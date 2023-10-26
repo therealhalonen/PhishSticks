@@ -10,7 +10,7 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 #### Living in the fast lane
 
-The week has barely started and we have a working keylogger script. No. Scratch that. We have **two**. We worked around the issues [sawulohi](https://github.com/sawulohi/) faced last week by switching platforms from Windows to Linux, and made some changes to the source material.
+The week has barely started and we have a working keylogger script. No. Scratch that. We have **two**. We worked around the issues [sawulohi](https://github.com/sawulohi/) faced last week by switching platforms from Windows to Linux, and made some changes to the source material. Namely, having comments or variables that contain something about keylogging is bad (or at least Windows Defender likes to think so). 
 
 [miljonka](https://github.com/miljonka/) used [a python script that sends the logged data via email to the attacker](notes/rajala/notes.md#24102023)
 
@@ -27,6 +27,10 @@ Obviously we need to make a choice between the two methods. The team pondered be
 | + easier to implement (using existing services) | - difficult to implement |
 | - more difficult to implement encryption | + easier to implement encryption |
 | - gives away more info about the attacker | + gives some info, but not as much |
+| - trackable traffic | - trackable traffic |
+
+We are moving on with using HTTP POST for now, but will consult [Tero](https://terokarvinen.com/) about the subject too.
+
 ---
 
 ### [Week 41](notes/week41.md)
