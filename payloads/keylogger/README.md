@@ -1,0 +1,1 @@
+This is a python keylogger that sends the logged data to the email provided every 60 seconds.
