@@ -1044,7 +1044,11 @@ And while opening it through gui:
 **So that should be settled!**   
 
 Finalized files (for now anyway):   
+Had to do slight editing to make the loop work and not fail if the file doesnt exists, meaning if there where no keypresses.   
+Now it just keeps rolling until the amount of loop is done that is assigned.   
+
 *keylogger and everything related, is renamed to helper, to avoid any detections*    
+
 Server:   
 [webhook](/scripts/webhook/webhook)   
 Keylogger scripts:   

