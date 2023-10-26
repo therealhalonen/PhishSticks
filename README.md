@@ -24,8 +24,9 @@ Obviously we need to make a choice between the two methods. The team pondered be
 
 | email | HTTP POST |
 | --- | --- |
-|  - easier to implement (using existing services) |  - difficult to implement |
-|  - gives away more info about the attacker |  - gives some info, but not as much |
+| + easier to implement (using existing services) | - difficult to implement |
+| - more difficult to implement encryption | + easier to implement encryption |
+| - gives away more info about the attacker | + gives some info, but not as much |
 ---
 
 ### [Week 41](notes/week41.md)
