@@ -8,7 +8,11 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 #### End of the (working) week update
 
-[therealhalonen](https://github.com/therealhalonen/) has honed his keylogger payload to log keypresses for a minute, send the log file to the attackers server via http POST and then delete the local log file, then rinse and repeat (you can manually set how many times the script is ran on [row 1 of the powershell script](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog_ps/helper_post.ps1)). We still need to work on making the payload(s) stickier (run at startup? other means?) and stealthier ([LOLBAS?](https://lolbas-project.github.io/#)). There is also a possibility of needing to further obfuscate the code in different places, and the needs should arise when further testing is done.
+![öö äää my password is rootsssss](notes/halonen/notes_res/notes-%2026.png)
+
+[therealhalonen](https://github.com/therealhalonen/) has honed his keylogger payload to log keypresses for a minute, send the log file to the attackers server via http POST and then delete the local log file, then rinse and repeat (you can manually set how many times the script is ran on [row 1 of the powershell script](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog_ps/helper_post.ps1)).
+
+We still need to work on making the payload(s) stickier (run at startup? other means?) and stealthier ([LOLBAS?](https://lolbas-project.github.io/#)). There is also a possibility of needing to further obfuscate the code in different places, and the needs should arise when further testing is done.
 
 ![data sent via http post](notes/ollikainen/images/w43_0.png)
 

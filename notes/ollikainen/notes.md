@@ -417,3 +417,8 @@ This week has been mainly managing stuff, since [therealhalonen](https://github.
     - Testing, lots of testing
     - How to protect yourself/ your organization against attacks like this?
     - Actual written report of the project
+
+I also need to remember to do the following tasks:
+  - Comment the code at least on (near) finalized work, and ask the team to clarify points I'm not sure on
+  - Mitigations for the vagrantfile need to be written up
+  - Update the YouTube page & finish writing up the rest of the README:s for the Git repo
