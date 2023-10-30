@@ -10,9 +10,9 @@ Week 42 was skipped due to autumn holiday. This week we recapped the work done p
     - Clarify the concept
     - Clarify the actual technical operation
     - Consider implications of making a HTTP-POST vs. sending the data via e-mail
-~~  - Consider other hardware if the team wants to make a hardware keylogger
-    - Digispark probably does not have the capabilities on its own
-    - ESP32? Other boards? Stealth implications of those boards? ~~ (The team decided to focus on the Digispark due to time, complexity and budget reasons)
+~~  - Consider other hardware if the team wants to make a hardware keylogger ~~
+~~    - Digispark probably does not have the capabilities on its own~~
+~~    - ESP32? Other boards? Stealth implications of those boards? ~~ (The team decided to focus on the Digispark due to time, complexity and budget reasons)
 
 ### Other stuff
 

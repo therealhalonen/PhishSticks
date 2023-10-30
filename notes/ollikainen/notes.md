@@ -396,3 +396,24 @@ Operation did not complete successfully because the file contains a virus or pot
 ```
 
 Quick googling around the subject suggested that the problem might be due to Windows Defender or other whitelisting issues, but no workarounds were found that I was willing to try (turning off Windows Defender & firewalls etc.). I will try to bypass these problems by moving onto a Linux based system for code uploads.
+
+---
+
+# Week 43
+
+This week has been mainly managing stuff, since [therealhalonen](https://github.com/therealhalonen/) and [miljonka](https://github.com/miljonka/) made such fast progress on the keylogger this week. This is where having two technical experts is starting to shine, since we already have two branches of keyloggers to work with within a week of work.
+
+## Management
+
+  - Cleaning up the repository and made some placeholder README:s to clarify usage and purpose of different parts of the project
+  - Need to make the YouTube naming policy clearer and more alluring, ie. Ethical Hacking with Digispark - ransomware demo!
+    - Also need to consider having the demos made with commentary & slowed down execution of the payloads
+  - Rough planning/discussion on reporting the end results of the project:
+    - Make two sets of videos for demo purposes, both displaying the installation of the device & running of the payloads
+      - One set of concise (< 1min) videos detailing the concept -> use cases -> capabilities
+      - One set of humoristic videos (< 5min) showcasing a possible use case (and have it include )
+  - Consulting the team on which keylogger version we plan to use
+  - Consulting the team on the final steps of the project
+    - Testing, lots of testing
+    - How to protect yourself/ your organization against attacks like this?
+    - Actual written report of the project
