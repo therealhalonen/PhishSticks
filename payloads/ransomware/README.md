@@ -1,3 +1,7 @@
+
+![bio](https://github.com/therealhalonen/PhishSticks/assets/112076418/8e7f742d-bdc4-41d0-9aaa-8a6493df29f7)
+
+
 **EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!**
 
 **Version 1.0**
