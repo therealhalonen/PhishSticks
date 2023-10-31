@@ -1,1 +1,5 @@
-This is a python keylogger that sends the logged data to the email provided every 60 seconds.
+# Two different keylogger payloads
+
+## Powershell script that exfiltrates data via HTTP POST
+
+## Python script that exfiltrates data via SMPT (email)
