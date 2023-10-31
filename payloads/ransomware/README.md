@@ -1,8 +1,12 @@
-EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!
+**EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!**
 
-Version 1.0
+**Version 1.0**
+
+## What it is 
 
 Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in given directory. Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla). 
+
+## How to use
 
 Run the script or .exe file inside a safe folder with no important files (incase something goes wrong) to launch the program and enjoy
 
@@ -13,6 +17,8 @@ $ ./encrypt.py
 How it works: https://www.youtube.com/watch?v=glqK_-qdDkw
 
 Executable version works the same without needing different python libraries.
+
+---
 
 ### To setup Digispark payload:
 - [Setup Digispark](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#digispark)
