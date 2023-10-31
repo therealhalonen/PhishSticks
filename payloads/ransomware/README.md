@@ -2,7 +2,7 @@ EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!
 
 Version 1.0
 
-Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'}. Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla). 
+Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in given directory. Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla). 
 
 Run the script inside a safe folder with no important files (incase something goes wrong) to launch the program and enjoy
 
@@ -22,6 +22,6 @@ Executable version works the same without needing different python libraries.
 - compile and upload [digispark_ransomware.ino](https://github.com/therealhalonen/PhishSticks/blob/master/digispark/digispark_ransomware/digispark_ransomware.ino) to your digispark
 - Plug the Digispark in a computers USB slot and enjoy
   
-![2023-10-10_15-53](https://github.com/therealhalonen/PhishSticks/assets/112076418/7a115eda-c021-422e-a34b-2a1b55e47158)
+![2023-10-31_12-24](https://github.com/therealhalonen/PhishSticks/assets/112076418/490686db-b5c4-4c00-9f7f-bc3006bd742b)
 
 Watch the video to see it in action: https://www.youtube.com/watch?v=Bi2QOMSHeKI
