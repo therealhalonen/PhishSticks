@@ -1,7 +1,5 @@
 **EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!**
 # Web server with Flask
-
-## What it is? What it does?
 Simple python script, to launch a web server which takes POST requests.
 
 ## How to use:
