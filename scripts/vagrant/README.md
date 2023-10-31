@@ -3,8 +3,6 @@
 File for using Windows 10:  
 https://app.vagrantup.com/gusztavvargadr/boxes/windows-10   
 With few personal settings.
-
----
 ## Features
 
 - Enables UAC
