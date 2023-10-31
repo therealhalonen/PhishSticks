@@ -2,9 +2,8 @@
 # Web server with Flask
 
 ## What it is? What it does?
-Simple python script, to host a web server which takes POST requests.
+Simple python script, to launch a web server which takes POST requests.
 
----
 ## How to use:
 
 - Download the file `webhook`
@@ -13,8 +12,8 @@ Simple python script, to host a web server which takes POST requests.
 - Run `./webhook`
 **Profit!**   
 Webhook is now running, in `/server` endpoint.
-
 ---
+
 ### Commented code:
 
 ```python
