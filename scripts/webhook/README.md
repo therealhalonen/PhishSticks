@@ -1,0 +1,1 @@
+A simple Flask webhook for listening keylogger data via HTTP POST. Change the attacker address on line 20 as needed.
