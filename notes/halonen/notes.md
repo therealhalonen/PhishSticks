@@ -1056,7 +1056,6 @@ Keylogger scripts:
 *Not obfuscated for now. But that process is explained before and will be implemented whenever needed.*
 
 ---
-
 ### 31.10.2023
 *Execution policies*
 
@@ -1072,8 +1071,7 @@ Luckily (for us...) Windows let's user to change the CurrentUser policy to Bypas
 Set-ExecutionPolicy Bypass -Scope CurrentUser
 ```
 
-Or for a single run 
-
+Or for a single run:   
 ```
 powershell -ExecutionPolicy Bypass \PATH\TO\SCRIPT.ps1
 ```
@@ -1094,3 +1092,5 @@ And updated the file:
 [digispark_keylog.ino](https://github.com/therealhalonen/PhishSticks/commit/3b344965f29c275a46f313c8dded384b7144c329)
 
 [Demo video]()
+
+---
