@@ -19,3 +19,10 @@ Calls the attacker, using downloaded `nc64.exe` and opens up a powershell access
 
 - Plug in to victim machine
 - **PROFIT!**
+---
+**Note:**   
+Folders:   
+- [exp](https://github.com/therealhalonen/PhishSticks/tree/master/digispark/digispark_revshell/exp)
+	- Contains experimental stuff, to open up the Powershell from victim as Admin user for attacker to get "instant roots"
+- [old](https://github.com/therealhalonen/PhishSticks/tree/master/digispark/digispark_revshell/old) 
+	- One of the first drafts to initially getting the reverse shell to work
