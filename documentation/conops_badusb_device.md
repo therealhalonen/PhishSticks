@@ -7,7 +7,7 @@ Physical devices may bypass some cybersecurity measures, since in some cases det
 ### BadUSB & Cyber Kill Chain
 When considering BadUSB through the lens of the [Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html), it lands somewhere throughout the following stages:
 
-  1.~~ Reconnaissance ~~ BadUSB does not get involved in the reconnaissance stage of the Cyber Kill Chain (other than when planning for stage 2 - Weaponization).
+  1. ~~ Reconnaissance ~~ BadUSB does not get involved in the reconnaissance stage of the Cyber Kill Chain (other than when planning for stage 2 - Weaponization).
   2. Weaponization - A BadUSB device can be considered as an attack tool when you know that you can deliver your payloads physically. Physical access to the target is required. Also, BadUSB is always combined with a suitable payload that it delivers.
   3. Delivery - This on is pretty self-explanatory. A BadUSB device is a tool designed for delivering a payload.
   4. Exploitation - BadUSB exploits work on systems that have possibly overlooked the possibility of a physical attack on the system. The vulnerability itself is an unguarded USB-port. Other vulnerabilities exploited 
