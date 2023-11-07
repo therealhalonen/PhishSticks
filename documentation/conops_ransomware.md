@@ -1,5 +1,5 @@
 # Ransomware
-Ransomware is a malware that begins by infecting devices or networks via malicious links, email attachments, or exploiting software vulnerabilities. Once infected, it encrypts files by using cryptography, making files unreadable without a decryption key. A ransom note/popup window appears, demanding a payment for the key.  If the victim pays, they expect to get a decryption key to decrypt and get the files back. However, paying doesn't guarantee file recovery or prevent future attacks. 
+Ransomware is a malware that begins by infecting devices or networks via malicious links, email attachments, or exploiting software vulnerabilities. Once infected, it encrypts files by using cryptography, making files unreadable without a decryption key. A ransom note/popup window then appears, demanding a payment for the key.  If the victim pays, they expect to get a decryption key to decrypt and get the files back. However, paying doesn't guarantee file recovery or prevent future attacks. 
 
 ### X & Cyber Kill Chain
 - The thing as a part of Cyber kill chain
