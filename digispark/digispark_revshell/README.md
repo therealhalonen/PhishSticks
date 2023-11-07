@@ -1,6 +1,6 @@
 **EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!**
 # Digispark - Reverse shell, Windows 10
-For more details, see our documentations: []()
+For more details, see our [documentations](/documentation/conops_reverse_shell.md).
 
 Opens up Run in Windows.    
 Using keystroke injections, downloads `nc64.exe` from:    
