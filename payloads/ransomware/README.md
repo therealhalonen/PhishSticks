@@ -8,6 +8,8 @@
 
 Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in given directory. Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla). 
 
+![270753154-8fb9e882-b990-48cd-add6-309dd09af3be](https://github.com/therealhalonen/PhishSticks/assets/112076418/bee3e9ec-499b-4a0e-af8b-fc5e2c04b4ea)
+
 ## How to use
 
 Download and run the script or .exe file inside a safe folder with no important files (incase something goes wrong) to launch the program and enjoy
