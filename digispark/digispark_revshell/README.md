@@ -22,7 +22,7 @@ Calls the attacker, using downloaded `nc64.exe` and opens up a powershell access
 ---
 **Note:**   
 Folders:   
-- [experimental](https://github.com/therealhalonen/PhishSticks/tree/master/digispark/digispark_revshell/exp)
+- [experimental](https://github.com/therealhalonen/PhishSticks/tree/master/digispark/digispark_revshell/experimental)
 	- Contains experimental stuff, to open up the Powershell from victim as Admin user for attacker to get "instant roots"
 - [old](https://github.com/therealhalonen/PhishSticks/tree/master/digispark/digispark_revshell/old) 
 	- One of the first drafts to initially getting the reverse shell to work
