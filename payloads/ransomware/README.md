@@ -6,7 +6,11 @@
 
 ## What it is 
 
-Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in given directory. Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla). 
+Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in the directory it is ran in.
+
+If combined with the PowerShell script below (or with the Digispark .ino file), the folder encrypted by default is `\[USER]\Documents\` 
+
+Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla).
 
 ![270753154-8fb9e882-b990-48cd-add6-309dd09af3be](https://github.com/therealhalonen/PhishSticks/assets/112076418/bee3e9ec-499b-4a0e-af8b-fc5e2c04b4ea)
 
@@ -30,8 +34,8 @@ Executable version works the same without needing different python libraries.
 
 ---
 
-### To setup Digispark payload:
-- [Setup Digispark](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#digispark)
+### To set up Digispark payload:
+- [Set up Digispark](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md#digispark)
 - Add correct Digikeyboard library to match your systems keyboard layout for example [DigiKeyboardFi.h](https://github.com/therealhalonen/DigiKeyboardFi/blob/master/DigiKeyboardFi.h) for Finnish keyboards (made by [therealhalonen](https://github.com/therealhalonen))
 - Path of the file for Windows: C:/Users/username/Documents/Arduino/libraries/DigisparkKeyboard/DigiKeyboardFi.h
 - Path of the file for Linux: ~/.arduino15/packages/digistump/hardware/avr/1.6.7/libraries/DigisparkKeyboard/DigiKeyboardFi.h
