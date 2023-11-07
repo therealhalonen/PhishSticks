@@ -8,7 +8,7 @@
 
 Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in the directory it is ran in.
 
-If combined with the PowerShell script below (or with the Digispark .ino file), the folder encrypted by default is `\[USER]\Documents\` 
+If combined with the PowerShell script below (or with the Digispark .ino file), the application gets downloaded and executed by default in path `{USER}\Documents\` 
 
 Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla).
 
