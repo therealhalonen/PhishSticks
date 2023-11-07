@@ -4,6 +4,18 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 ---
 
+### [Week 44](notes/week44.md)
+
+#### A new [Youtube video](https://www.youtube.com/watch?v=XZkK8vzhyMw) just dropped!
+
+In this video [therealhalonen](https://github.com/therealhalonen/) shows a brief physical demo of our latest version of the keylogger payload in action!
+
+![new yt video](notes/ollikainen/images/w44_0.png)
+
+Go check it out now! [https://www.youtube.com/watch?v=XZkK8vzhyMw](https://www.youtube.com/watch?v=XZkK8vzhyMw)
+
+---
+
 ### [Week 43](notes/week43.md)
 
 #### End of the (working) week update
