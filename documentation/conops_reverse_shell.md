@@ -6,24 +6,46 @@ Shell session vs Reverse Shell:
 
 Reverse shells are favored by attackers for their stealthy nature. Since the connection is initiated from the inside, it can be challenging for security tools to detect or block these connections, making them an attractive option for malicious actors.
 
-### X & Cyber Kill Chain
-- The thing as a part of Cyber kill chain
-	- Which part of Cyber Kill Chain is it used?
+### Reverse shell & Cyber Kill Chain
+6. Command & Control: 
+	- As reverse shell acts as a communication channel for the attacker to interact with the system, it allows attacker to maintain control over the compromised system, enabling them to execute commands, exfiltrate data, or even move laterally within the system.
+7. Actions on objectives
+	- While more persistent foothold can be received, if system's crucial flaws are identified, the reverse shell allows to escalate privileges and therefor gives possibility to attackers to achieve their main objectives, whether it is theft, manipulations, or other malicious actions in the victim system.
+
 
 ### How does it work
-- Technically
+Our implementation of reverse shell, works in a process, where USB connected device acts as a dropper for the payload and attacker's device (pc, server, smartphone etc) is listening to incoming connections. 
+- USB device, when plugged in, runs a code, using keystroke injections.
+	- Command includes; opening Windows Run, typing a command, that, using powershell, downloads the netcat binary from a website or server. After download is finished, it executes netcat, and with defined parameters, calls the attacker's device forming a connection that allows attacker to run commands in the compromised system remotely.
 
 ### Potential use cases
-- Where it's used? What it is used FOR? IN OUR PROJECT!
+*In a legitimate context, reverse shells can be used for remote system administration, troubleshooting, and monitoring. It is often related in cybersecurity to hacking and performing malicious activities*
+
+**Overall:**
+Reverse shell overall is a great way for initial, non OS dependent, foothold of systems, including desktops, servers, IoT devices etc.   
+Also what makes it powerfull, is that there are plenty of ways to achieve it for example different code languages and possibly already existing binaries inside the victim's system.
+
+**In our project:**
+Usage of reverse shell in our project, is getting an initial foothold of Windows 10 - Enterprise and Pro edition, desktop operating systems.   
+The privilege escalation, was done experimentally, while not being included in the project scope.   
 
 ### Limitations and restrictions 
-(### Vastuut (tätä on kyl alleviivattu joka kohassa et lakia ei saa rikkoa)) 
-- What its not.
+Reverse shell requires network connection.
+Network connection from victim, could also be denied or prohibited for the user, who as, the commands are run.
+In our project, using the netcat, the binary download could also be denied for the user, as a safety measure, but as we were doing everything with the default settings in the OS, there were no problems.
+
 
 ### Lifecycle
-- From beginning to possible removing or disconnecting etc.
-	- For malware: When it ends?
-	- For USB device: When plugged out or "what happens to usb stick"
+**WIP**
+
+The lifecycle of a reverse shell malware ends when it has achieved its malicious objectives and the attacker decides to disconnect or remove the compromised system.
 
 ### Mitigation 
-- How to defend against.
+In our project and mostly overall starting from:   
+[BadUSB device - Mitigation](/documentation/conops_badusb_device.md#mitigation)   
+
+Defending against reverse shells involves:
+- Using intrusion detection systems to monitor network traffic for suspicious behavior.
+- Using firewalls and network segmentation to restrict unauthorized network connections.
+
+And of course, as always: awareness, proper education and guidance of users.
