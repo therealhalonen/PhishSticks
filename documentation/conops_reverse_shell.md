@@ -21,17 +21,17 @@ Our implementation of reverse shell, works in a process, where USB connected dev
 ### Potential use cases
 *In a legitimate context, reverse shells can be used for remote system administration, troubleshooting, and monitoring. It is often related in cybersecurity to hacking and performing malicious activities*
 
-**Overall:**
+**Overall:**   
 Reverse shell overall is a great way for initial, non OS dependent, foothold of systems, including desktops, servers, IoT devices etc.   
 Also what makes it powerfull, is that there are plenty of ways to achieve it for example different code languages and possibly already existing binaries inside the victim's system.
 
-**In our project:**
+**In our project:**   
 Usage of reverse shell in our project, is getting an initial foothold of Windows 10 - Enterprise and Pro edition, desktop operating systems.   
 The privilege escalation, was done experimentally, while not being included in the project scope.   
 
 ### Limitations and restrictions 
-Reverse shell requires network connection.
-Network connection from victim, could also be denied or prohibited for the user, who as, the commands are run.
+Reverse shell requires network connection.   
+Network connection from victim, could also be denied or prohibited for the user, who as, the commands are run.   
 In our project, using the netcat, the binary download could also be denied for the user, as a safety measure, but as we were doing everything with the default settings in the OS, there were no problems.
 
 
