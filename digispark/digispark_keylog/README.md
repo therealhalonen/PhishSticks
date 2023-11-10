@@ -32,9 +32,3 @@ Currently we are using the [one with the POST request](https://github.com/therea
 - Upload to Digispark
 - Plug in to victim machine
 - **PROFIT!**
-
----
-**Note:**  
-Folder:
-- [old](https://github.com/therealhalonen/PhishSticks/tree/master/digispark/digispark_ransomware/old)
-    - Older draft to initially getting the ransomware with Digispark to work
