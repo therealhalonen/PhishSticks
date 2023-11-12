@@ -36,9 +36,14 @@ In our project, using the netcat, the binary download could also be denied for t
 
 
 ### Lifecycle
-**WIP**
-
-The lifecycle of a reverse shell malware ends when it has achieved its malicious objectives and the attacker decides to disconnect or remove the compromised system.
+In our case, the command and binary, to get Reverse shell to victim device, are delivered with the help of USB device.    
+USB device, needs to be physically attached to the victim, where malicious code will be ran. 
+After the code is ran, the reverse shell connection from victim to attacker is established and attacker will have the session open.   
+The session will not disconnect, if the USB device is unplugged, as it was only needed as so called Dropper for the initial actions to get the shell access.   
+In the session, attacker is able to do everything, the currently logged user, the same user that had logged in, when the code was ran, could do.   
+Also if there are any vulnerabilities in the system to exploit, the attacker can gain more privileged accesses, and do some serious damage.   
+After more enumeration is done or objectives are achieved, attacker can terminate the connection.   
+The connection could also be disconnected from the victim's side, if network is disconnected, or if the malicious activities are identified and terminated.
 
 ### Mitigation 
 In our project and mostly overall starting from:   
