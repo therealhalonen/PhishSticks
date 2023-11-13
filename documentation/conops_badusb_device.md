@@ -13,7 +13,7 @@ When considering BadUSB through the lens of the [Cyber Kill Chain](https://www.l
   4. Exploitation - BadUSB exploits work on systems that have possibly overlooked the possibility of a physical attack on the system. The vulnerability itself is an unguarded USB-port. Other vulnerabilities exploited are handled by the chosen payload.
   5. Installation - The device performs installation of the malware, as well as the execution.
   6. Command & Control - When paired with the reverse shell malware, our BadUSB performs the C2 phase of the chain
-  7. Actions on objectives - When paired with either the ransomware or they keylogger, it can be considered actions on objectives.
+  7. Actions on objectives - If considered with a paired malware, actions on objectives can be performed. In our case this includes all of the three different malwares.
 
 ### How does it work
 - Technically
