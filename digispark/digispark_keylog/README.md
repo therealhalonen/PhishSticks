@@ -23,7 +23,7 @@ Currently we are using the [one with the POST request](https://github.com/therea
 - Edit the script, [with instructions](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/keylogger/keylog_ps#how-to-use-1)
 - Host/serve the script from your preferred location
 	- For example straight from attack device with simple python `python3 -m http.server PORT`
-	- OR using our [simple Flask app](scripts/webhook), that is designed to be used in our testings, with the keylogger.
+	- OR using our [simple Flask app](https://github.com/therealhalonen/PhishSticks/tree/master/scripts/webhook), that is designed to be used in our testings, with the keylogger.
 - Define:
 	-  `DownloadFile('FULL_ADDRESS_WITH_FILENAME'`, the one you are serving the payload from.    
 	- Path, where to download and what to execute (both must be the same):
