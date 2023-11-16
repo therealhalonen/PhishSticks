@@ -1,28 +1,55 @@
 #!/bin/python3
-from flask import Flask, request
+from flask import Flask, request, send_file
 import os
 
 app = Flask(__name__)
 
+# Function to get the next available log number
 def get_next_log_number():
     log_number = 1
     while os.path.exists(f'log-{log_number}.txt'):
         log_number += 1
     return log_number
 
+# Handling POST requests to the '/server' endpoint
 @app.route('/server', methods=['POST'])
-def handle_webhook():
+def handle_webhook_post():
+    # Checking if the request method is POST
     if request.method == 'POST':
+        # Getting the data from the request
         data = request.data
+
+        # Check if the data contains Mac-style line endings
+        if b'\r' in data:
+            # Replace Mac-style line endings with Unix-style line endings
+            data = data.replace(b'\r', b'\n')
+
+        # Getting the next available log number
         log_number = get_next_log_number()
+        # Generating the log filename based on the log number
         log_filename = f'log-{log_number}.txt'
 
-        with open(log_filename, 'w') as file:
-            file.write(data.decode("utf-8"))
+        # Writing the received data to the log file
+        with open(log_filename, 'wb') as file:
+            file.write(data)
 
+        # Returning a response indicating successful receipt and logging of data
         return f"Webhook data received and logged as {log_filename}", 200
     else:
+        # Returning a 501 status code for unsupported methods
         return "Unsupported method", 501
 
+# Handling GET requests to the '/server/<filename>' endpoint
+@app.route('/server/<filename>', methods=['GET'])
+def handle_webhook_get(filename):
+    try:
+        # Sending the specified file as an attachment in the response
+        return send_file(filename, as_attachment=True)
+    except FileNotFoundError:
+        # Returning a 404 status code if the file is not found
+        return "File not found", 404
+
+# Running the Flask app if this script is executed directly
 if __name__ == '__main__':
-    app.run(host='192.168.66.2', port=80)
+    # Configuring the Flask app to run on a specific host and port
+    app.run(host='IP_YOU_WANT_TO_LISTEN', port=PORT_NUMBER)
