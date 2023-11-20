@@ -1457,3 +1457,16 @@ And outcome:
 ![](notes_res/notes-%2033.png)
 
 **Working like it should, again, and for now...**
+
+### 20.11.2023
+*Webhook adjustments*
+
+Made couple of adjustments to our webhook based on the Flask documentations:   
+https://tedboy.github.io/flask/generated/flask.send_file.html    
+*Please never pass filenames to this function from user sources; you should use `send_from_directory()` instead.*
+
+And also little bit of anti-fuzzing to the endpoints.  
+
+
+
+
