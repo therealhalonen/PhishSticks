@@ -68,16 +68,17 @@ This one is quite heavy measures...
 **So this would be effective against our attacks, but also would disable all removable devices.**   
 
 To disable all removable devices via Group Policies, open the Windows search, and type `gpedit.msc` and open.   
-![](Mitigations_res/Mitigations-.png)
+![](Mitigations_res/Mitigations-.png)   
 
 In Local Group Policy Editor:   
 Select: Computer Configurations -> Administrative Templates -> System -> Device Installation -> Device Installation Restrictions -> Prevent installation of removable devices -> Double Click    
 ![](Mitigations_res/Mitigations-%2013.png)    
-![](Mitigations_res/Mitigations-%2014.png)
+![](Mitigations_res/Mitigations-%2014.png)   
+
 Enabled -> Ok
 
 Outcomes when plugging our Digispark device in:    
-![](Mitigations_res/Mitigations-%2011.png)
+![](Mitigations_res/Mitigations-%2011.png)   
 
-![](Mitigations_res/Mitigations-%2012.png)
+![](Mitigations_res/Mitigations-%2012.png)   
 
