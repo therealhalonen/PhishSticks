@@ -1475,4 +1475,8 @@ In a nutshell, what i wanted to test, is
 1. Blocking the Digispark 
 2. Using our previously created [VID, PID, DeviceName and VendorName Changer](https://github.com/therealhalonen/PhishSticks/tree/master/scripts/usbconfig) to bypass the block.
 
+Enabled "Prevent installation of devices that match any of these device instance ID":   
+![](notes_res/notes-%2034.png)
+
+
 **WIP**
