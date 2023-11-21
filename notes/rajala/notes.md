@@ -215,3 +215,11 @@ void loop() {
 }
 ```
 [PROOF](https://www.youtube.com/watch?v=sWYUGl7JiFA)
+
+### 21.11.2023
+
+Back to the reverse shell. After playing with Digispark for so long, I decided to play with the USB reverse shell stuff.
+
+Trying to add some stealth to our previous reveshe shell script, I stumbled across this discussion on [StackOverflow](https://stackoverflow.com/questions/13142603/prevent-vbscript-app-from-showing-console-window) about running cmd commands silently. 
+
+
