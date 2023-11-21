@@ -14,6 +14,10 @@ Stay tuned and
 
 In other news, [therealhalonen](https://github.com/therealhalonen/) has made progress in improving the proof of concept keylogging into [a Flask web server via HTTP post](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md#16112023).
 
+Also, our ransomware is starting to get noticed by ~~senpai~~ Windows Defender... It seems like you can run the Powershell script ONCE, and after the preliminary run, any further attempts get blocked. Some testing cases proved that the malware worked after a restart, but sometimes it didn't? We're working on finding out why.
+
+![](notes/ollikainen/images/w47_2.png)
+
 ---
 
 ### [Week 44](notes/week44.md)
