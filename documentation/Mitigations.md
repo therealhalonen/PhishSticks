@@ -77,7 +77,7 @@ Select: Computer Configurations -> Administrative Templates -> System -> Device 
 Enabled -> Ok
 
 Outcomes when plugging our Digispark device in:    
-![](![](Mitigations_res/Mitigations-%2011.png)
+![](Mitigations_res/Mitigations-%2011.png)
 
 ![](Mitigations_res/Mitigations-%2012.png)
 
