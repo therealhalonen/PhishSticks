@@ -4,6 +4,18 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 ---
 
+### [Week 47](notes/week47.md)
+
+#### Something BIG is coming....
+
+![](notes/ollikainen/images/w47_1.png)
+
+Stay tuned and 
+
+In other news, [therealhalonen](https://github.com/therealhalonen/) has made progress in improving the proof of concept keylogging into [a Flask web server via HTTP post](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md#16112023).
+
+---
+
 ### [Week 44](notes/week44.md)
 
 #### A new [Youtube video](https://www.youtube.com/watch?v=XZkK8vzhyMw) just dropped!
