@@ -1,5 +1,7 @@
 When the Company raport shortcut is clicked, connection is set to download fake raport.txt file and netcat from the attacker. When the downloads are done, raport.txt opens while reverse shell is being cooked in the background.
 
+See it in action: https://www.youtube.com/watch?v=ll4ojo6q-rM
+
 Demo was made using 2 virtual machines:
 
     Kali Linux
