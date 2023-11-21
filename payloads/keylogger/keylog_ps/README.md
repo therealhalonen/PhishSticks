@@ -1,6 +1,10 @@
 **EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!**
 # Powershell - Keylogger scripts
 
+**Original source used for these:   
+https://github.com/SriRam-Macha/DigiSpark-Keylogger-Payload/blob/master/Keystrokes%20Mailer%20Script.ps1**
+
+---
 **Note:**
 *Scripts are renamed from key-logger to "helper", and the mentions about keyloggings are removed from the code itself as we were researching the possibilities to bypass Windows Defender etc. detection's.*
 
