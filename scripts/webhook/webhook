@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Define the working dir to a variable
-WORKING_DIR = os.path.dirname(__file__)
+WORKING_DIR = "data"
 
 # Function to get the next available log number
 def get_next_log_number():
