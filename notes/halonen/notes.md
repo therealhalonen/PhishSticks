@@ -1478,5 +1478,29 @@ In a nutshell, what i wanted to test, is
 Enabled "Prevent installation of devices that match any of these device instance ID":   
 ![](notes_res/notes-%2034.png)
 
+I took the test using:   
+![](notes_res/notes-%2035.png)   
+From:   
+https://devicehunt.com/
 
-**WIP**
+Spoofing:    
+
+```bash
+┌──(sicki🥦parasite)-[~]
+└─$ ./update_usbconfig 0430 0005 'Fujitsu Component Limited' 'Type 6 Keyboard'
+/home/sicki/.arduino15/packages/digistump/hardware/avr/1.6.7/libraries/DigisparkKeyboard/usbconfig.h updated successfully.
+```
+
+Uploading the stuff to Digispark:   
+![](notes_res/notes-%2036.png)
+
+
+And when plugged in to victim, that has the Digispark blocked by PID and VID:   
+![](notes_res/notes-%2037.png)
+
+![](notes_res/notes-%2038.png)
+
+![](notes_res/notes-%2039.png)
+
+**Boom! Working!**
+
