@@ -220,7 +220,7 @@ void loop() {
 
 Back to the reverse shell. After playing with Digispark for so long, I decided to play with the USB reverse shell stuff.
 
-Trying to add some stealth to our previous reveshe shell script, I first tried some powershell variations of the code, but the terminal window still kept flashing briefly on the screen, which I wasnt happy about. Moving on!
+Trying to add some stealth to our [previous](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/revshell_demo) reverse shell script, I first tried some powershell variations of the code, but the terminal window still kept flashing briefly on the screen, which I wasnt happy about. Moving on!
 
 I stumbled across this discussion on [StackOverflow](https://stackoverflow.com/questions/13142603/prevent-vbscript-app-from-showing-console-window) about running cmd commands silently. With VBScript it is possible to execute multiple commands, so I had an idea to include a fake report.txt file to be downloadead along with netcat while opening up the company report file.
 
