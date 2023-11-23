@@ -46,6 +46,7 @@ Set objFSO = Nothing
 Set objShell = Nothing
 ```
 
-Both Virtual Machines were assigned to the same internal network, and the IP-address of the attacker machine was placed as a static in the payload command.
+Both Virtual Machines were assigned to the same internal network, and the IP-address of the attacker machine was placed as a static in the payload command. Attacker machine was set to host raport.txt & nc64.exe  and open up netcat listener:
 
+![2023-11-23_10-54](https://github.com/therealhalonen/PhishSticks/assets/112076418/3e9ea4b2-4ff3-4798-90d6-3dc368e22d44)
 
