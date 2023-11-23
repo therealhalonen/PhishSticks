@@ -42,3 +42,36 @@ Accept the license agreement. Select Custom install, as we shouldn't have an ear
 
 The installer will ask about the disk you want to install Windows in. Your virtual hard drive should be the only option here, so select it and proceed to install. The installation will take a while, so go make a cup of coffee or do something else as it installs.
 
+---
+
+After a while, Windows will start asking you (intrusive) questions about your region, your keyboard layout (again), secondary keyboard layout (skip if you selected the layout you have on your keyboard)
+
+![](images/win_8.png)
+
+Windows will ask for a Microsoft account to login with. Instead we're selecting 'domain login'.
+
+![](images/win_9.png)
+
+![](images/win_10.png)
+
+Select a secure password after these steps -> Set security questions & answers. Afterwards Windows will continue with intrusive questions on your location and using your data. Select options as you see fit (I chose to opt out and to send the least amount of diagnostics/advertisement data etc.). After these steps, theres some more waiting:
+
+![](images/win_11.png)
+
+It actually took only ~2 minutes for me, and Windows was installed!
+
+![](images/win_12.png)
+
+---
+
+## Set your Windows to the same network as your attacker
+
+Open up the settings for your Windows virtual machine -> Network -> Attach the network adapter to the same host-only connection you have your attacking machine on. For me it was VirtualBox Host-Only Ethernet Adapter #3
+
+![](images/win_13.png)
+
+Restart your Windows machine, and test the connectivity by pinging your virtual router `ping 192.168.66.1`. I also pinged between the attacker and the target. The Windows machine could ping my Kali attacker, but my attacking machine could not ping Windows. This could be due to Windows security settings.
+
+![](images/win_14.png)
+
+Your test lab should now be ready to go!
