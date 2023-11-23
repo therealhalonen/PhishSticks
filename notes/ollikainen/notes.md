@@ -506,3 +506,5 @@ PS C:\Users\uhrilammas\Documents\This is a USB stick\payload>
 To ensure that I had an actual connection formed, I made a folder in the directory I was in:
 
 ![](images/w47_12.png)
+
+Success!
