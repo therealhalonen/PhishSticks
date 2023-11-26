@@ -6,6 +6,14 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 ### [Week 47](notes/week47.md)
 
+#### Want to defend against our attacks?
+
+![](documentation/Mitigations_res/Mitigations-%204.png)
+
+It's now easy to block our attacks, just head to our [mitigations page](documentation/Mitigations.md)! We looked for a few ways of blocking our attack, and found a few nice ways to block wider attacks while doing so. For example you could [stop outgoing connections from powershell](documentation/Mitigations.md#block-powershell-from-windows-firewall) to stop the attack right on its tracks. Or if you know you're in danger of losing important files to a ransomware attack, Windows has [a built in setting](documentation/Mitigations.md#ransomware-protection---controlled-folder-access) that is not on by default!
+
+![](documentation/Mitigations_res/Mitigations-%209.png)
+
 #### Something BIG is coming....
 
 ![](notes/ollikainen/images/w47_1.png)
