@@ -18,7 +18,7 @@ It's now easy to block our attacks, just head to our [mitigations page](document
 
 ![](notes/ollikainen/images/w47_1.png)
 
-Stay tuned and 
+Stay tuned and-
 
 In other news, [therealhalonen](https://github.com/therealhalonen/) has made progress in improving the proof of concept keylogging into [a Flask web server via HTTP post](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md#16112023).
 
