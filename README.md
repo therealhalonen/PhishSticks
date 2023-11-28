@@ -4,6 +4,18 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 ---
 
+### [Week 48](notes/week48.md)
+
+![w48_0](https://github.com/therealhalonen/PhishSticks/assets/117188828/b8cdf065-6295-4493-926d-527233786787)
+
+# A new video dropped!
+
+We made [an informative video](https://www.youtube.com/watch?v=bDzVevtZiWE) of a possible use case for PhishSticks. If you were unsure of how our project works, or if it works, this video should explain things quite clearly.
+
+In other news, we were invited to present our project (in its current state) to our fellow students  in an actual lecture held by [Tero Karvinen on his Penetration Testing course](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/#aikataulu)! (Fun fact: Juho "whois" Jauhiainen was the warm-up act for us. Yes, really.)
+
+---
+
 ### [Week 47](notes/week47.md)
 
 #### Want to defend against our attacks?
