@@ -1,4 +1,5 @@
-**EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!**
+**EDUCATIONAL USE ONLY, USE AT YOUR OWN RISK!** \
+**IT IS ALWAYS RECOMMENDED TO TEST THESE KINDS OF PROGRAMS INSIDE A VIRTUAL MACHINE WITH NO SENSITIVE INFORMATION INCASE OF SOMETHING GOES WRONG**
 
 **Version 1.0**
 
@@ -16,9 +17,11 @@ Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files w
 
 ## How to use
 
-Download and run the script or .exe file inside a safe folder with no important files (incase something goes wrong) to launch the program and enjoy
+Download and run the script or .exe file inside a safe folder with no important files (incase something goes wrong) to launch the program and enjoy, for example:
 
 ```
+$ mkdir TestTarget
+$ cd TestTarget
 $ ./encrypt.py
 ```
 OR
