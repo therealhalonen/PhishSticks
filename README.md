@@ -6,7 +6,7 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 ### [Week 48](notes/week48.md)
 
-![w48_0](https://github.com/therealhalonen/PhishSticks/assets/117188828/b8cdf065-6295-4493-926d-527233786787)
+[![w48_0](https://github.com/therealhalonen/PhishSticks/assets/117188828/b8cdf065-6295-4493-926d-527233786787)](https://www.youtube.com/watch?v=bDzVevtZiWE)
 
 # A new video dropped!
 
