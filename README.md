@@ -4,6 +4,16 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 ---
 
+### [Week 48 - Quick update](notes/week48.md)
+
+# We presented our video at a [HelSec meetup](https://helsec.fi/)!
+
+![](notes/ollikainen/images/w48_0.png)
+
+[therealhalonen](https://github.com/therealhalonen/) managed to score the last time slot in HelSec meetups Flashtalks!
+
+You know what they say, only the first and last are remembered. Our video got a good response from the participating crowd!
+
 ### [Week 48](notes/week48.md)
 
 [![w48_0](https://github.com/therealhalonen/PhishSticks/assets/117188828/b8cdf065-6295-4493-926d-527233786787)](https://www.youtube.com/watch?v=bDzVevtZiWE)
