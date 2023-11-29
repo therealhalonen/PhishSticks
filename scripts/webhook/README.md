@@ -107,4 +107,5 @@ With Nginx and Gunicorn:
 With Apache:   
 [Tero Karvinen - Deploy Python Flask to Production](https://terokarvinen.com/2020/deploy-python-flask-to-production/)
 
-
+**Also noteworthy is the docker implementation of this flask server, which is slightly edited though, for future improvement and development:**   
+[Docker Flask Server](https://github.com/therealhalonen/docker_flask_server)
