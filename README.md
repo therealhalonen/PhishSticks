@@ -4,16 +4,6 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 
 ---
 
-### [Week 48 - Quick update](notes/week48.md)
-
-# We presented our video at a [HelSec meetup](https://helsec.fi/)!
-
-![](notes/ollikainen/images/w48_0.png)
-
-[therealhalonen](https://github.com/therealhalonen/) managed to score the last time slot in HelSec meetups Flashtalks!
-
-You know what they say, only the first and last are remembered. Our video got a good response from the participating crowd!
-
 ### [Week 48](notes/week48.md)
 
 [![w48_0](https://github.com/therealhalonen/PhishSticks/assets/117188828/b8cdf065-6295-4493-926d-527233786787)](https://www.youtube.com/watch?v=bDzVevtZiWE)
@@ -23,6 +13,17 @@ You know what they say, only the first and last are remembered. Our video got a 
 We made [an informative video](https://www.youtube.com/watch?v=bDzVevtZiWE) of a possible use case for PhishSticks. If you were unsure of how our project works, or if it works, this video should explain things quite clearly.
 
 In other news, we were invited to present our project (in its current state) to our fellow students  in an actual lecture held by [Tero Karvinen on his Penetration Testing course](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/#aikataulu)! (Fun fact: Juho "whois" Jauhiainen was the warm-up act for us. Yes, really.)
+
+#### Quick update
+
+# We presented our video at a [HelSec meetup](https://helsec.fi/)!
+
+![](notes/ollikainen/images/w48_0.png)
+
+[therealhalonen](https://github.com/therealhalonen/) managed to score the last time slot in HelSec meetups Flashtalks!
+
+You know what they say, only the first and last are remembered. Our video got a good response from the participating crowd!
+
 
 ---
 
