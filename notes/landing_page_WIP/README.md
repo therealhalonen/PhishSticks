@@ -46,14 +46,14 @@ Thank you for your interest in our work!
 
 ## Contact
 
-Antti Halonen: 
-- [LinkedIn]()
-- [Github]()
-Jari-Pekka Ollikainen:
-- [LinkedIn]()
-- [Github]()
-Miika Rajala:
-- [LinkedIn]()
-- [Github]()
+**Antti Halonen:**    
+- [LinkedIn]()   
+- [Github]()   
+**Jari-Pekka Ollikainen:**   
+- [LinkedIn]()   
+**- [Github]()   
+Miika Rajala:**   
+- [LinkedIn]()   
+- [Github]()   
 
 [PhishSticks Youtube again?]()
