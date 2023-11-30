@@ -14,6 +14,17 @@ We made [an informative video](https://www.youtube.com/watch?v=bDzVevtZiWE) of a
 
 In other news, we were invited to present our project (in its current state) to our fellow students  in an actual lecture held by [Tero Karvinen on his Penetration Testing course](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/#aikataulu)! (Fun fact: Juho "whois" Jauhiainen was the warm-up act for us. Yes, really.)
 
+#### Quick update
+
+# We presented our video at a [HelSec meetup](https://helsec.fi/)!
+
+![](notes/ollikainen/images/w48_0.png)
+
+[therealhalonen](https://github.com/therealhalonen/) managed to score the last time slot in HelSec meetups Flashtalks!
+
+You know what they say, only the first and last are remembered. Our video got a good response from the participating crowd!
+
+
 ---
 
 ### [Week 47](notes/week47.md)

