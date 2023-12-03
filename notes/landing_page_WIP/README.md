@@ -6,6 +6,10 @@ Always consider the local laws and ethical ramifications when doing pentesting
 Simulated BadUSB dropper/sideloader, designed with three different payloads.   
 Created and tested in safe computer lab environment by three future cyber security professionals.    
 
+
+<img src="https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/images/w40_5.png" width=50% height=50%>
+
+
 **YouTube:** [@phishsticks_pentest](https://www.youtube.com/@phishsticks_pentest/videos)   
 [![](http://img.youtube.com/vi/bDzVevtZiWE/0.jpg)](https://www.youtube.com/watch?v=bDzVevtZiWE "PhishSticks - The Ethical Hackers tool for BadUSB")
 
