@@ -35,13 +35,15 @@ In our journey to explore and enhance our skills, we have collaborated on a uniq
 
 - **BadUSB Simulation:** Our project emulates the behavior of a BadUSB device, demonstrating potential security risks associated with USB attacks.
 
-- **Diverse Payloads:** We have crafted three different payloads, each highlighting the versatility and potential impact of BadUSB attacks. These payloads serve as educational tools, helping users understand the intricacies of such threats.
+- **Diverse Payloads:** We have crafted [three different payloads](/payloads/), each highlighting the versatility and potential impact of BadUSB attacks. These payloads serve as educational tools, helping users understand the intricacies of such threats.
+
+- **Working with [Digispark](http://digistump.com/products/1):** Digispark is a microcontroller development board that functions similiarly to Arduino, but is much smaller. Using this board gave us the capability to act as a HID keyboard, as well as provided some stealthiness due to its size. It can be hidden in a USB stick (or other devices)! Our documentation on Digispark can be found [HERE](/digispark/)!
 
 ### Our Process:
 
 The entire development and testing process took place in a controlled and safe computer lab environment. As future cyber security professionals, we prioritize responsible and ethical exploration of security-related concepts. Our objective is to contribute to the cyber security community by providing insights into the risks associated with USB-based attacks.
 
-Feel free to explore the various sections of this repository to learn more about our project, access the final report, explore mitigations, and get to know the individuals behind this endeavor.
+Feel free to explore the various sections of this repository to learn more about our project, access the [final report](/documentation/final_report.md), explore [mitigations](/documentation/Mitigations.md), and get to know the [individuals behind this endeavor](#contact).
 
 Thank you for your interest in our work!
 
@@ -62,4 +64,4 @@ Thank you for your interest in our work!
 - [Github](https://github.com/miljonka/)   
 
 **Youtube:**   
-[PhishSticks Youtube again?]()
+[PhishSticks Youtube](https://www.youtube.com/@phishsticks_pentest/videos)
