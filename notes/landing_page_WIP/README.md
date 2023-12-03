@@ -3,12 +3,10 @@
 
 Always consider the local laws and ethical ramifications when doing pentesting
 
+![](/notes/ollikainen/images/ps_sidebyside.png)
+
 Simulated BadUSB dropper/sideloader, designed with three different payloads.   
 Created and tested in safe computer lab environment by three future cyber security professionals.    
-
-
-<img src="https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/images/w40_5.png" width=50% height=50%>
-
 
 **YouTube:** [@phishsticks_pentest](https://www.youtube.com/@phishsticks_pentest/videos)   
 [![](http://img.youtube.com/vi/bDzVevtZiWE/0.jpg)](https://www.youtube.com/watch?v=bDzVevtZiWE "PhishSticks - The Ethical Hackers tool for BadUSB")
@@ -43,7 +41,7 @@ In our journey to explore and enhance our skills, we have collaborated on a uniq
 
 The entire development and testing process took place in a controlled and safe computer lab environment. As future cyber security professionals, we prioritize responsible and ethical exploration of security-related concepts. Our objective is to contribute to the cyber security community by providing insights into the risks associated with USB-based attacks.
 
-Feel free to explore the various sections of this repository to learn more about our project, access the final report, explore mitigation's, and get to know the individuals behind this endeavor.
+Feel free to explore the various sections of this repository to learn more about our project, access the final report, explore mitigations, and get to know the individuals behind this endeavor.
 
 Thank you for your interest in our work!
 
@@ -52,16 +50,16 @@ Thank you for your interest in our work!
 ## Contact
 
 **Antti Halonen:**    
-- [LinkedIn]()   
+- [LinkedIn](https://www.linkedin.com/in/antti-halonen-38662a231/)   
 - [Github]()   
 
 **Jari-Pekka Ollikainen:**   
-- [LinkedIn]()   
-- [Github]()   
+- [LinkedIn](https://www.linkedin.com/in/jari-pekka-ollikainen-9ab62a224/)   
+- [Github](https://github.com/sawulohi/)   
 
 **Miika Rajala:**   
-- [LinkedIn]()   
-- [Github]()   
+- [LinkedIn](https://www.linkedin.com/in/miika-rajala-79866224b/)   
+- [Github](https://github.com/miljonka/)   
 
 **Youtube:**   
 [PhishSticks Youtube again?]()
