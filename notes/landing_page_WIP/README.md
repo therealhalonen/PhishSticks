@@ -41,6 +41,8 @@ In our journey to explore and enhance our skills, we have collaborated on a uniq
 
 ### Our Process:
 
+To see how we honed our project throughout weeks 37-48 of 2023, see our [Work Blog](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/MWork_Blog.md)!
+
 The entire development and testing process took place in a controlled and safe computer lab environment. As future cyber security professionals, we prioritize responsible and ethical exploration of security-related concepts. Our objective is to contribute to the cyber security community by providing insights into the risks associated with USB-based attacks.
 
 Feel free to explore the various sections of this repository to learn more about our project, access the [final report](/documentation/final_report.md), explore [mitigations](/documentation/Mitigations.md), and get to know the [individuals behind this endeavor](#contact).
