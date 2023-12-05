@@ -72,7 +72,7 @@ Our YouTube channel: https://www.youtube.com/@phishsticks_pentest/videos
 ---
 
 # Work Blog
-### [Week 48](notes/week48.md)
+### [Week 48](documentation/weekly_reports.md#week-48)
 
 [![w48_0](https://github.com/therealhalonen/PhishSticks/assets/117188828/b8cdf065-6295-4493-926d-527233786787)](https://www.youtube.com/watch?v=bDzVevtZiWE)
 
@@ -95,7 +95,7 @@ You know what they say, only the first and last are remembered. Our video got a 
 
 ---
 
-### [Week 47](notes/week47.md)
+### [Week 47](documentation/weekly_reports.md#week-47)
 
 #### Want to defend against our attacks?
 
@@ -119,7 +119,7 @@ Also, our ransomware is starting to get noticed by ~~senpai~~ Windows Defender..
 
 ---
 
-### [Week 44](notes/week44.md)
+### [Week 44](documentation/weekly_reports.md#week-44)
 
 #### A new [Youtube video](https://www.youtube.com/watch?v=XZkK8vzhyMw) just dropped!
 
@@ -131,7 +131,7 @@ Go check it out now! [https://www.youtube.com/watch?v=XZkK8vzhyMw](https://www.y
 
 ---
 
-### [Week 43](notes/week43.md)
+### [Week 43](documentation/weekly_reports.md#week-43)
 
 #### End of the (working) week update
 
@@ -168,7 +168,7 @@ We are moving on with using HTTP POST for now, but will consult [Tero](https://t
 
 ---
 
-### [Week 41](notes/week41.md)
+### [Week 41](documentation/weekly_reports.md#week-41)
 
 #### Oneliners make you cooler (and you run faster too!)
 
@@ -189,7 +189,7 @@ Week 42 will be devoted to refreshing our minds (in other words, autumn holiday)
 
 ---
 
-### [Week 40](notes/week40.md)
+### [Week 40](documentation/weekly_reports.md#week-40)
 
 #### Do you know what's in your phishsticks?
 
@@ -231,7 +231,7 @@ The Digisparks arrived! Hooray!
 
 [sawulohi](https://github.com/sawulohi/) waded through (boring) [management stuff](notes/ollikainen/notes.md#week-39), such as [creating a YouTube channel for the project](https://www.youtube.com/@phishsticks_pentest/videos) (please subscribe and like our videos!) We are proud to announce that our [Flipper Zero demo](https://www.youtube.com/watch?v=1kqqIdBoKr0) has already reached 23 views as of 2.10.2023! [sawulohi](https://github.com/sawulohi/) also wrote up instructions on how to start [uploading code to your own Digispark with the Arduino IDE](/notes/ollikainen/notes.md#digispark)
 
-### [Week 39](notes/week39.md)
+### [Week 39](documentation/weekly_reports.md#week-39)
 
 #### Good news everybody! Progress has been made!
 
@@ -249,7 +249,7 @@ The DigiSparks ordered through Amazon are still in transit. Hopefully someones d
 
 ---
 
-### [Week 38](notes/week38.md)
+### [Week 38](documentation/weekly_reports.md#week-38)
 
 Work has begun. We've made this GitHub page for following the progress on the project. See the [notes for this week](notes/week38.md).   
 
