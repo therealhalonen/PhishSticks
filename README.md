@@ -11,7 +11,7 @@ Created and tested in safe computer lab environment by three future cyber securi
 ---
 
 ## Table of Contents
-- [About](##-About)
+- [About](#About)
 - [Final Report](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/Final_Report.md)
 - [Mitigations](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/Mitigations.md)
 - [Work Blog](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/MWork_Blog.md)
