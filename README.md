@@ -249,7 +249,7 @@ The DigiSparks ordered through Amazon are still in transit. Hopefully someones d
 
 ---
 
-### [Week 38](documentation/weekly_reports.md#week-38)
+### [Week 38](documentation/weekly_reports.md#week-38-first-week-of-reports)
 
 Work has begun. We've made this GitHub page for following the progress on the project. See the [notes for this week](notes/week38.md).   
 
