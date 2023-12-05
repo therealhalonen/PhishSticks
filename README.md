@@ -13,7 +13,7 @@ Created and tested in safe computer lab environment by three future cyber securi
 - [About](#About)
 - [Final Report](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/Final_Report.md)
 - [Mitigations](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/Mitigations.md)
-- [Work Blog](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/MWork_Blog.md)
+- [Work Blog](#Work-Blog)
 - Workflow notes:
   - [therealhalonen](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md)
   - [sawulohi](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/notes.md)
