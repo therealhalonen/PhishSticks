@@ -53,6 +53,8 @@ Executable version works the same without needing different python libraries.
 - compile and upload [digispark_ransomware.ino](https://github.com/therealhalonen/PhishSticks/blob/master/digispark/digispark_ransomware/digispark_ransomware.ino) to your digispark
 - Plug the Digispark in a computers USB slot and enjoy
   
-![2023-10-31_12-24](https://github.com/therealhalonen/PhishSticks/assets/112076418/490686db-b5c4-4c00-9f7f-bc3006bd742b)
+![2023-12-05_19-12](https://github.com/therealhalonen/PhishSticks/assets/112076418/835e2937-1551-41fc-91f6-2b135fd5e0cb)
+
+
 
 Watch the video to see it in action: https://www.youtube.com/watch?v=Bi2QOMSHeKI
