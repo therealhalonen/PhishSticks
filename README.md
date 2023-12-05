@@ -12,7 +12,7 @@ Created and tested in safe computer lab environment by three future cyber securi
 ## Table of Contents
 - [About](#About)
 - [Final Report](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/Final_Report.md)
-- [Mitigations](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/Mitigations.md)
+- [Mitigations](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/mitigations.md)
 - [Work Blog](#Work-Blog)
 - Workflow notes:
   - [therealhalonen](https://github.com/therealhalonen/PhishSticks/blob/master/notes/halonen/notes.md)
@@ -41,7 +41,7 @@ To see how we honed our project throughout weeks 37-48 of 2023, see our [Work Bl
 
 The entire development and testing process took place in a controlled and safe computer lab environment. As future cyber security professionals, we prioritize responsible and ethical exploration of security-related concepts. Our objective is to contribute to the cyber security community by providing insights into the risks associated with USB-based attacks.
 
-Feel free to explore the various sections of this repository to learn more about our project, access the [final report](/documentation/final_report.md), explore [mitigations](/documentation/Mitigations.md), and get to know the [individuals behind this endeavor](#contact).
+Feel free to explore the various sections of this repository to learn more about our project, access the [final report](/documentation/final_report.md), explore [mitigations](/documentation/mitigations.md), and get to know the [individuals behind this endeavor](#contact).
 
 Thank you for your interest in our work!
 
@@ -99,11 +99,11 @@ You know what they say, only the first and last are remembered. Our video got a 
 
 #### Want to defend against our attacks?
 
-![](documentation/Mitigations_res/Mitigations-%204.png)
+![](documentation/mitigations_res/Mitigations-%204.png)
 
-It's now easy to block our attacks, just head to our [mitigations page](documentation/Mitigations.md)! We looked for a few ways of blocking our attack, and found a few nice ways to block wider attacks while doing so. For example you could [stop outgoing connections from powershell](documentation/Mitigations.md#block-powershell-from-windows-firewall) to stop the attack right on its tracks. Or if you know you're in danger of losing important files to a ransomware attack, Windows has [a built in setting](documentation/Mitigations.md#ransomware-protection---controlled-folder-access) that is not on by default!
+It's now easy to block our attacks, just head to our [mitigations page](documentation/mitigations.md)! We looked for a few ways of blocking our attack, and found a few nice ways to block wider attacks while doing so. For example you could [stop outgoing connections from powershell](documentation/mitigations.md#block-powershell-from-windows-firewall) to stop the attack right on its tracks. Or if you know you're in danger of losing important files to a ransomware attack, Windows has [a built in setting](documentation/mitigations.md#ransomware-protection---controlled-folder-access) that is not on by default!
 
-![](documentation/Mitigations_res/Mitigations-%209.png)
+![](documentation/mitigations_res/Mitigations-%209.png)
 
 #### Something BIG is coming....
 

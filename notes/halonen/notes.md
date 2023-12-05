@@ -1472,7 +1472,7 @@ And also little bit of anti-fuzzing to the endpoints.
 ### 21.11.2023
 *Mitigations and bypassing*
 
-While writing our [Mitigations documentation](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/Mitigations.md), and testing the blocking of removable devices, i wanted to show of the bypassing for the "Prevent installation of devices that match any of these device instance IDs" -policy.    
+While writing our [Mitigations documentation](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/mitigations.md), and testing the blocking of removable devices, i wanted to show of the bypassing for the "Prevent installation of devices that match any of these device instance IDs" -policy.    
 In a nutshell, what i wanted to test, is 
 1. Blocking the Digispark 
 2. Using our previously created [VID, PID, DeviceName and VendorName Changer](https://github.com/therealhalonen/PhishSticks/tree/master/scripts/usbconfig) to bypass the block.
