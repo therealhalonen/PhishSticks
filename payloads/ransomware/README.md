@@ -22,7 +22,7 @@ Download and run the script or .exe file inside a safe folder with no important 
 ```
 $ mkdir TestDirz338
 $ cd TestDirz338
-$ ./encrypt.py
+$ python3 encrypt.py
 ```
 OR
 
