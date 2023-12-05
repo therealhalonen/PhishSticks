@@ -1,4 +1,4 @@
-Always consider the local laws and ethical ramifications when doing pentesting! See our [mitigations page](/documentation/Mitigations.md) for precautions and defence against ~~dark arts~~ BadUSB attacks.
+##### Always consider the local laws and ethical ramifications when doing pentesting! See our [mitigations page](/documentation/Mitigations.md) for precautions and defence against ~~dark arts~~ BadUSB attacks.
 
 ![](/notes/ollikainen/images/ps_sidebyside.png)
 
@@ -252,11 +252,7 @@ The DigiSparks ordered through Amazon are still in transit. Hopefully someones d
 
 ### [Week 38](notes/week38.md)
 
-Work has begun. We've made this GitHub page for following the progress on the project. See the [notes for this week](notes/week38.md).
-
----
-
-# About
+Work has begun. We've made this GitHub page for following the progress on the project. See the [notes for this week](notes/week38.md).   
 
 PhishSticks is a project made for [the Infra Project 2023 course](https://terokarvinen.com/2023/infra-project-2023/).
 
@@ -265,3 +261,7 @@ The goal of the project is to create a tool for ethical pentesting by making a s
 The target for the simulated attacks will always be a machine running Windows 10 on default settings.
 
 The project will be finalized by 12.12.2023. All work noted here before the date is to be considered WIP.
+
+---
+
+[Back to Top](#####always-consider-the-local-laws-and-ethical-ramifications-when-doing-pentesting-see-our-mitigations-page-for-precautions-and-defence-against-dark-arts-badusb-attacks)
