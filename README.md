@@ -1,4 +1,3 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)    
 Always consider the local laws and ethical ramifications when doing pentesting
 
 ![](/notes/ollikainen/images/ps_sidebyside.png)
@@ -12,7 +11,7 @@ Created and tested in safe computer lab environment by three future cyber securi
 ---
 
 ## Table of Contents
-- [About]()
+- [About](# About)
 - [Final Report](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/Final_Report.md)
 - [Mitigations](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/Mitigations.md)
 - [Work Blog](https://github.com/therealhalonen/PhishSticks/blob/master/documentation/MWork_Blog.md)
@@ -47,6 +46,7 @@ Feel free to explore the various sections of this repository to learn more about
 
 Thank you for your interest in our work!
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)    
 ---
 
 ## Contact
