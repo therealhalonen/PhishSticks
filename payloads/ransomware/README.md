@@ -17,7 +17,7 @@ Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files w
 
 ## How to use
 
-Download and run the script or .exe file inside a safe folder with no important files (incase something goes wrong) to launch the program and enjoy, for example:
+Download and run the script or .exe file inside a safe folder called TestDirz338 with no important files (incase something goes wrong) and enjoy, for example:
 
 ```
 $ mkdir TestDirz338
