@@ -1,7 +1,12 @@
 # Mitigations
 
+## Don't plug in unknown USB devices!
 
+The easiest mitigation of all.  Plugging in unknown devices to your computer (or even mobile phone!) is a HUGE security risk that is VERY easy to avoid. The whole point of our project (besides being a learning opportunity) was to demonstrate the dangers of BadUSB.
 
+BadUSB is bad.
+
+---
 
 ## Disable Powershell from User
 
