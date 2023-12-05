@@ -1,4 +1,4 @@
-Always consider the local laws and ethical ramifications when doing pentesting
+Always consider the local laws and ethical ramifications when doing pentesting! See our [mitigations page](/documentation/Mitigations.md) for precautions and defence against ~~dark arts~~ BadUSB attacks.
 
 ![](/notes/ollikainen/images/ps_sidebyside.png)
 
