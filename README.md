@@ -1,5 +1,4 @@
-##### Always consider the local laws and ethical ramifications when doing pentesting! See our [mitigations page](/documentation/Mitigations.md) for precautions and defence against ~~dark arts~~ BadUSB attacks.
-
+##### Always consider the local laws and ethical ramifications when doing pentesting!
 ![](/notes/ollikainen/images/ps_sidebyside.png)
 
 Simulated BadUSB dropper/sideloader, designed with three different payloads.   
@@ -264,4 +263,4 @@ The project will be finalized by 12.12.2023. All work noted here before the date
 
 ---
 
-[Back to Top](#####always-consider-the-local-laws-and-ethical-ramifications-when-doing-pentesting-see-our-mitigations-page-for-precautions-and-defence-against-dark-arts-badusb-attacks)
+[Back to Top](https://github.com/therealhalonen/PhishSticks/blob/master/README.md#always-consider-the-local-laws-and-ethical-ramifications-when-doing-pentesting-see-our-mitigations-page-for-precautions-and-defence-against-dark-arts-badusb-attacks)
