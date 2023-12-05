@@ -1,6 +1,4 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-# PhishSticks
-
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)    
 Always consider the local laws and ethical ramifications when doing pentesting
 
 ![](/notes/ollikainen/images/ps_sidebyside.png)
