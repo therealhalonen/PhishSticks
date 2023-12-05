@@ -315,7 +315,7 @@ I added these lines to the program:
 current_directory = os.path.basename(os.getcwd())
 if current_directory != "TestDirz338":
     #display an error message box if its not ran from 'TestDirz338' directory
-    messagebox.showerror("Error", "Please launch the script from within the 'TestDirz338' directory.")
+    messagebox.showerror("Error", "Please launch the program from within the 'TestDirz338' directory.")
     sys.exit()
 ```
 If the program is launched from elsewhere, an error raises:
