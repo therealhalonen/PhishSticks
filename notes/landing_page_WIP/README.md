@@ -55,7 +55,7 @@ Thank you for your interest in our work!
 
 **Antti Halonen (therealhalonen):**    
 - [LinkedIn](https://www.linkedin.com/in/antti-halonen-38662a231/)   
-- [Github]()   
+- [Github](https://github.com/therealhalonen)   
 
 **Jari-Pekka Ollikainen (sawulohi):**   
 - [LinkedIn](https://www.linkedin.com/in/jari-pekka-ollikainen-9ab62a224/)   
