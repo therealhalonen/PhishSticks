@@ -33,7 +33,7 @@ In our journey to explore and enhance our skills, we have collaborated on a uniq
 
 - **Diverse Payloads:** We have crafted [three different payloads](/payloads/), each highlighting the versatility and potential impact of BadUSB attacks. These payloads serve as educational tools, helping users understand the intricacies of such threats.
 
-- **Working with [Digispark](http://digistump.com/products/1):** Digispark is a microcontroller development board that functions similiarly to Arduino, but is much smaller. Using this board gave us the capability to act as a HID keyboard, as well as provided some stealthiness due to its size. It can be hidden in a USB stick (or other devices)! [Our documentation on Digispark](/digispark/) can be found!
+- **Working with [Digispark](http://digistump.com/products/1):** Digispark is a microcontroller development board that functions similiarly to Arduino, but is much smaller. Using this board gave us the capability to act as a HID keyboard, as well as provided some stealthiness due to its size. It can be hidden in a USB stick (or other devices)! See our [our documentation on Digispark](/digispark/).
 
 ### Our Process:
 
