@@ -9,7 +9,7 @@ Simulated BadUSB dropper/sideloader, designed with three different payloads.
 Created and tested in safe computer lab environment by three future cyber security professionals.    
 
 **YouTube:** [@phishsticks_pentest](https://www.youtube.com/@phishsticks_pentest/videos)   
-[![](http://img.youtube.com/vi/bDzVevtZiWE/0.jpg)](https://www.youtube.com/watch?v=bDzVevtZiWE "PhishSticks - The Ethical Hackers tool for BadUSB")
+[![](https://github.com/therealhaonen/PhishSticks/blob/master/notes/halonen/notes_res/phishsticks_video.jpeg)](https://www.youtube.com/watch?v=bDzVevtZiWE "PhishSticks - The Ethical Hackers tool for BadUSB")
 
 ---
 
