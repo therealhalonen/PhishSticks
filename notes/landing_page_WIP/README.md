@@ -53,15 +53,15 @@ Thank you for your interest in our work!
 
 ## Contact
 
-**Antti Halonen:**    
+**Antti Halonen (therealhalonen):**    
 - [LinkedIn](https://www.linkedin.com/in/antti-halonen-38662a231/)   
 - [Github]()   
 
-**Jari-Pekka Ollikainen:**   
+**Jari-Pekka Ollikainen (sawulohi):**   
 - [LinkedIn](https://www.linkedin.com/in/jari-pekka-ollikainen-9ab62a224/)   
 - [Github](https://github.com/sawulohi/)   
 
-**Miika Rajala:**   
+**Miika Rajala (miljonka):**   
 - [LinkedIn](https://www.linkedin.com/in/miika-rajala-79866224b/)   
 - [Github](https://github.com/miljonka/)   
 
