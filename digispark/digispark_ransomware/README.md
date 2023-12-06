@@ -25,7 +25,7 @@ Check out more detailed usage of the [Ransomware in our project.](https://github
 		- `-WorkingDir \\\"$env:UserProfile/TestDirz338\\\`
 - Please note, that we don't recommend blindly using our tinyurl. Make your own URL and .exe to be safe!
 - Upload to Digispark
-- Make a directory named `TestDirz338` in the User-directory of the target machine. The directory name IS case sensitive and the directory needs to be in the correct directory for the ransomware to work. Or adjust the code to suit your test environment.
+- Make a directory named `TestDirz338` in the `\Users\<Current User>`-directory of the target machine. The directory name IS case sensitive and the directory needs to be in the correct directory for the ransomware to work. Or adjust the code to suit your test environment.
 - Plug the Digispark in to the target machine
 - **PROFIT!**
 
