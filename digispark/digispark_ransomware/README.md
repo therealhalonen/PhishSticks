@@ -24,7 +24,8 @@ Check out more detailed usage of the [Ransomware in our project.](https://github
 	- Working Dir:
 		- `$env:UserProfile//PATH_TO_THE\\\`
 - Upload to Digispark
-- Plug in to victim machine
+- Make a directory named `TestDirz338` in the User-directory of the target machine. The directory name IS case sensitive and the directory needs to be in the correct directory for the ransomware to work.
+- Plug the Digispark in to the target machine
 - **PROFIT!**
 
 ---
