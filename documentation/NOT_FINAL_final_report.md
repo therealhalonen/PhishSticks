@@ -54,26 +54,36 @@ Our [demo ransomware](/payloads/ransomware/) can encrypt specified file types in
 
 #### Reverse Shell
 
+The reverse shell works as described: it forms a connection to the attacker. The Netcat session can be used to perform actions on the target machine. Also, all of our payloads work in a Windows 10 machine with default settings.
+
 #### Learning objectives
+
+The learning objectives for the project were met well. The team now has a better understanding of how physical attacks can be used as a way to gain a foothold in a target system. Real methods against realistic targets were learned, as we managed to bypass Windows Defender. Additionally, we learned things that were not originally foreseen in the scope of the project. Changing the PID/VID of a device and obfuscating code are an example of such findings. Also, our video editing skills received a boost from the project.
 
 #### Feedback from secondary and tertiary sources
 
-*Feedback from sources other than the stakeholders goes here*
+Our YouTube page has 11 subscribers, 671 views and 10,5h of combined watch time and viewing time between our 8 videos as of 11.12.2023. Our Most viewed video has 160 views as of 11.12.2023. Overall this is considered a strong result, as we did not plan to make a channel originally.
+
+We also got to present our project on Tero Karvinen's Penetration Testing course, and suggested homework related to our project. Results from the homework were varying, roughly about 30-50% (not an accurate number, based on a very rough estimate) of the students did not manage to get our payload to operate on their test environments. This is reassuring to us, since we didn't want our project to be a ready-to-go attack tool that anyone can use for any (potentially malicious) purposes.
+
+Furthermore we presented our video in a HelSec meetup. The feedback received from the participating crowd was really positive.
 
 ### 3. Project success
 
+Overall we consider the project a resounding success. As described in the [Project Results](#2-project-results), we reached all of our targets
 *Enter a short summary of the progress of the project. Analyze the task planned for the project in relation to the actual one. Describe the achievement of project results in relation to what was planned.*
 
 ### 4. Performance of the project team
 
-Name	Tasks and responsibilities in the project	Project hours
-				
---> *ADDENDUM: WORKSHEET* <--		
+Performance of the team (read: work hours & responsibilies) is omitted from the public documentation. A copy of our worksheet is given to our instructors.
 
 ### 5. Experiences
 
-*Collect here the experiences that you think will be useful in future projects.*
+Collectively we learned a great deal on the project. Further development our findings could include mitigating against BadUSB via PID/VID-policies, or running the tests in a more secure environment. This means tuning up Windows Defender settings, or even using other IDS/IPS applications.
+
+Another angle tackling BadUSB attacks could be perfecting the keylogger to work as a passthrough device that sends the data on its own. Potentially even using LoRa, making the stealth aspect of the device exceptional.
 
 ### 6. Links to project materials
 
-*Please add here the links to your project's public documentation (Github, Wordpress, etc.)* <- hehe xd
+https://github.com/therealhalonen/PhishSticks/
+https://www.youtube.com/@phishsticks_pentest/videos
