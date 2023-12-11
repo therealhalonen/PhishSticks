@@ -48,9 +48,9 @@ The second reach goal of sending the data wirelessly, potentially with LoRa, is 
 
 #### Ransomware
 
-Our [demo ransomware](/payloads/ransomware/) can encrypt specified file types in a specific folder. This is done to ensure, that no critical data is encrypted by accident. The default password for decryption is also given by the application.
+Our [demo ransomware](/payloads/ransomware/) can encrypt specified file types in a specific folder called "TestDirz338" (case sensitive, path sensitive). This is done to ensure, that no critical data is encrypted by accident. The default password for decryption is also given by the application.
 
-![](https://private-user-images.githubusercontent.com/112076418/270753154-8fb9e882-b990-48cd-add6-309dd09af3be.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDE3MjY3NDYsIm5iZiI6MTcwMTcyNjQ0NiwicGF0aCI6Ii8xMTIwNzY0MTgvMjcwNzUzMTU0LThmYjllODgyLWI5OTAtNDhjZC1hZGQ2LTMwOWRkMDlhZjNiZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBSVdOSllBWDRDU1ZFSDUzQSUyRjIwMjMxMjA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIzMTIwNFQyMTQ3MjZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04YjE1NjcyMTIzYzM0YWFhMDY4MTNkYmIzNGE4ZTc5YTJmNGIzMzUzMTFkNjJjZTg5Yzc2MzRlNTg0NzM4OGJiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.e_NztayUD-4ffBXUc8qCBPsYVXtuihZAmC0JGHdWs0c)
+![](/notes/ollikainen/images/ransomware.png)
 
 #### Reverse Shell
 
