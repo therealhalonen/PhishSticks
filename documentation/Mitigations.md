@@ -1,1 +1,1 @@
-# Mitigations has been moved to ->[mitigations.md](documentation/mitigations.md)<-
+# Mitigations has been moved to [mitigations.md](/mitigations.md) 
